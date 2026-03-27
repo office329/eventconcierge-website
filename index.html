@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Event Concierge | שירותי קונסיירז' וניהול לחתונות בוטיק</title>
+    <meta name="description" content="Event Concierge - ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד ביום האירוע.">
+    
+    <!-- Accessibility Meta -->
+    <meta name="theme-color" content="#2c3e35">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        h1, h2, h3, .logo, .testimonial-card::before {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        :root {
+            --primary-dark: #22312a; /* Slightly darker for better contrast */
+            --accent-gold: #d4af37;
+            --accent-gold-bright: #f0c94d; /* Brighter gold for small text contrast */
+            --bg-pearl: #fdfcf9;
+            --text-gray: #4a4a4a;
+            --warm-earth: #cbb5a1;
+        }
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-gray);
+            line-height: 1.8;
+            background-color: #ffffff;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 8px;
+            z-index: 2000;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.98);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.4em;
+            font-weight: 500;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 400;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(44, 62, 53, 0.7), rgba(44, 62, 53, 0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 120px 20px;
+            color: white;
+        }
+        .kicker {
+            color: var(--accent-gold-bright); /* Using brighter gold for accessibility contrast on dark bg */
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: 3.8em;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.3em;
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 16px 45px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-gold);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+            transition: none;
+        }
+        .btn:hover::after {
+            animation: shimmer 0.75s ease forwards;
+        }
+        @keyframes shimmer {
+            100% { left: 120%; }
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin: 20px auto 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        .card {
+            background: white;
+            text-align: right;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+        .card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 30px;
+        }
+        .card h3 {
+            color: var(--primary-dark);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 500;
+            margin-top: 0;
+        }
+        .card p {
+            font-size: 1.05em;
+            color: var(--text-gray);
+            margin-bottom: 0;
+        }
+
+        .contact-section {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .contact-section h2 {
+            color: white;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: transparent;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px 5px;
+            margin-bottom: 20px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.35);
+            color: white;
+            font-family: 'Heebo', sans-serif;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            text-align: right;
+            direction: rtl;
+            border-radius: 0;
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            text-align: right;
+            direction: rtl;
+            color: rgba(255,255,255,0.5);
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-bottom-color: var(--accent-gold);
+        }
+        .contact-form button {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Heebo', sans-serif;
+            width: 100%;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #b5986e;
+        }
+
+        /* WhatsApp Button – branded gold/dark */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: var(--primary-dark);
+            color: var(--accent-gold);
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1.5px solid var(--accent-gold);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.35);
+        }
+        .whatsapp-float svg { fill: var(--accent-gold); }
+
+        /* Accessibility Button */
+        .accessibility-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .accessibility-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .testimonial-slider::-webkit-scrollbar { display: none; }
+        .testimonial-card {
+            min-width: 300px;
+            flex: 1;
+            background: var(--bg-pearl);
+            padding: 40px;
+            border-radius: 16px;
+            scroll-snap-align: center;
+            font-style: italic;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4em;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            font-family: serif;
+        }
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--primary-dark);
+        }
+
+        /* Promise Section */
+        .promise-section {
+            background-color: var(--bg-pearl);
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .promise-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .promise-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+
+        /* Accessibility Modal */
+        #accessibility-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            z-index: 2000;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: right;
+        }
+        #accessibility-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1999;
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5em; }
+            .hero { background-attachment: scroll; padding: 80px 20px; }
+            .contact-section { padding-bottom: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">דלג לאזור התוכן המרכזי</a>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Event Concierge</a>
+            <ul class="nav-links">
+                <li><a href="#about">אמנות האירוח</a></li>
+                <li><a href="#services">סטנדרט השירות</a></li>
+                <li><a href="#contact">פגישת היכרות</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <header class="hero" role="banner">
+        <div class="container">
+            <div class="kicker">ניהול האירוע | הפקת חתונות | אישורי הגעה</div>
+            <h1>היוקרה האמיתית היא פשוט להיות נוכחים עם האנשים שאתם אוהבים.</h1>
+            <p>שירות ה-Event Concierge שלנו נוצר כדי להעניק לאורחים שלכם חוויית אירוח של פרימיום, ולכם – שקט נפשי מוחלט.</p>
+            <a href="#contact" class="btn" aria-label="בואו נתחיל לתכנן את הרגע שלכם">בואו נתחיל לתכנן את הרגע שלכם</a>
+        </div>
+    </header>
+
+
+    <section id="about" class="section">
+        <div class="container reveal" style="text-align: center; max-width: 800px;">
+            <h2 class="section-title">אמנות האירוח</h2>
+            <p style="font-size: 1.2em;">
+                אנחנו ב-Event Concierge מאמינים שאירוע דורש הקפדה גדולה. 
+                בחתונת בוטיק, כל אורח שהזמנתם הוא עולם ומלואו. ביום האירוע, תשומת הלב המלאה שלנו מופנית אליהם: החל מהכוונה אישית למקומות הישיבה, דרך דאגה למנות מיוחדות, ועד למענה אישי וחרישי לכל בקשה. אנחנו הפנים שלכם מול האורחים והספקים, כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
+            </p>
+            <p style="font-size: 1.2em; margin-top: 20px;">
+                החזון שלנו ב-Event Concierge הוא להעניק לכם חופש מוחלט ביום החשוב שלכם. כדי להשלים את החוויה, אנו מציעים כעת מעטפת מלאה הכוללת <strong>שירותי קייטרינג פרימיום לצד ניהול האירוע</strong>, הכל מול איש קשר אחד.
+            </p>
+            <p style="font-size: 1.2em; margin-top: 20px;">
+                מאישורי הגעה והושבה מוקפדת, ועד לבניית תפריט שף עשיר וניהול זרימת המנות בשטח – החיבור ההדוק בין המטבח לצוות הניהול מבטיח סנכרון מושלם, סטנדרט אירוח חסר פשרות, ובעיקר – אפס התעסקות מצדכם. אתם באים רק כדי לחגוג.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="section" style="background-color: var(--bg-pearl);">
+        <div class="container reveal">
+            <h2 class="section-title">הסטנדרט שלנו - השקט שלכם.</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="hostess.jpg" alt="מארחת נעימה המקבלת אורחים" class="card-img">
+                    <div class="card-content">
+                        <h3>תקשורת אישית ואלגנטית</h3>
+                        <p>אנחנו לא "עוד מערכת אוטומטית". ניהול אישורי ההגעה נעשה בצורה אנושית, חמה ומכבדת, תוך עבודה מול האורחים שלכם ברגישות שיא. אנחנו מוודאים ב-100% מי מגיע, אוספים העדפות תזונה (טבעוני/צליאק) ודואגים שכל מוזמן ירגיש רצוי ומוערך עוד לפני שהאירוע התחיל.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800" alt="שולחן אביבי בטבע, הושבה חכמה" class="card-img">
+                    <div class="card-content">
+                        <h3>הושבה חכמה וזורמת</h3>
+                        <p>בחתונות בטבע או בצהריים, הדינמיקה שונה ומשוחררת יותר, אבל רגע הארוחה קריטי. תכנון הושבה מוקפד מוודא שאף כסא לא יישאר יתום. ביום האירוע, דיילות ההושבה שלנו, לבושות באלגנטיות, ילוו בחיוך כל אורח למקומו – במקצועיות של מסעדת מישלן וביחס של משפחה.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=800" alt="ניהול רשימות טופס בדיקה קפדני צ'ק ליסט" class="card-img" loading="lazy">
+                    <div class="card-content">
+                        <h3>נוכחות מנהל אירועים בשטח</h3>
+                        <p>מהרגע שהאורח הראשון חונה ועד אחרון הרוקדים. מנהל שטח צמוד שדואג לקבלת הפנים, זרימת האלכוהול, תקינות המנות, ופתרון בלתי מורגש לכל בעיה. אנחנו הפילטר שמפריד ביניכם לבין כאב הראש, משאירים לכם תפקיד אחד בלבד: ליהנות, לרקוד, ולחגוג את היום שלכם בשמש.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container reveal">
+            <h2 class="section-title">זוגות מספרים</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p>"הדבר הכי טוב שעשינו בחתונה. פשוט הגענו ונהנינו, ידענו שמישהו שומר עלינו ועל האורחים שלנו בכל רגע."</p>
+                    <div class="testimonial-author">מיכל ורועי | חתונת טבע בקיסריה</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"מרגע אישורי ההגעה ועד אחרון האורחים, השירות היה בסטנדרט שלא הכרנו בארץ. פשוט וואו."</p>
+                    <div class="testimonial-author">דנה ואיתי | חוות רונית</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"השקט שנתתם לנו ביום האירוע היה שווה הכל. הרגשנו אורחים בחתונה של עצמנו."</p>
+                    <div class="testimonial-author">נועה ועידן | צהריים ביער</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promise-section">
+        <div class="container reveal">
+            <div class="promise-content">
+                <span class="promise-badge">ההבטחה שלנו</span>
+                <h2 style="font-weight: 300; font-size: 2em; margin-bottom: 20px;">ההבטחה שלנו אליכם פשוטה: אנחנו מנצחים על כל פרט ופרט מאחורי הקלעים, כדי להעניק לכם חופש מוחלט!</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container reveal">
+            <h2>נשמח להכיר ולתכנן יחד</h2>
+            <p style="margin-bottom: 40px; color: #ccc;">השאירו פרטים ונחזור אליכם לשיחת היכרות אישית.</p>
+            <div class="contact-form">
+                <form id='contactForm' method='POST' name='leads'>
+                    <input type="hidden" name="form-name" value="leads">
+                    <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+                    <input type="text" name="name" placeholder="שם מלא" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
+                    <div id="phoneError" style="color: #f44336; font-size: 0.85em; margin-top: -15px; margin-bottom: 10px; display: none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
+                    <button type="submit" id="submitBtn">שליחת פרטים</button>
+                    <div id="formStatus" style="margin-top: 15px; display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/972525853129" class="whatsapp-float" target="_blank" aria-label="שלח הודעת וואטסאפ">
+        <svg style="width: 35px; height: 35px; fill: white;" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.6-44.8-27.6-16.6-14.8-27.8-33.1-31.1-38.6-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 1-7-1-9.7-1-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org" style="color: #888; text-decoration: none;">office@eventconcierge.org</a> | eventconcierge.org</p>
+            <p style="margin-top: 10px; font-size: 0.8em;">
+                <a href="javascript:void(0)" onclick="toggleAccessibilityModal()" style="color: #666; text-decoration: underline;">הצהרת נגישות</a> | אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות.
+            </p>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Accessibility Modal -->
+    <div id="accessibility-overlay" onclick="toggleAccessibilityModal()"></div>
+    <div id="accessibility-modal" role="dialog" aria-labelledby="modal-title">
+        <h2 id="modal-title" style="color: var(--primary-dark); margin-top: 0;">הצהרת נגישות - Event Concierge</h2>
+        <p>אנו ב-Event Concierge רואים חשיבות עליונה בהנגשת האתר שלנו לאנשים עם מוגבלויות, מתוך אמונה שלכל אדם מגיע שירות שוויוני ומכובד.</p>
+        <p><strong>רמת הנגישות:</strong> האתר מונגש ברמת AA לפי תקן ישראלי 5568 וחלק 1 (WCAG 2.0).</p>
+        <p><strong>התאמות שבוצעו:</strong></p>
+        <ul style="text-align: right; margin-bottom: 20px;">
+            <li>ניווט מלא באמצעות המקלדת.</li>
+            <li>שימוש בתגיות סמנטיות ו-Aria labels לקוראי מסך.</li>
+            <li>תיאור אלטרנטיבי (Alt text) לכל התמונות.</li>
+            <li>ניגודיות צבעים מותאמת לטקסטים.</li>
+            <li>אפשרות לעדלג לתוכן המרכזי בראש כל דף.</li>
+        </ul>
+        <p><strong>פניות בנושא נגישות:</strong> אם נתקלתם בבעיה או שיש לכם הצעה לשיפור, נשמח לשמוע מכם בכתובת office@eventconcierge.org.</p>
+        <button onclick="toggleAccessibilityModal()" class="btn" style="width: auto; padding: 10px 20px; font-size: 0.9em; margin-top: 20px;">סגור</button>
+    </div>
+
+    <!-- Accessibility Button -->
+    <button class="accessibility-btn" onclick="toggleAccessibilityModal()" aria-label="פתח הצהרת נגישות">
+        <svg style="width: 30px; height: 30px; fill: white;" viewBox="0 0 512 512"><path d="M256 48c114.9 0 208 93.1 208 208S370.9 464 256 464 48 370.9 48 256 141.1 48 256 48zm0 400c105.9 0 192-86.1 192-192S361.9 64 256 64 64 150.1 64 256s86.1 192 192 192zm-32-264h64v32h-64v-32zm0-64h64v32h-64v-32zm0 128h64v128h-32v-96h-32v96h-32V240z"/></svg>
+    </button>
+
+    <script>
+        function toggleAccessibilityModal() {
+            const modal = document.getElementById('accessibility-modal');
+            const overlay = document.getElementById('accessibility-overlay');
+            const isVisible = modal.style.display === 'block';
+            modal.style.display = isVisible ? 'none' : 'block';
+            overlay.style.display = isVisible ? 'none' : 'block';
+        }
+
+        // Phone input: allow only digits
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneError = document.getElementById('phoneError');
+        phoneInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length === 10) {
+                phoneError.style.display = 'none';
+            }
+        });
+
+        // Form Submission Logic (Netlify Forms with AJAX)
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Validate phone is exactly 10 digits
+            const phone = phoneInput.value;
+            if (!/^[0-9]{10}$/.test(phone)) {
+                phoneError.style.display = 'block';
+                phoneInput.focus();
+                return;
+            }
+            phoneError.style.display = 'none';
+
+            // UI Feedback: Sending...
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'שולח...';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'var(--accent-gold)';
+            formStatus.textContent = 'שולח את הפרטים, אנא המתן...';
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    formStatus.style.color = '#4CAF50';
+                    formStatus.textContent = 'הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.';
+                    contactForm.reset();
+                    submitBtn.style.display = 'none';
+                } else {
+                    throw new Error('שגיאה בשליחה');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formStatus.style.color = '#f44336';
+                formStatus.textContent = 'מצטערים, חלה שגיאה בשליחת הפרטים. אנא נסו שוב מאוחר יותר.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'שליחת פרטים';
+            }
+        });
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+</html>
