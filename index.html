@@ -518,8 +518,8 @@
             .section { padding: 40px 0; }
             /* Force the title onto one line on mobile */
             .section-title { font-size: 1.6em; margin-bottom: 30px; letter-spacing: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            /* Shrink kicker text ("ניהול האירוע...") to fit precisely on one mobile line */
-            .kicker { font-size: 0.85em; letter-spacing: 0px; white-space: nowrap; }
+            /* Shrink kicker text to fit precisely on one mobile line using dynamic viewport width */
+            .kicker { font-size: clamp(14px, 4vw, 18px); letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         }
     </style>
 </head>
@@ -541,7 +541,7 @@
     <main id="main-content">
     <header class="hero" role="banner">
         <div class="container" data-aos="fade-up" data-aos-duration="1200">
-            <div class="kicker">ניהול האירוע | הפקת חתונות | אישורי הגעה</div>
+            <div class="kicker">ניהול האירוע | הפקת אירועים | אישורי הגעה</div>
             <h1>היוקרה האמיתית היא פשוט להיות נוכחים עם האנשים שאתם אוהבים.</h1>
             <p>שירות ה-Event Concierge שלנו נוצר כדי להעניק לאורחים שלכם חוויית אירוח של פרימיום, ולכם – שקט נפשי מוחלט.</p>
             <a href="#contact" class="btn" aria-label="בואו נתחיל לתכנן את הרגע שלכם">בואו נתחיל לתכנן את הרגע שלכם</a>
