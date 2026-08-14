@@ -648,9 +648,8 @@
             <h2>נשמח להכיר ולתכנן יחד</h2>
             <p style="margin-bottom: 40px; color: #ccc;">השאירו פרטים ונחזור אליכם לשיחת היכרות אישית.</p>
             <div class="contact-form">
-                <form id='contactForm' method='POST' name='leads' data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="leads">
-                    <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+                <form id='contactForm' method='POST' name='leads'>
+                    <p style="display:none" aria-hidden="true"><label>Don't fill this out: <input name="honeypot" tabindex="-1" autocomplete="off"></label></p>
                     <input type="text" name="name" placeholder="שם מלא" aria-label="הזן שם מלא" required>
                     <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
                     <div id="phoneError" style="color: #f44336; font-size: 0.85em; margin-top: -15px; margin-bottom: 10px; display: none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
@@ -763,11 +762,15 @@
             formStatus.textContent = 'שולח את הפרטים, אנא המתן...';
 
             try {
+                // This page is static (GitHub Pages), so it has no backend of
+                // its own — POSTing to '/' returns 405 and silently loses the
+                // lead. Submissions go to our own API instead, which writes
+                // them to the same signups table as every other lead source.
                 const formData = new FormData(contactForm);
-                const response = await fetch('/', {
+                const response = await fetch('https://app.eventconcierge.org/api/lead', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData))
                 });
 
                 if (response.ok) {
@@ -781,7 +784,8 @@
             } catch (error) {
                 console.error('Error submitting form:', error);
                 formStatus.style.color = '#f44336';
-                formStatus.textContent = 'מצטערים, חלה שגיאה בשליחת הפרטים. אנא נסו שוב מאוחר יותר.';
+                // Never leave them at a dead end — the WhatsApp number always works.
+                formStatus.innerHTML = 'לא הצלחנו לשלוח את הפרטים. אפשר לכתוב לנו ישירות ב<a href="https://wa.me/972525853129" style="color:var(--accent-gold); text-decoration:underline;">וואטסאפ</a>.';
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'שליחת פרטים';
             }
