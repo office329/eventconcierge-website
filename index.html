@@ -7,17 +7,64 @@
     <title>Event Concierge | שירותי קונסיירז' וניהול לחתונות בוטיק</title>
     <meta name="description" content="Event Concierge - ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד ביום האירוע.">
     
+    <!-- הדומיין נגיש גם עם www וגם בלי. בלי canonical אלה שתי כתובות
+         שמגישות אותו תוכן, וגוגל צריכה לנחש איזו מהן העיקרית. -->
+    <link rel="canonical" href="https://eventconcierge.org/">
+
     <!-- Open Graph / Meta Tags (WhatsApp & Social Sharing) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eventconcierge.org/">
     <meta property="og:title" content="Event Concierge | שירותי קונסיירז' וניהול לחתונות בוטיק">
     <meta property="og:description" content="ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד והשראת ביטחון מוחלט ביום האירוע.">
-    <meta property="og:image" content="https://eventconcierge.org/hostess.png">
-    
+    <!-- אירוע אמיתי ולא תמונת סטוק: זו התמונה שנפתחת בוואטסאפ כשמשתפים
+         את הקישור, כלומר הרושם הראשון עוד לפני שנכנסים לאתר. -->
+    <meta property="og:image" content="https://eventconcierge.org/img/hero-couple.jpg">
+    <meta property="og:image:width" content="5472">
+    <meta property="og:image:height" content="3648">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="Event Concierge">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Event Concierge | שירותי קונסיירז' וניהול לחתונות בוטיק">
+    <meta name="twitter:description" content="ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד ביום האירוע.">
+    <meta name="twitter:image" content="https://eventconcierge.org/img/hero-couple.jpg">
+
+    <!-- בלי זה גוגל לא מקבלת את השם, הכתובת, הטלפון ותחום השירות בצורה
+         שהיא קוראת כנתונים. זה גם מה שמזין ציטוטים במנועי AI. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Event Concierge",
+      "description": "ניהול והפקת אירועי בוטיק, אישורי הגעה ושירות קונסיירז' ביום האירוע",
+      "url": "https://eventconcierge.org/",
+      "email": "office@eventconcierge.org",
+      "telephone": "+972-52-585-3129",
+      "image": "https://eventconcierge.org/img/hero-couple.jpg",
+      "priceRange": "₪₪₪",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "נחשול 16",
+        "addressLocality": "ראש העין",
+        "postalCode": "4853308",
+        "addressCountry": "IL"
+      },
+      "areaServed": { "@type": "Country", "name": "ישראל" },
+      "founder": { "@type": "Person", "name": "ארטיום קוסטנקו" },
+      "knowsLanguage": ["he", "ru", "en"],
+      "serviceType": ["ניהול אירועים", "הפקת אירועים", "אישורי הגעה"],
+      "sameAs": ["https://wa.me/972525853129"]
+    }
+    </script>
+
     <!-- Accessibility Meta -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Assistant carries the headings, Heebo the body. Both draw Hebrew; the
+         previous Cormorant Garamond was never referenced in any rule, and Outfit
+         has no Hebrew glyphs, so every Hebrew character fell through to Heebo
+         and headings looked identical to body text. -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for standard accessibility icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -34,7 +81,7 @@
 
     <style>
         h1, h2, h3, .logo, .testimonial-card::before {
-            font-family: 'Outfit', 'Heebo', sans-serif;
+            font-family: var(--font-head);
             letter-spacing: 1px;
         }
         :root {
@@ -47,10 +94,17 @@
             --glass-bg: rgba(18, 26, 21, 0.6);
             --glass-border: rgba(230, 200, 117, 0.25);
             --gold-glow: rgba(230, 200, 117, 0.35);
+
+            /* Two roles, one place. --font-sans was already referenced by the
+               form input and submit button but never defined, which made those
+               declarations invalid — so the form rendered in the browser's
+               default face instead of the site's. */
+            --font-head: 'Assistant', 'Heebo', sans-serif;
+            --font-sans: 'Heebo', sans-serif;
         }
         
         body {
-            font-family: 'Outfit', 'Heebo', sans-serif;
+            font-family: var(--font-sans);
             margin: 0;
             padding: 0;
             color: var(--text-gray);
@@ -138,14 +192,43 @@
             text-shadow: 0 0 8px var(--gold-glow);
         }
 
+        /* Hero מפוצל: הטקסט בצד אחד, התמונה בשני.
+           כותרת שיושבת על תמונה מחייבת שכבה כהה כדי להיקרא — והשכבה
+           הזו מכהה בדיוק את הפנים שנושאות את הרגש. הפיצול מסיר את
+           ההתנגשות: התמונה בבהירות מלאה בלי כלום מעליה, והכותרת על
+           רקע נקי. */
         .hero {
-            background-image: linear-gradient(rgba(44, 62, 53, 0.7), rgba(44, 62, 53, 0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-            padding: 120px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 82vh;
             color: white;
+            padding: 0;
+        }
+        .hero-copy {
+            padding: 60px clamp(24px, 5vw, 72px);
+            text-align: right;
+        }
+        .hero-photo {
+            position: relative;
+            height: 100%;
+            min-height: 380px;
+            overflow: hidden;
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: 0;
+            }
+            .hero-copy { padding: 54px 24px 40px; text-align: center; }
+            .hero-photo { min-height: 460px; }
         }
         .kicker {
             color: var(--accent-gold-bright); /* Using brighter gold for accessibility contrast on dark bg */
@@ -261,7 +344,13 @@
         }
         .card h3 {
             color: var(--accent-gold);
-            font-size: 1.6em;
+            /* שורה אחת תמיד: "נוכחות מנהל אירועים בשטח" הוא הארוך מבין
+               השלושה, ובגודל הקודם הוא נשבר לשתי שורות וקטע את הרשת.
+               הגודל מתכווץ עם רוחב המסך, והריווח בין האותיות מתאפס — שני
+               תווים בכותרת עברית קצרה עולים יותר ממה שהם תורמים. */
+            font-size: clamp(0.95em, 3.1vw, 1.35em);
+            letter-spacing: 0;
+            white-space: nowrap;
             margin-bottom: 15px;
             font-weight: 500;
             margin-top: 0;
@@ -404,6 +493,37 @@
             padding: 80px 0;
             text-align: center;
         }
+        /* ההמלצות הן הנכס החזק ביותר בדף — הן אומרות "יש על מי לסמוך"
+           במילים של לקוחות ולא בהצהרה עצמית. אחת מהן מוגבהת לציטוט מוביל
+           כדי שהמסר ייקרא לפני שמגיעים לגלילה. */
+        .testimonial-lead {
+            max-width: 780px;
+            margin: 0 auto 10px;
+            padding: 0 10px;
+        }
+        .testimonial-lead p {
+            font-size: clamp(20px, 2.9vw, 32px);
+            line-height: 1.5;
+            color: #F1EEE5;
+            margin: 0 0 18px;
+            text-wrap: balance;
+            font-weight: 300;
+        }
+        .testimonial-lead .testimonial-author {
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            font-size: 0.85em;
+        }
+        .testimonial-lead::before {
+            content: '"';
+            display: block;
+            font-family: serif;
+            font-size: 4em;
+            line-height: 0.6;
+            color: var(--accent-gold);
+            opacity: 0.35;
+            margin-bottom: 14px;
+        }
         .testimonial-slider {
             display: flex;
             overflow-x: auto;
@@ -424,7 +544,9 @@
             padding: 40px;
             border-radius: 16px;
             scroll-snap-align: center;
-            font-style: italic;
+            /* לא italic: לעברית אין נטוי אמיתי, והדפדפן מטה את האותיות
+               סינתטית. זה מה שגורם לציטוט להיראות חובבני. ההדגשה מגיעה
+               מגודל, ממשקל ומצבע במקום. */
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             color: var(--text-gray);
@@ -559,11 +681,15 @@
 
     <main id="main-content">
     <header class="hero" role="banner">
-        <div class="container" data-aos="fade-up" data-aos-duration="1200">
+        <div class="hero-copy" data-aos="fade-up" data-aos-duration="1200">
             <div class="kicker">ניהול האירוע | הפקת אירועים | אישורי הגעה</div>
             <h1>היוקרה האמיתית היא פשוט להיות נוכחים עם האנשים שאתם אוהבים.</h1>
             <p>שירות ה-Event Concierge שלנו נוצר כדי להעניק לאורחים שלכם חוויית אירוח של פרימיום, ולכם – שקט נפשי מוחלט.</p>
             <a href="#contact" class="btn" aria-label="בואו נתחיל לתכנן את הרגע שלכם">בואו נתחיל לתכנן את הרגע שלכם</a>
+        </div>
+        <div class="hero-photo">
+            <img src="./img/hero-couple.jpg" width="5472" height="3648"
+                 alt="זוג ברגע אישי באירוע שהפקנו" fetchpriority="high">
         </div>
     </header>
 
@@ -589,22 +715,21 @@
             <h2 class="section-title">הסטנדרט שלנו - השקט שלכם.</h2>
             <div class="grid-3">
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Swapped image back to the user's hostess.png -->
-                    <img src="./hostess.png" alt="מארחת ציפיה בכניסה" class="card-img" loading="lazy">
+                    <img src="./img/ceremony-bw.jpg" width="1600" height="1066" alt="רגע בטקס, האורחים סביב הזוג" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>תקשורת אישית ואלגנטית</h3>
                         <p>אנחנו לא "עוד מערכת אוטומטית". ניהול אישורי ההגעה נעשה בצורה אנושית, חמה ומכבדת, תוך עבודה מול האורחים שלכם ברגישות שיא. אנחנו מוודאים ב-100% מי מגיע, אוספים העדפות תזונה (טבעוני/צליאק) ודואגים שכל מוזמן ירגיש רצוי ומוערך עוד לפני שהאירוע התחיל.</p>
                     </div>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800" alt="שולחן אביבי בטבע, הושבה חכמה" class="card-img" loading="lazy">
+                    <img src="./img/seating.jpg" width="5472" height="3648" alt="שולחן ארוך ערוך במלואו, הושבה מתוכננת" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>הושבה חכמה וזורמת</h3>
                         <p>בחתונות בטבע או בצהריים, הדינמיקה שונה ומשוחררת יותר, אבל רגע הארוחה קריטי. תכנון הושבה מוקפד מוודא שאף כסא לא יישאר יתום. ביום האירוע, דיילות ההושבה שלנו, לבושות באלגנטיות, ילוו בחיוך כל אורח למקומו – במקצועיות של מסעדת מישלן וביחס של משפחה.</p>
                     </div>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=800" alt="ניהול רשימות טופס בדיקה קפדני צ'ק ליסט" class="card-img" loading="lazy">
+                    <img src="./img/checklist.jpg" width="1400" height="932" alt="ניהול רשימות ובקרה קפדנית לקראת האירוע" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>נוכחות מנהל אירועים בשטח</h3>
                         <p>מהרגע שהאורח הראשון חונה ועד אחרון הרוקדים. מנהל שטח צמוד שדואג לקבלת הפנים, זרימת האלכוהול, תקינות המנות, ופתרון בלתי מורגש לכל בעיה. אנחנו הפילטר שמפריד ביניכם לבין כאב הראש, משאירים לכם תפקיד אחד בלבד: ליהנות, לרקוד, ולחגוג את היום שלכם בשמש.</p>
@@ -617,6 +742,10 @@
     <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
             <h2 class="section-title">זוגות מספרים</h2>
+            <div class="testimonial-lead">
+                <p>השקט שנתתם לנו ביום האירוע היה שווה הכל. הרגשנו אורחים בחתונה של עצמנו.</p>
+                <div class="testimonial-author">נועה ועידן | צהריים ביער</div>
+            </div>
             <div class="testimonial-slider">
                 <div class="testimonial-card">
                     <p>"הדבר הכי טוב שעשינו בחתונה. פשוט הגענו ונהנינו, ידענו שמישהו שומר עלינו ועל האורחים שלנו בכל רגע."</p>
@@ -625,10 +754,6 @@
                 <div class="testimonial-card">
                     <p>"מרגע אישורי ההגעה ועד אחרון האורחים, השירות היה בסטנדרט שלא הכרנו בארץ. פשוט וואו."</p>
                     <div class="testimonial-author">דנה ואיתי | חוות רונית</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"השקט שנתתם לנו ביום האירוע היה שווה הכל. הרגשנו אורחים בחתונה של עצמנו."</p>
-                    <div class="testimonial-author">נועה ועידן | צהריים ביער</div>
                 </div>
             </div>
         </div>
