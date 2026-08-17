@@ -18,19 +18,38 @@
     <meta property="og:description" content="ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד והשראת ביטחון מוחלט ביום האירוע.">
     <!-- אירוע אמיתי ולא תמונת סטוק: זו התמונה שנפתחת בוואטסאפ כשמשתפים
          את הקישור, כלומר הרושם הראשון עוד לפני שנכנסים לאתר. -->
-    <meta property="og:image" content="https://eventconcierge.org/img/hero-couple.jpg">
-    <meta property="og:image:width" content="5472">
-    <meta property="og:image:height" content="3648">
+    <meta property="og:image" content="https://eventconcierge.org/img/og-share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="he_IL">
     <meta property="og:site_name" content="Event Concierge">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Event Concierge | שירותי קונסיירז' וניהול לחתונות בוטיק">
     <meta name="twitter:description" content="ניהול אירועי בוטיק בסטנדרט חסר פשרות. מאישורי הגעה אלגנטיים ועד לאירוח מוקפד ביום האירוע.">
-    <meta name="twitter:image" content="https://eventconcierge.org/img/hero-couple.jpg">
+    <meta name="twitter:image" content="https://eventconcierge.org/img/og-share.jpg">
 
     <!-- בלי זה גוגל לא מקבלת את השם, הכתובת, הטלפון ותחום השירות בצורה
          שהיא קוראת כנתונים. זה גם מה שמזין ציטוטים במנועי AI. -->
+    <!-- FAQPage no longer earns rich results in Google (retired May 2026), but
+         it is still how AI assistants and other engines read the answers. Every
+         answer here must stay byte-identical to the visible FAQ below — a
+         mismatch is a structured-data violation, not a shortcut. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"מה בדיוק כולל ניהול הערב?","acceptedAnswer":{"@type":"Answer","text":"ליווי מלא של הערב מהרגע שהאורח הראשון חונה ועד אחרון הרוקדים: קבלת פנים, הכוונת אורחים למקומם, תיאום מול הספקים והמטבח, בקרה על זרימת המנות והאלכוהול, ופתרון שקט לכל מה שצץ בדרך. אתם לא נדרשים להתעסק בכלום."}},
+        {"@type":"Question","name":"אישורי ההגעה כלולים או שזה שירות נפרד?","acceptedAnswer":{"@type":"Answer","text":"כלולים. אנחנו מנהלים את כל התהליך מול האורחים — מי מגיע, כמה סועדים, והעדפות תזונה כמו צמחוני, טבעוני או ללא גלוטן — ומגיעים ליום האירוע עם תמונה מדויקת."}},
+        {"@type":"Question","name":"אתם מטפלים גם בהושבה?","acceptedAnswer":{"@type":"Answer","text":"כן, כשירות נוסף. תכנון ההושבה נעשה מראש מול רשימת האורחים, וביום האירוע דיילות ההושבה שלנו מלוות כל אורח למקומו — בלי תורים בכניסה ובלי כיסא שנשאר יתום."}},
+        {"@type":"Question","name":"מה קורה אם ספק מאחר או מבריז ביום האירוע?","acceptedAnswer":{"@type":"Answer","text":"זו בדיוק הסיבה שאנחנו שם. הטיפול נעשה מולנו ולא מולכם — אתם לרוב תשמעו על זה רק אחרי שזה כבר נפתר, אם בכלל. אנחנו הפילטר שמפריד ביניכם לבין כאב הראש."}},
+        {"@type":"Question","name":"כמה זה עולה?","acceptedAnswer":{"@type":"Answer","text":"תלוי מה הערב צריך — מספר האורחים, המקום, והיקף הליווי. אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת, בלי הפתעות ובלי כוכביות."}},
+        {"@type":"Question","name":"איך מתחילים?","acceptedAnswer":{"@type":"Answer","text":"משאירים פרטים כאן למטה, ונחזור אליכם לשיחת היכרות של רבע שעה. נבין מה אתם מתכננים, נענה על כל מה שפתוח, ורק אחר כך נשלח הצעה."}}
+      ]
+    }
+    </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,7 +59,7 @@
       "url": "https://eventconcierge.org/",
       "email": "office@eventconcierge.org",
       "telephone": "+972-52-585-3129",
-      "image": "https://eventconcierge.org/img/hero-couple.jpg",
+      "image": "https://eventconcierge.org/img/og-share.jpg",
       "priceRange": "₪₪₪",
       "address": {
         "@type": "PostalAddress",
@@ -65,9 +84,19 @@
          has no Hebrew glyphs, so every Hebrew character fell through to Heebo
          and headings looked identical to body text. -->
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for standard accessibility icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- FontAwesome removed: it was a render-blocking stylesheet plus a 147KB
+         icon font, downloaded on every visit to draw ONE wheelchair glyph. That
+         icon is now an inline SVG on the button itself. -->
+    <!-- AOS dropped: two third-party requests from unpkg, one of them a
+         render-blocking stylesheet, to run seven fade-ups. Replaced by the
+         inline rules further down plus a short IntersectionObserver — same
+         effect, no extra DNS/TLS round trip on a phone. -->
+    <!-- The hero image is the LCP element, so it is preloaded with the same
+         srcset/sizes the <picture> uses — a preload with different candidates
+         downloads a second copy instead of speeding the first one up. -->
+    <link rel="preload" as="image" type="image/webp"
+          imagesrcset="./img/hero-couple-640w.webp 640w, ./img/hero-couple-1024w.webp 1024w, ./img/hero-couple-1920w.webp 1920w"
+          imagesizes="(max-width: 860px) 100vw, 50vw" fetchpriority="high">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5Q9T88YXD"></script>
@@ -670,6 +699,108 @@
             transform: translateY(0);
         }
 
+        .section-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .about-lead {
+            font-size: 1.25em;
+            line-height: 1.9;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 34px;
+        }
+        .about-item h3 {
+            font-size: 1.08em;
+            color: var(--accent-gold-bright);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .about-item p {
+            line-height: 1.85;
+            color: #ccc;
+        }
+        /* The gold hairline sits on the inline-start edge in both directions,
+           so it stays on the correct side under RTL. */
+        .about-item {
+            border-inline-start: 2px solid rgba(212,175,55,0.3);
+            padding-inline-start: 18px;
+        }
+        @media (max-width: 768px) {
+            .about-lead { font-size: 1.08em; margin-bottom: 34px; }
+            .about-grid { gap: 26px; }
+        }
+
+        /* <details> rather than JS accordions: open/close, keyboard access and
+           in-page find all work natively, and a closed answer is still in the
+           DOM for search engines. */
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            border: 1px solid rgba(212,175,55,0.22);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 18px 22px;
+            cursor: pointer;
+            font-size: 1.05em;
+            font-weight: 500;
+            color: var(--accent-gold-bright);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.4em;
+            line-height: 1;
+            opacity: .7;
+            transition: transform .25s;
+            flex-shrink: 0;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p {
+            padding: 0 22px 20px;
+            margin: 0;
+            line-height: 1.85;
+            color: #ccc;
+        }
+        .faq-item summary:focus-visible {
+            outline: 2px solid var(--accent-gold-bright);
+            outline-offset: -2px;
+        }
+
+        /* Local replacement for AOS's fade-up. The hidden state is gated on
+           .js-on, which the script sets before observing — so a blocked or
+           failed script leaves every element at its natural, visible state
+           rather than a blank page. */
+        .js-on [data-aos="fade-up"] {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1);
+        }
+        .js-on [data-aos="fade-up"].aos-animate {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .js-on [data-aos="fade-up"] {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5em; }
@@ -719,25 +850,48 @@
             <a href="#contact" class="btn" aria-label="בואו נתחיל לתכנן את הרגע שלכם">בואו נתחיל לתכנן את הרגע שלכם</a>
         </div>
         <div class="hero-photo">
-            <img src="./img/hero-couple.jpg" width="5472" height="3648"
-                 alt="זוג ברגע אישי באירוע שהפקנו" fetchpriority="high">
+            <!-- The original was a 5472px, 1.7MB JPEG served to a 390px phone —
+                 81% of the page weight and an 11.5s LCP. width/height stay at the
+                 intrinsic size so the box is reserved before the file arrives. -->
+            <picture>
+                <source type="image/webp"
+                        srcset="./img/hero-couple-640w.webp 640w, ./img/hero-couple-1024w.webp 1024w, ./img/hero-couple-1920w.webp 1920w"
+                        sizes="(max-width: 860px) 100vw, 50vw">
+                <img src="./img/hero-couple-1024w.jpg"
+                     srcset="./img/hero-couple-640w.jpg 640w, ./img/hero-couple-1024w.jpg 1024w, ./img/hero-couple-1920w.jpg 1920w"
+                     sizes="(max-width: 860px) 100vw, 50vw"
+                     width="5472" height="3648"
+                     alt="זוג ברגע אישי באירוע שהפקנו" fetchpriority="high" decoding="async">
+            </picture>
         </div>
     </header>
 
 
     <section id="about" class="section">
-        <div class="container" data-aos="fade-up" style="text-align: center; max-width: 800px;">
+        <!-- Was three dense centred paragraphs at 1.2em that nobody scans. Same
+             copy, restructured: one lead line, then the three ideas that were
+             buried inside the paragraphs given their own headings. No rewriting —
+             the owner's instruction has been that the texts stay. -->
+        <div class="container" data-aos="fade-up" style="max-width: 900px;">
             <h2 class="section-title">אמנות האירוח</h2>
-            <p style="font-size: 1.2em;">
-                אנחנו ב-Event Concierge מאמינים שאירוע דורש הקפדה גדולה. 
-                בחתונת בוטיק, כל אורח שהזמנתם הוא עולם ומלואו. ביום האירוע, תשומת הלב המלאה שלנו מופנית אליהם: החל מהכוונה אישית למקומות הישיבה, דרך דאגה למנות מיוחדות, ועד למענה אישי וחרישי לכל בקשה. אנחנו הפנים שלכם מול האורחים והספקים, כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
+            <p class="about-lead">
+                בחתונת בוטיק, כל אורח שהזמנתם הוא עולם ומלואו. אנחנו הפנים שלכם מול האורחים והספקים,
+                כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
             </p>
-            <p style="font-size: 1.2em; margin-top: 20px;">
-                החזון שלנו ב-Event Concierge הוא להעניק לכם חופש מוחלט ביום החשוב שלכם. כדי להשלים את החוויה, אנו מציעים כעת מעטפת מלאה הכוללת <strong>שירותי קייטרינג פרימיום לצד ניהול האירוע</strong>, הכל מול איש קשר אחד.
-            </p>
-            <p style="font-size: 1.2em; margin-top: 20px;">
-                מאישורי הגעה והושבה מוקפדת, ועד לבניית תפריט שף עשיר וניהול זרימת המנות בשטח – החיבור ההדוק בין המטבח לצוות הניהול מבטיח סנכרון מושלם, סטנדרט אירוח חסר פשרות, ובעיקר – אפס התעסקות מצדכם. אתם באים רק כדי לחגוג.
-            </p>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>תשומת לב לכל אורח</h3>
+                    <p>ביום האירוע תשומת הלב המלאה שלנו מופנית אליהם: החל מהכוונה אישית למקומות הישיבה, דרך דאגה למנות מיוחדות, ועד למענה אישי וחרישי לכל בקשה.</p>
+                </div>
+                <div class="about-item">
+                    <h3>מעטפת מלאה, איש קשר אחד</h3>
+                    <p>כדי להשלים את החוויה, אנו מציעים כעת מעטפת מלאה הכוללת <strong>שירותי קייטרינג פרימיום לצד ניהול האירוע</strong> — הכל מול איש קשר אחד.</p>
+                </div>
+                <div class="about-item">
+                    <h3>אפס התעסקות מצדכם</h3>
+                    <p>מאישורי הגעה והושבה מוקפדת ועד לבניית תפריט שף וניהול זרימת המנות בשטח. החיבור ההדוק בין המטבח לצוות הניהול מבטיח סנכרון מושלם — אתם באים רק כדי לחגוג.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -746,26 +900,44 @@
             <h2 class="section-title">הסטנדרט שלנו - השקט שלכם.</h2>
             <div class="grid-3">
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="./img/ceremony-bw.jpg" width="1600" height="1066" alt="רגע בטקס, האורחים סביב הזוג" class="card-img" loading="lazy">
+                    <picture>
+                        <source type="image/webp" srcset="./img/ceremony-bw-640w.webp 640w, ./img/ceremony-bw-1024w.webp 1024w" sizes="(max-width: 860px) 100vw, 33vw">
+                        <img src="./img/ceremony-bw-1024w.jpg" srcset="./img/ceremony-bw-640w.jpg 640w, ./img/ceremony-bw-1024w.jpg 1024w" sizes="(max-width: 860px) 100vw, 33vw"
+                             width="1600" height="1066" alt="רגע בטקס, האורחים סביב הזוג" class="card-img" loading="lazy" decoding="async">
+                    </picture>
                     <div class="card-content">
                         <h3>תקשורת אישית ואלגנטית</h3>
                         <p>אנחנו לא "עוד מערכת אוטומטית". ניהול אישורי ההגעה נעשה בצורה אנושית, חמה ומכבדת, תוך עבודה מול האורחים שלכם ברגישות שיא. אנחנו מוודאים ב-100% מי מגיע, אוספים העדפות תזונה (טבעוני/צליאק) ודואגים שכל מוזמן ירגיש רצוי ומוערך עוד לפני שהאירוע התחיל.</p>
                     </div>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="./img/seating.jpg" width="5472" height="3648" alt="שולחן ארוך ערוך במלואו, הושבה מתוכננת" class="card-img" loading="lazy">
+                    <picture>
+                        <source type="image/webp" srcset="./img/seating-640w.webp 640w, ./img/seating-1024w.webp 1024w, ./img/seating-1920w.webp 1920w" sizes="(max-width: 860px) 100vw, 33vw">
+                        <img src="./img/seating-1024w.jpg" srcset="./img/seating-640w.jpg 640w, ./img/seating-1024w.jpg 1024w, ./img/seating-1920w.jpg 1920w" sizes="(max-width: 860px) 100vw, 33vw"
+                             width="5472" height="3648" alt="שולחן ארוך ערוך במלואו, הושבה מתוכננת" class="card-img" loading="lazy" decoding="async">
+                    </picture>
                     <div class="card-content">
                         <h3>הושבה חכמה וזורמת</h3>
                         <p>בחתונות בטבע או בצהריים, הדינמיקה שונה ומשוחררת יותר, אבל רגע הארוחה קריטי. תכנון הושבה מוקפד מוודא שאף כסא לא יישאר יתום. ביום האירוע, דיילות ההושבה שלנו, לבושות באלגנטיות, ילוו בחיוך כל אורח למקומו – במקצועיות של מסעדת מישלן וביחס של משפחה.</p>
                     </div>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="./img/checklist.jpg" width="1400" height="932" alt="ניהול רשימות ובקרה קפדנית לקראת האירוע" class="card-img" loading="lazy">
+                    <picture>
+                        <source type="image/webp" srcset="./img/checklist-640w.webp 640w, ./img/checklist-1024w.webp 1024w" sizes="(max-width: 860px) 100vw, 33vw">
+                        <img src="./img/checklist-1024w.jpg" srcset="./img/checklist-640w.jpg 640w, ./img/checklist-1024w.jpg 1024w" sizes="(max-width: 860px) 100vw, 33vw"
+                             width="1400" height="932" alt="ניהול רשימות ובקרה קפדנית לקראת האירוע" class="card-img" loading="lazy" decoding="async">
+                    </picture>
                     <div class="card-content">
                         <h3>נוכחות מנהל אירועים בשטח</h3>
                         <p>מהרגע שהאורח הראשון חונה ועד אחרון הרוקדים. מנהל שטח צמוד שדואג לקבלת הפנים, זרימת האלכוהול, תקינות המנות, ופתרון בלתי מורגש לכל בעיה. אנחנו הפילטר שמפריד ביניכם לבין כאב הראש, משאירים לכם תפקיד אחד בלבד: ליהנות, לרקוד, ולחגוג את היום שלכם בשמש.</p>
                     </div>
                 </div>
+            </div>
+            <!-- A reader who just finished the three service cards has formed an
+                 opinion and had nowhere to act on it — the only CTA was in the
+                 hero, above everything that justifies it. -->
+            <div class="section-cta">
+                <a href="#contact" class="btn">בואו נבדוק אם התאריך שלכם פנוי</a>
             </div>
         </div>
     </section>
@@ -791,6 +963,9 @@
                     <div class="testimonial-author">דנה ואיתי | חוות רונית</div>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#contact" class="btn">נשמח להכיר אתכם</a>
+            </div>
         </div>
     </section>
 
@@ -799,6 +974,41 @@
             <div class="promise-content">
                 <span class="promise-badge">ההבטחה שלנו</span>
                 <h2 style="font-weight: 300; font-size: 2em; margin-bottom: 20px;">ההבטחה שלנו אליכם פשוטה: אנחנו מנצחים על כל פרט ופרט מאחורי הקלעים, כדי להעניק לכם חופש מוחלט!</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Every answer here is drawn from eventconcierge-materials/sales-process.md
+         and the service copy above. Nothing invented, and no price by the
+         owner's call — the pricing question routes to the intro call instead. -->
+    <section id="faq" class="section">
+        <div class="container" data-aos="fade-up" style="max-width: 820px;">
+            <h2 class="section-title">שאלות שנשאלות לפני שמתחילים</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>מה בדיוק כולל ניהול הערב?</summary>
+                    <p>ליווי מלא של הערב מהרגע שהאורח הראשון חונה ועד אחרון הרוקדים: קבלת פנים, הכוונת אורחים למקומם, תיאום מול הספקים והמטבח, בקרה על זרימת המנות והאלכוהול, ופתרון שקט לכל מה שצץ בדרך. אתם לא נדרשים להתעסק בכלום.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אישורי ההגעה כלולים או שזה שירות נפרד?</summary>
+                    <p>כלולים. אנחנו מנהלים את כל התהליך מול האורחים — מי מגיע, כמה סועדים, והעדפות תזונה כמו צמחוני, טבעוני או ללא גלוטן — ומגיעים ליום האירוע עם תמונה מדויקת.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אתם מטפלים גם בהושבה?</summary>
+                    <p>כן, כשירות נוסף. תכנון ההושבה נעשה מראש מול רשימת האורחים, וביום האירוע דיילות ההושבה שלנו מלוות כל אורח למקומו — בלי תורים בכניסה ובלי כיסא שנשאר יתום.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>מה קורה אם ספק מאחר או מבריז ביום האירוע?</summary>
+                    <p>זו בדיוק הסיבה שאנחנו שם. הטיפול נעשה מולנו ולא מולכם — אתם לרוב תשמעו על זה רק אחרי שזה כבר נפתר, אם בכלל. אנחנו הפילטר שמפריד ביניכם לבין כאב הראש.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>כמה זה עולה?</summary>
+                    <p>תלוי מה הערב צריך — מספר האורחים, המקום, והיקף הליווי. אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת, בלי הפתעות ובלי כוכביות.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>איך מתחילים?</summary>
+                    <p>משאירים פרטים כאן למטה, ונחזור אליכם לשיחת היכרות של רבע שעה. נבין מה אתם מתכננים, נענה על כל מה שפתוח, ורק אחר כך נשלח הצעה.</p>
+                </details>
             </div>
         </div>
     </section>
@@ -813,6 +1023,14 @@
                     <input type="text" name="name" placeholder="שם מלא" aria-label="הזן שם מלא" required>
                     <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
                     <div id="phoneError" style="color: #f44336; font-size: 0.85em; margin-top: -15px; margin-bottom: 10px; display: none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
+                    <!-- The date is the first thing a couple wants answered — "is
+                         our date even open?" — and without it every lead needs a
+                         call just to find out. Optional on purpose: a required
+                         field would turn away couples who have not set a date yet,
+                         and those are still leads. It rides along automatically,
+                         since the submit handler posts Object.fromEntries(formData). -->
+                    <label for="eventDate" style="display:block; text-align:start; color:#bbb; font-size:0.85em; margin-bottom:6px;">תאריך האירוע <span style="opacity:.7">(אם כבר ידוע)</span></label>
+                    <input type="date" name="eventDate" id="eventDate" aria-label="תאריך האירוע, אם כבר ידוע">
                     <button type="submit" id="submitBtn" aria-label="שלח פרטים">שליחת פרטים</button>
                     <div id="formStatus" style="margin-top: 15px; display: none;" aria-live="polite"></div>
                 </form>
@@ -867,17 +1085,38 @@
 
     <!-- Accessibility Button -->
     <button class="accessibility-btn" onclick="toggleAccessibilityModal()" aria-label="פתח הצהרת נגישות">
-        <i class="fa-solid fa-wheelchair" style="font-size: 26px; color: #ffffff;"></i>
+        <!-- Inline, so the accessibility button never depends on a CDN font
+             loading. It is governed by תקן 5568 and has to work regardless. -->
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="3.5" r="2"/>
+            <path d="M13.2 7.2h-2.4a2 2 0 0 0-2 2v4.6a1.1 1.1 0 0 0 1.1 1.1h3.9l2.6 5.5a1.05 1.05 0 0 0 1.9-.9l-2.9-6.1a1.1 1.1 0 0 0-1-.6h-3.4V9.8h4.3a1 1 0 0 0 0-2z"/>
+            <path d="M14.6 16.6a4.2 4.2 0 1 1-4.9-4.9v2.1a2.2 2.2 0 1 0 2.8 2.8z"/>
+        </svg>
     </button>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+        // Replaces AOS. Elements are revealed by adding .aos-animate, and the
+        // hiding rule lives behind .js-on (set below) so that if this script
+        // never runs — blocked, errored, JS off — nothing is ever hidden.
+        document.documentElement.classList.add('js-on');
+        (function () {
+            var els = document.querySelectorAll('[data-aos]');
+            if (!('IntersectionObserver' in window) ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                els.forEach(function (el) { el.classList.add('aos-animate'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    var d = e.target.getAttribute('data-aos-delay');
+                    if (d) e.target.style.transitionDelay = d + 'ms';
+                    e.target.classList.add('aos-animate');
+                    io.unobserve(e.target);
+                });
+            }, { rootMargin: '0px 0px -80px 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        })();
 
         function toggleAccessibilityModal() {
             const modal = document.getElementById('accessibility-modal');
