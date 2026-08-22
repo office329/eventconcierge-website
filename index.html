@@ -484,15 +484,22 @@
            in the site's own palette. Same conclusion the app reached — see
            DateInputDDMMYYYY in frontend/src/App.jsx of the Event_Bot repo. */
         .ec-date { position: relative; margin-bottom: 25px; }
-        .ec-date > input[type="text"] { margin-bottom: 0; padding-inline-start: 46px; }
+        /* The icon sits at the inline-END (the left, in RTL) — the side the
+           native picker put it on, and the side that leaves the text starting
+           at the same 16px as every other field in the form. Putting it at the
+           start indents the placeholder and the field reads as a different
+           size from the ones above it. */
+        .ec-date > input[type="text"] { margin-bottom: 0; padding-inline-end: 46px; }
         .ec-date-btn {
-            position: absolute; inset-inline-start: 6px; top: 50%; transform: translateY(-50%);
+            position: absolute; inset-inline-end: 6px; top: 50%; transform: translateY(-50%);
             background: none; border: 0; padding: 8px; margin: 0; cursor: pointer;
             color: var(--accent-gold); line-height: 0; border-radius: 6px;
         }
         .ec-date-btn:hover, .ec-date-btn:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
         .ec-cal {
             position: absolute; z-index: 2001; top: calc(100% + 8px); inset-inline-start: 0;
+            /* never wider than the field's own box, so it cannot push the page sideways */
+            box-sizing: border-box;
             width: 280px; max-width: calc(100vw - 32px); padding: 12px;
             background: var(--bg-pearl); border: 1px solid var(--glass-border);
             border-radius: 12px; box-shadow: 0 18px 44px rgba(0,0,0,0.55);
