@@ -288,6 +288,26 @@
                below the fold, uncovered, one nudge away. */
             .hero .btn { margin-top: 30px; }
         }
+        /* The three kicker words are links into the cards that explain them. */
+        .kicker a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(200, 155, 111, 0.35);
+            padding-bottom: 2px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .kicker a:hover { color: #fff; border-bottom-color: var(--accent-gold-bright); }
+        .kicker a:focus-visible {
+            outline: 2px solid var(--accent-gold-bright); outline-offset: 3px; border-bottom-color: transparent;
+        }
+        .kicker .sep { opacity: 0.45; margin: 0 4px; }
+        /* Cleared past the sticky nav, or the card lands underneath it. */
+        .includes-col { scroll-margin-top: 110px; }
+        /* Say which card the jump landed on — three cards look alike. */
+        .includes-col:target {
+            border-color: rgba(200, 155, 111, 0.55);
+            box-shadow: 0 0 0 1px rgba(200, 155, 111, 0.25), 0 18px 40px rgba(0, 0, 0, 0.4);
+        }
         .kicker {
             color: var(--accent-gold-bright); /* Using brighter gold for accessibility contrast on dark bg */
             font-size: 1.2em;
@@ -1070,7 +1090,9 @@
             /* Force the title onto one line on mobile */
             .section-title { font-size: 1.6em; margin-bottom: 30px; letter-spacing: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
             /* Shrink kicker text to fit precisely on one mobile line using dynamic viewport width */
-            .kicker { font-size: clamp(14px, 4vw, 18px); letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            /* Was nowrap + ellipsis — one tidy line that cut "אישורי הגעה" off.
+               Acceptable for decoration, not for three links. It wraps now. */
+            .kicker { font-size: clamp(14px, 4vw, 18px); letter-spacing: 0px; white-space: normal; overflow: visible; line-height: 2; }
             /* Ensure the contact section h2 ("נשמח להכיר...") fits on one line */
             .contact-section h2 { font-size: clamp(20px, 6vw, 1.8em); letter-spacing: 0; white-space: nowrap; margin-bottom: 10px; }
             /* Floats are position:fixed and permanently own the bottom strip of
@@ -1103,7 +1125,15 @@
     <main id="main-content">
     <header class="hero" role="banner">
         <div class="hero-copy" data-aos="fade-up" data-aos-duration="1200">
-            <div class="kicker">ניהול האירוע | הפקת אירועים | אישורי הגעה</div>
+            <!-- These three name the services and, until now, went nowhere. Each
+                 jumps to the card further down that says what it includes. -->
+            <div class="kicker">
+                <a href="#svc-management">ניהול האירוע</a>
+                <span class="sep" aria-hidden="true">|</span>
+                <a href="#svc-production">הפקת אירועים</a>
+                <span class="sep" aria-hidden="true">|</span>
+                <a href="#svc-rsvp">אישורי הגעה</a>
+            </div>
             <h1>היוקרה האמיתית היא פשוט להיות נוכחים עם האנשים שאתם אוהבים.</h1>
             <p>שירות ה-Event Concierge שלנו נוצר כדי להעניק לאורחים שלכם חוויית אירוח של פרימיום, ולכם – שקט נפשי מוחלט.</p>
             <a href="#contact" class="btn" aria-label="בואו נתחיל לתכנן את הרגע שלכם">בואו נתחיל לתכנן את הרגע שלכם</a>
@@ -1220,7 +1250,7 @@
                  itemised page to atmosphere. Straight from SERVICE_DESCRIPTIONS.md. -->
             <h3 class="section-title includes-title" style="font-size: 1.9em; margin-top: 70px;">מה אנחנו לוקחים על עצמנו</h3>
             <div class="includes-wrap" data-aos="fade-up">
-                <div class="includes-col">
+                <div class="includes-col" id="svc-rsvp">
                     <span class="lvl">אורחים</span>
                     <h4>אישורי הגעה</h4>
                     <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">כל מוזמן, אחד־אחד.</p>
@@ -1234,7 +1264,7 @@
                         <li>תמונת מצב מעודכנת אצלכם בכל רגע</li>
                     </ul>
                 </div>
-                <div class="includes-col">
+                <div class="includes-col" id="svc-management">
                     <span class="lvl">ניהול</span>
                     <h4>ניהול אירוע</h4>
                     <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">אתם מחליטים, אנחנו מבצעים.</p>
@@ -1245,7 +1275,7 @@
                         <li>נוכחות מלאה ביום האירוע</li>
                     </ul>
                 </div>
-                <div class="includes-col">
+                <div class="includes-col" id="svc-production">
                     <span class="lvl">הפקה</span>
                     <h4>הפקה מלאה</h4>
                     <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">מהחלום ועד המציאות — אנחנו מטפלים בהכל.</p>
