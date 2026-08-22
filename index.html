@@ -470,67 +470,6 @@
             background: rgba(0,0,0,0.5);
             box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
         }
-        /* ── Hebrew date field ───────────────────────────────────────────
-           A native <input type="date"> draws its own popup, and that popup is
-           BROWSER CHROME: the page cannot reach its colours, and it takes its
-           language and its date order from the OS, not from <html lang="he">.
-           On an English-language Windows an Israeli couple saw a white English
-           calendar and an mm/dd/yyyy field on a right-to-left Hebrew form — a
-           real hazard, since 08/09 means two different dates in the two orders.
-           (`accent-color` does not reach it either; MDN lists only checkbox,
-           radio, range and progress.)
-
-           So the field is a plain text input plus a calendar we draw ourselves,
-           in the site's own palette. Same conclusion the app reached — see
-           DateInputDDMMYYYY in frontend/src/App.jsx of the Event_Bot repo. */
-        .ec-date { position: relative; margin-bottom: 25px; }
-        /* The icon sits at the inline-END (the left, in RTL) — the side the
-           native picker put it on, and the side that leaves the text starting
-           at the same 16px as every other field in the form. Putting it at the
-           start indents the placeholder and the field reads as a different
-           size from the ones above it. */
-        .ec-date > input[type="text"] { margin-bottom: 0; padding-inline-end: 46px; }
-        .ec-date-btn {
-            position: absolute; inset-inline-end: 6px; top: 50%; transform: translateY(-50%);
-            background: none; border: 0; padding: 8px; margin: 0; cursor: pointer;
-            color: var(--accent-gold); line-height: 0; border-radius: 6px;
-        }
-        .ec-date-btn:hover, .ec-date-btn:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
-        .ec-cal {
-            position: absolute; z-index: 2001; top: calc(100% + 8px); inset-inline-start: 0;
-            /* never wider than the field's own box, so it cannot push the page sideways */
-            box-sizing: border-box;
-            width: 280px; max-width: calc(100vw - 32px); padding: 12px;
-            background: var(--bg-pearl); border: 1px solid var(--glass-border);
-            border-radius: 12px; box-shadow: 0 18px 44px rgba(0,0,0,0.55);
-            direction: rtl; text-align: center;
-        }
-        .ec-cal[hidden] { display: none; }
-        .ec-cal-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; }
-        .ec-cal-title { color: var(--accent-gold); font-size: 0.98em; font-weight: 600; }
-        .ec-nav {
-            background: none; border: 1px solid transparent; color: var(--text-gray);
-            width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 1.1em; line-height: 1;
-        }
-        .ec-nav:hover, .ec-nav:focus-visible { background: rgba(200, 155, 111, 0.14); color: var(--accent-gold); outline: none; }
-        .ec-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
-        .ec-dow { font-size: 0.72em; color: var(--text-gray); opacity: 0.65; padding: 4px 0 6px; }
-        .ec-day {
-            background: none; border: 1px solid transparent; color: #E4EBE2;
-            padding: 7px 0; border-radius: 7px; cursor: pointer; font-size: 0.88em;
-            font-family: var(--font-sans); font-variant-numeric: tabular-nums;
-        }
-        .ec-day.ec-out { color: #788C76; }
-        .ec-day:hover, .ec-day:focus-visible { background: rgba(200, 155, 111, 0.16); outline: none; }
-        .ec-day.ec-today { border-color: var(--accent-gold); }
-        .ec-day.ec-sel { background: var(--accent-gold); color: var(--primary-dark); font-weight: 700; }
-        .ec-cal-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; }
-        .ec-link {
-            background: none; border: 0; color: var(--accent-gold); cursor: pointer;
-            font-size: 0.85em; font-family: var(--font-sans); padding: 4px 6px; border-radius: 6px;
-        }
-        .ec-link:hover, .ec-link:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
-
         .contact-form button {
             background: linear-gradient(135deg, #C89B6F, #A97C52);
             color: var(--primary-dark);
@@ -551,6 +490,92 @@
             box-shadow: 0 10px 25px rgba(200, 155, 111, 0.5);
             filter: brightness(1.1);
         }
+
+        /* ── Hebrew date field ───────────────────────────────────────────
+           A native <input type="date"> draws its own popup, and that popup is
+           BROWSER CHROME: the page cannot reach its colours, and it takes its
+           language and its date order from the OS, not from <html lang="he">.
+           On an English-language Windows an Israeli couple saw a white English
+           calendar and an mm/dd/yyyy field on a right-to-left Hebrew form — a
+           real hazard, since 08/09 means two different dates in the two orders.
+           (`accent-color` does not reach it either; MDN lists only checkbox,
+           radio, range and progress.)
+
+           So the field is a plain text input plus a calendar we draw ourselves,
+           in the site's own palette. Same conclusion the app reached — see
+           DateInputDDMMYYYY in frontend/src/App.jsx of the Event_Bot repo.
+
+           ⚠️ EVERY control in here is a <button> inside .contact-form, and
+           `.contact-form button` above is a full-width copper gradient with
+           16px/40px padding. At (0,1,1) it beat every single-class rule here
+           (0,1,0) and drew the calendar as a grid of giant copper slabs, three
+           to a row, spilling off the screen. Two things keep that from coming
+           back, and BOTH are needed: every rule below is scoped to .ec-date or
+           .ec-cal so it reads (0,2,0), and the block sits AFTER the rules it
+           has to beat — the :hover selectors tie at (0,2,1), where source
+           order decides. Never move this block above .contact-form button. */
+        .ec-date { position: relative; margin-bottom: 25px; }
+        /* The icon sits at the inline-END (the left, in RTL) — the side the
+           native picker put it on, and the side that leaves the text starting
+           at the same 16px as every other field in the form. */
+        .ec-date > input[type="text"] { margin-bottom: 0; padding-inline-end: 46px; }
+
+        /* One reset for all four controls: it has to name every property
+           `.contact-form button` imposes, not assume a bare button default. */
+        .ec-date .ec-date-btn,
+        .ec-date .ec-nav,
+        .ec-date .ec-day,
+        .ec-date .ec-link {
+            background: none; background-image: none; box-shadow: none;
+            border: 1px solid transparent; width: auto; margin: 0;
+            font-family: var(--font-sans); font-weight: 400; letter-spacing: normal;
+            cursor: pointer; transition: background-color .15s ease, color .15s ease;
+        }
+        .ec-date .ec-date-btn:hover, .ec-date .ec-nav:hover,
+        .ec-date .ec-day:hover, .ec-date .ec-link:hover {
+            transform: none; filter: none; box-shadow: none;
+        }
+
+        .ec-date .ec-date-btn {
+            position: absolute; inset-inline-end: 6px; top: 50%; transform: translateY(-50%);
+            padding: 8px; color: var(--accent-gold); line-height: 0; border-radius: 6px; font-size: 1em;
+        }
+        .ec-date .ec-date-btn:hover, .ec-date .ec-date-btn:focus-visible {
+            background: rgba(200, 155, 111, 0.14); outline: none; transform: translateY(-50%);
+        }
+        .ec-cal {
+            position: absolute; z-index: 2001; top: calc(100% + 8px); inset-inline-start: 0;
+            width: 288px; max-width: calc(100vw - 32px); padding: 12px; box-sizing: border-box;
+            background: var(--bg-pearl); border: 1px solid var(--glass-border);
+            border-radius: 12px; box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+            direction: rtl; text-align: center;
+        }
+        .ec-cal[hidden] { display: none; }
+        .ec-cal-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; }
+        .ec-cal-title { color: var(--accent-gold); font-size: 0.98em; font-weight: 600; }
+        .ec-date .ec-nav {
+            color: var(--text-gray); width: 30px; height: 30px; flex: 0 0 30px;
+            padding: 0; border-radius: 8px; font-size: 1.1em; line-height: 1;
+        }
+        .ec-date .ec-nav:hover, .ec-date .ec-nav:focus-visible {
+            background: rgba(200, 155, 111, 0.14); color: var(--accent-gold); outline: none;
+        }
+        .ec-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+        .ec-dow { font-size: 0.72em; color: var(--text-gray); opacity: 0.65; padding: 4px 0 6px; }
+        .ec-date .ec-day {
+            color: #E4EBE2; padding: 7px 0; border-radius: 7px;
+            font-size: 0.88em; font-variant-numeric: tabular-nums; min-width: 0;
+        }
+        .ec-date .ec-day.ec-out { color: #788C76; }
+        .ec-date .ec-day:hover, .ec-date .ec-day:focus-visible { background: rgba(200, 155, 111, 0.16); outline: none; }
+        .ec-date .ec-day.ec-today { border-color: var(--accent-gold); }
+        .ec-date .ec-day.ec-sel { background: var(--accent-gold); color: var(--primary-dark); font-weight: 700; }
+        .ec-cal-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; }
+        .ec-date .ec-link {
+            color: var(--accent-gold); font-size: 0.85em; padding: 4px 6px; border-radius: 6px;
+        }
+        .ec-date .ec-link:hover, .ec-date .ec-link:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
+
 
         /* WhatsApp Button – branded gold/dark */
         .whatsapp-float {
