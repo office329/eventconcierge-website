@@ -113,16 +113,23 @@
             font-family: var(--font-head);
             letter-spacing: 1px;
         }
+        /* Sage & copper — from the wedding invitation at
+           dribbble.com/shots/6993769, whose type is printed in copper foil.
+           Replaced a champagne-gold-on-obsidian theme. The token NAMES are
+           historical (--accent-gold is copper now); they are read throughout
+           the stylesheet below, and renaming them would be a rename with no
+           visual effect. Kept in step with frontend/src/index.css in the
+           Event_Bot repo — the app and the site are one brand. */
         :root {
-            --primary-dark: #0a0f0c; /* Ultra Dark Obsidian */
-            --accent-gold: #e6c875; /* Champagne Gold */
-            --accent-gold-bright: #f4d990; /* Bright Champagne Gold */
-            --bg-pearl: #121a15; /* Dark Pearl/Grey for contrast backgrounds */
-            --text-gray: #c2d1c9; /* Silver-Pearl readable text */
-            --warm-earth: #cbb5a1;
-            --glass-bg: rgba(18, 26, 21, 0.6);
-            --glass-border: rgba(230, 200, 117, 0.25);
-            --gold-glow: rgba(230, 200, 117, 0.35);
+            --primary-dark: #0C1710;        /* deep forest ground */
+            --accent-gold: #C89B6F;         /* COPPER — the palette's #B4845C, lifted for a dark ground */
+            --accent-gold-bright: #E3C4A2;  /* copper highlight */
+            --bg-pearl: #14251B;            /* contrast panel */
+            --text-gray: #B7C7B6;           /* soft sage, readable body text */
+            --warm-earth: #CEC4AD;          /* the palette's sand */
+            --glass-bg: rgba(20, 37, 27, 0.6);
+            --glass-border: rgba(200, 155, 111, 0.25);
+            --gold-glow: rgba(200, 155, 111, 0.35);
 
             /* Two roles, one place. --font-sans was already referenced by the
                form input and submit button but never defined, which made those
@@ -140,7 +147,7 @@
             line-height: 1.8;
             background-color: var(--primary-dark);
             background-image: 
-              radial-gradient(circle at 80% 20%, rgba(230, 200, 117, 0.12), transparent 45%),
+              radial-gradient(circle at 80% 20%, rgba(200, 155, 111, 0.12), transparent 45%),
               radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
             background-attachment: fixed;
             font-weight: 300;
@@ -177,7 +184,7 @@
         }
 
         nav {
-            background-color: rgba(10, 15, 12, 0.85); /* Dark Glassmorphism */
+            background-color: rgba(12, 23, 16, 0.85); /* Dark Glassmorphism */
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             position: sticky;
@@ -200,7 +207,7 @@
             text-decoration: none;
             letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(230,200,117,0.3);
+            text-shadow: 0 2px 10px rgba(200, 155, 111,0.3);
         }
         .nav-links {
             list-style: none;
@@ -348,7 +355,7 @@
             color: var(--accent-gold);
             margin-bottom: 50px;
             font-weight: 400;
-            text-shadow: 0 4px 15px rgba(230,200,117,0.2);
+            text-shadow: 0 4px 15px rgba(200, 155, 111,0.2);
         }
         .section-title::after {
             content: '';
@@ -374,15 +381,15 @@
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5);
             border: 1px solid var(--glass-border);
-            border-top: 1px solid rgba(230, 200, 117, 0.4);
-            border-left: 1px solid rgba(230, 200, 117, 0.3);
+            border-top: 1px solid rgba(200, 155, 111, 0.4);
+            border-left: 1px solid rgba(200, 155, 111, 0.3);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 20px var(--gold-glow);
-            border-color: rgba(230, 200, 117, 0.6);
-            background: rgba(18, 26, 21, 0.8);
+            border-color: rgba(200, 155, 111, 0.6);
+            background: rgba(20, 37, 27, 0.8);
         }
         .card-img {
             width: 100%;
@@ -413,7 +420,7 @@
         }
 
         .contact-section {
-            background-color: rgba(18, 26, 21, 0.4);
+            background-color: rgba(20, 37, 27, 0.4);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-top: 1px solid var(--glass-border);
@@ -461,10 +468,10 @@
             outline: none;
             border-color: var(--accent-gold);
             background: rgba(0,0,0,0.5);
-            box-shadow: 0 0 10px rgba(230,200,117,0.2);
+            box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
         }
         .contact-form button {
-            background: linear-gradient(135deg, #e6c875, #cfa844);
+            background: linear-gradient(135deg, #C89B6F, #A97C52);
             color: var(--primary-dark);
             border: none;
             padding: 16px 40px;
@@ -480,7 +487,7 @@
         }
         .contact-form button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(230, 200, 117, 0.5);
+            box-shadow: 0 10px 25px rgba(200, 155, 111, 0.5);
             filter: brightness(1.1);
         }
 
@@ -507,7 +514,7 @@
         }
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(212,175,55,0.35);
+            box-shadow: 0 6px 20px rgba(200, 155, 111,0.35);
         }
         .whatsapp-float svg { fill: var(--accent-gold); }
 
@@ -555,7 +562,7 @@
         .testimonial-lead p {
             font-size: clamp(20px, 2.9vw, 32px);
             line-height: 1.5;
-            color: #F1EEE5;
+            color: #E4EBE2;
             margin: 0 0 18px;
             text-wrap: balance;
             font-weight: 300;
@@ -605,8 +612,8 @@
         }
         .testimonial-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(230, 200, 117, 0.5);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 15px rgba(230,200,117,0.1);
+            border-color: rgba(200, 155, 111, 0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 15px rgba(200, 155, 111,0.1);
         }
         .testimonial-card::before {
             content: '"';
@@ -646,8 +653,8 @@
             letter-spacing: 3px;
             margin-bottom: 25px;
             border-radius: 30px;
-            background: rgba(230, 200, 117, 0.05);
-            box-shadow: 0 0 15px rgba(230, 200, 117, 0.1);
+            background: rgba(200, 155, 111, 0.05);
+            box-shadow: 0 0 15px rgba(200, 155, 111, 0.1);
         }
 
         footer {
@@ -729,7 +736,7 @@
         /* The gold hairline sits on the inline-start edge in both directions,
            so it stays on the correct side under RTL. */
         .about-item {
-            border-inline-start: 2px solid rgba(212,175,55,0.3);
+            border-inline-start: 2px solid rgba(200, 155, 111,0.3);
             padding-inline-start: 18px;
         }
         @media (max-width: 768px) {
@@ -742,7 +749,7 @@
            DOM for search engines. */
         .faq-list { display: flex; flex-direction: column; gap: 12px; }
         .faq-item {
-            border: 1px solid rgba(212,175,55,0.22);
+            border: 1px solid rgba(200, 155, 111,0.22);
             border-radius: 12px;
             background: rgba(255,255,255,0.02);
             overflow: hidden;
