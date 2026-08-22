@@ -880,37 +880,120 @@
             margin-top: 50px;
         }
 
+        /* ── "אמנות האירוח" — laid out as a stationery suite ────────────
+           The copy is untouched (owner's standing instruction). What changed is
+           that it was a centred paragraph over three equal columns of running
+           text — the same shape as the section below it, but without that one's
+           photographs, so it read as the flattest thing on the page.
+
+           The treatment comes from the brand's own origin: the palette was
+           drawn from a printed wedding invitation suite, a set of separate
+           cards on a table. So the three ideas are cards — inset double
+           hairline, an ornamental rule above each heading, and a slight
+           stagger, the way cards actually fall when you lay them out. It is
+           deliberately NOT the photo-card pattern used by #services; two
+           sections with the same shape is what made this one disappear.
+
+           No numbering: these three are not a sequence, and numbering things
+           that have no order is decoration pretending to be structure. */
+        /* ⚠️ `.js-on [data-aos="fade-up"].aos-animate { transform: none }` is
+           (0,3,0) and sits later in this stylesheet, so it beats every
+           element-level hover at (0,2,0). `.card:hover` above declares a lift
+           that has therefore never rendered since the hand-rolled reveal
+           replaced AOS — the border and shadow change on hover, the card does
+           not move. Restored here at (0,4,1), which clears it outright. */
+        .js-on .card[data-aos].aos-animate:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        #about { position: relative; }
+        #about::before, #about::after {
+            content: ''; display: block; height: 1px; max-width: 900px; margin: 0 auto;
+            background: linear-gradient(90deg, transparent, rgba(200, 155, 111, 0.35), transparent);
+        }
+        .about-head {
+            display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            gap: 20px 46px; align-items: baseline; margin-bottom: 54px;
+        }
+        .about-head .section-title { text-align: start; margin-bottom: 0; }
+        .about-head .section-title::after { margin-inline: 0 auto; }
         .about-lead {
-            font-size: 1.25em;
+            font-size: 1.2em;
             line-height: 1.9;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
+            margin: 0;
+            color: var(--text-gray);
         }
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 34px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
         }
+        .about-item {
+            position: relative;
+            padding: 34px 28px 30px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(200, 155, 111, 0.18);
+            border-radius: 2px;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+        }
+        /* The inner hairline — a printed card's double rule, not a second box. */
+        .about-item::before {
+            content: ''; position: absolute; inset: 6px; pointer-events: none;
+            border: 1px solid rgba(200, 155, 111, 0.12); border-radius: 1px;
+            transition: border-color 0.4s;
+        }
+        /* Cards laid on a table do not line up. The middle one sits low on wide
+           screens; below the breakpoint every offset is dropped. */
+        .about-grid > .about-item:nth-child(2) { transform: translateY(22px); }
+        .about-item:hover, .about-item:focus-within {
+            transform: translateY(-6px);
+            border-color: rgba(200, 155, 111, 0.45);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        }
+        .about-grid > .about-item:nth-child(2):hover,
+        .about-grid > .about-item:nth-child(2):focus-within { transform: translateY(16px); }
+        .about-item:hover::before, .about-item:focus-within::before { border-color: rgba(200, 155, 111, 0.3); }
+        /* Ornament above the heading: a rule broken by a lozenge, the way a
+           printed card separates its lines. Decorative, so hidden from AT. */
+        .about-item .orn {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+            color: var(--accent-gold); opacity: 0.8;
+        }
+        .about-item .orn::before, .about-item .orn::after {
+            content: ''; height: 1px; background: currentColor; opacity: 0.5;
+        }
+        .about-item .orn::before { width: 20px; flex: 0 0 20px; }
+        .about-item .orn::after { flex: 1 1 auto; }
+        .about-item .orn span { font-size: 0.6em; line-height: 1; }
         .about-item h3 {
-            font-size: 1.08em;
+            font-size: 1.12em;
             color: var(--accent-gold-bright);
             margin-bottom: 12px;
             font-weight: 600;
+            line-height: 1.45;
         }
         .about-item p {
             line-height: 1.85;
             color: #ccc;
+            margin: 0;
         }
-        /* The gold hairline sits on the inline-start edge in both directions,
-           so it stays on the correct side under RTL. */
-        .about-item {
-            border-inline-start: 2px solid rgba(200, 155, 111,0.3);
-            padding-inline-start: 18px;
+        @media (max-width: 860px) {
+            .about-head { grid-template-columns: 1fr; gap: 18px; margin-bottom: 38px; }
+            .about-head .section-title { text-align: center; }
+            .about-head .section-title::after { margin-inline: auto; }
+            .about-lead { font-size: 1.05em; text-align: center; }
+            .about-grid { gap: 18px; }
+            .about-grid > .about-item:nth-child(2) { transform: none; }
+            .about-grid > .about-item:nth-child(2):hover,
+            .about-grid > .about-item:nth-child(2):focus-within { transform: translateY(-6px); }
+            .about-item { padding: 28px 22px 24px; }
         }
-        @media (max-width: 768px) {
-            .about-lead { font-size: 1.08em; margin-bottom: 34px; }
-            .about-grid { gap: 26px; }
+        @media (prefers-reduced-motion: reduce) {
+            .about-item, .about-item::before { transition: none; }
+            .about-grid > .about-item:nth-child(2) { transform: none; }
+            .about-item:hover, .about-item:focus-within,
+            .about-grid > .about-item:nth-child(2):hover,
+            .about-grid > .about-item:nth-child(2):focus-within { transform: none; }
         }
 
         /* <details> rather than JS accordions: open/close, keyboard access and
@@ -1044,26 +1127,44 @@
 
 
     <section id="about" class="section">
-        <!-- Was three dense centred paragraphs at 1.2em that nobody scans. Same
-             copy, restructured: one lead line, then the three ideas that were
-             buried inside the paragraphs given their own headings. No rewriting —
-             the owner's instruction has been that the texts stay. -->
-        <div class="container" data-aos="fade-up" style="max-width: 900px;">
-            <h2 class="section-title">אמנות האירוח</h2>
-            <p class="about-lead">
-                בחתונת בוטיק, כל אורח שהזמנתם הוא עולם ומלואו. אנחנו הפנים שלכם מול האורחים והספקים,
+        <!-- Not one word of this copy has been rewritten — the owner's standing
+             instruction. It has been re-housed twice: first out of three dense
+             centred paragraphs into a lead plus three headed ideas, and now out
+             of three equal columns of running text into cards.
+
+             Why cards: the column layout was the same SHAPE as #services below
+             it, minus that section's photographs, so it read as the flattest
+             thing on the page. The treatment comes from where the brand's own
+             palette came from — a printed invitation suite, separate cards laid
+             on a table — hence the inset double hairline, the ornamental rule,
+             and the stagger. Deliberately not the photo-card pattern used by
+             #services; two sections with one shape is what buried this one. -->
+        <div class="container" data-aos="fade-up" style="max-width: 980px;">
+            <div class="about-head">
+                <h2 class="section-title">אמנות האירוח</h2>
+                <p class="about-lead">
+                    בחתונת בוטיק, כל אורח שהזמנתם הוא עולם ומלואו. אנחנו הפנים שלכם מול האורחים והספקים,
                 כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
-            </p>
-            <div class="about-grid">
+                </p>
+            </div>
+            <!-- data-aos is on the GRID, never on .about-item. The reveal rule
+                 `.js-on [data-aos].aos-animate` sets `transform: none` at
+                 (0,3,0), which outranks any element-level hover or offset —
+                 putting it on the cards would silently kill both the stagger
+                 and the lift. -->
+            <div class="about-grid" data-aos="fade-up">
                 <div class="about-item">
+                    <div class="orn" aria-hidden="true"><span>&#9670;</span></div>
                     <h3>תשומת לב לכל אורח</h3>
                     <p>ביום האירוע תשומת הלב המלאה שלנו מופנית אליהם: החל מהכוונה אישית למקומות הישיבה, דרך דאגה למנות מיוחדות, ועד למענה אישי וחרישי לכל בקשה.</p>
                 </div>
                 <div class="about-item">
+                    <div class="orn" aria-hidden="true"><span>&#9670;</span></div>
                     <h3>מעטפת מלאה, איש קשר אחד</h3>
                     <p>כדי להשלים את החוויה, אנו מציעים כעת מעטפת מלאה הכוללת <strong>שירותי קייטרינג פרימיום לצד ניהול האירוע</strong> — הכל מול איש קשר אחד.</p>
                 </div>
                 <div class="about-item">
+                    <div class="orn" aria-hidden="true"><span>&#9670;</span></div>
                     <h3>אפס התעסקות מצדכם</h3>
                     <p>מאישורי הגעה והושבה מוקפדת ועד לבניית תפריט שף וניהול זרימת המנות בשטח. החיבור ההדוק בין המטבח לצוות הניהול מבטיח סנכרון מושלם — אתם באים רק כדי לחגוג.</p>
                 </div>
@@ -1141,7 +1242,7 @@
                 </div>
             </div>
             <p class="includes-note">
-                אירועים עד 300 אורחים. בשיחת ההיכרות נבין מה אתם צריכים ונתאים את ההיקף — היא חינם ולא מחייבת.
+                בשיחת ההיכרות נבין מה אתם צריכים ונתאים את ההיקף — היא חינם ולא מחייבת.
             </p>
 
             <!-- A reader who just finished the three service cards has formed an
