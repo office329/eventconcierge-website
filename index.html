@@ -470,6 +470,60 @@
             background: rgba(0,0,0,0.5);
             box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
         }
+        /* ── Hebrew date field ───────────────────────────────────────────
+           A native <input type="date"> draws its own popup, and that popup is
+           BROWSER CHROME: the page cannot reach its colours, and it takes its
+           language and its date order from the OS, not from <html lang="he">.
+           On an English-language Windows an Israeli couple saw a white English
+           calendar and an mm/dd/yyyy field on a right-to-left Hebrew form — a
+           real hazard, since 08/09 means two different dates in the two orders.
+           (`accent-color` does not reach it either; MDN lists only checkbox,
+           radio, range and progress.)
+
+           So the field is a plain text input plus a calendar we draw ourselves,
+           in the site's own palette. Same conclusion the app reached — see
+           DateInputDDMMYYYY in frontend/src/App.jsx of the Event_Bot repo. */
+        .ec-date { position: relative; margin-bottom: 25px; }
+        .ec-date > input[type="text"] { margin-bottom: 0; padding-inline-start: 46px; }
+        .ec-date-btn {
+            position: absolute; inset-inline-start: 6px; top: 50%; transform: translateY(-50%);
+            background: none; border: 0; padding: 8px; margin: 0; cursor: pointer;
+            color: var(--accent-gold); line-height: 0; border-radius: 6px;
+        }
+        .ec-date-btn:hover, .ec-date-btn:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
+        .ec-cal {
+            position: absolute; z-index: 2001; top: calc(100% + 8px); inset-inline-start: 0;
+            width: 280px; max-width: calc(100vw - 32px); padding: 12px;
+            background: var(--bg-pearl); border: 1px solid var(--glass-border);
+            border-radius: 12px; box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+            direction: rtl; text-align: center;
+        }
+        .ec-cal[hidden] { display: none; }
+        .ec-cal-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; }
+        .ec-cal-title { color: var(--accent-gold); font-size: 0.98em; font-weight: 600; }
+        .ec-nav {
+            background: none; border: 1px solid transparent; color: var(--text-gray);
+            width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 1.1em; line-height: 1;
+        }
+        .ec-nav:hover, .ec-nav:focus-visible { background: rgba(200, 155, 111, 0.14); color: var(--accent-gold); outline: none; }
+        .ec-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+        .ec-dow { font-size: 0.72em; color: var(--text-gray); opacity: 0.65; padding: 4px 0 6px; }
+        .ec-day {
+            background: none; border: 1px solid transparent; color: #E4EBE2;
+            padding: 7px 0; border-radius: 7px; cursor: pointer; font-size: 0.88em;
+            font-family: var(--font-sans); font-variant-numeric: tabular-nums;
+        }
+        .ec-day.ec-out { color: #788C76; }
+        .ec-day:hover, .ec-day:focus-visible { background: rgba(200, 155, 111, 0.16); outline: none; }
+        .ec-day.ec-today { border-color: var(--accent-gold); }
+        .ec-day.ec-sel { background: var(--accent-gold); color: var(--primary-dark); font-weight: 700; }
+        .ec-cal-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; }
+        .ec-link {
+            background: none; border: 0; color: var(--accent-gold); cursor: pointer;
+            font-size: 0.85em; font-family: var(--font-sans); padding: 4px 6px; border-radius: 6px;
+        }
+        .ec-link:hover, .ec-link:focus-visible { background: rgba(200, 155, 111, 0.14); outline: none; }
+
         .contact-form button {
             background: linear-gradient(135deg, #C89B6F, #A97C52);
             color: var(--primary-dark);
@@ -1037,7 +1091,25 @@
                          and those are still leads. It rides along automatically,
                          since the submit handler posts Object.fromEntries(formData). -->
                     <label for="eventDate" style="display:block; text-align:start; color:#bbb; font-size:0.85em; margin-bottom:6px;">תאריך האירוע <span style="opacity:.7">(אם כבר ידוע)</span></label>
-                    <input type="date" name="eventDate" id="eventDate" aria-label="תאריך האירוע, אם כבר ידוע">
+                    <div class="ec-date">
+                        <input type="text" id="eventDateText" inputmode="numeric" autocomplete="off"
+                               placeholder="dd/mm/yyyy" maxlength="10"
+                               aria-label="תאריך האירוע, אם כבר ידוע. תבנית יום/חודש/שנה"
+                               aria-haspopup="dialog" aria-expanded="false">
+                        <button type="button" class="ec-date-btn" id="eventDateBtn" aria-label="פתחו לוח שנה">
+                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                                <path d="M3 10h18M8 3v4M16 3v4"></path>
+                            </svg>
+                        </button>
+                        <!-- What actually gets posted. /api/lead accepts ONLY
+                             YYYY-MM-DD and silently drops anything else, so the
+                             visible field never carries the value itself. If the
+                             script below fails to run this stays empty and the
+                             lead still submits — the date is optional. -->
+                        <input type="hidden" name="eventDate" id="eventDate">
+                        <div class="ec-cal" id="eventDateCal" hidden role="dialog" aria-label="בחירת תאריך האירוע"></div>
+                    </div>
                     <button type="submit" id="submitBtn" aria-label="שלח פרטים">שליחת פרטים</button>
                     <div id="formStatus" style="margin-top: 15px; display: none;" aria-live="polite"></div>
                 </form>
@@ -1147,6 +1219,141 @@
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const formStatus = document.getElementById('formStatus');
+
+        // ── Hebrew date picker ──────────────────────────────────────────
+        // Draws its own calendar because the native one cannot be reached: its
+        // colours are browser chrome, and its language and date order come from
+        // the OS, not from <html lang="he">. See the CSS block above.
+        //
+        // Two fields, one truth: the visible text input is DD/MM/YYYY for the
+        // person, the hidden input is YYYY-MM-DD for /api/lead, which accepts
+        // nothing else. Every path that sets one sets the other.
+        (function () {
+            var text = document.getElementById('eventDateText');
+            var hidden = document.getElementById('eventDate');
+            var btn = document.getElementById('eventDateBtn');
+            var cal = document.getElementById('eventDateCal');
+            if (!text || !hidden || !btn || !cal) return;
+
+            var MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+            var DOW = ['א','ב','ג','ד','ה','ו','ש'];   // Sunday first; RTL puts it on the right
+            var view = new Date(); view.setDate(1);
+            var selected = null;                        // Date, or null
+
+            var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+            var toIso = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
+            var toHe = function (d) { return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear(); };
+            var sameDay = function (a, b) { return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); };
+
+            // DD/MM/YYYY to Date, and only if the calendar agrees the date is
+            // real: 31/02 parses arithmetically into March and must not pass.
+            function parseHe(v) {
+                var m = String(v || '').match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+                if (!m) return null;
+                var d = new Date(+m[3], +m[2] - 1, +m[1]);
+                return (d.getDate() === +m[1] && d.getMonth() === +m[2] - 1) ? d : null;
+            }
+
+            function commit(d) {
+                selected = d;
+                if (d) {
+                    text.value = toHe(d);
+                    hidden.value = toIso(d);
+                    view = new Date(d.getFullYear(), d.getMonth(), 1);
+                } else {
+                    text.value = '';
+                    hidden.value = '';
+                }
+            }
+
+            function render() {
+                var y = view.getFullYear(), mo = view.getMonth();
+                var first = new Date(y, mo, 1).getDay();          // 0 = Sunday
+                var today = new Date();
+                var html = '<div class="ec-cal-head">'
+                    + '<button type="button" class="ec-nav" data-step="-1" aria-label="החודש הקודם">&rsaquo;</button>'
+                    + '<span class="ec-cal-title">' + MONTHS[mo] + ' ' + y + '</span>'
+                    + '<button type="button" class="ec-nav" data-step="1" aria-label="החודש הבא">&lsaquo;</button>'
+                    + '</div><div class="ec-grid">';
+                for (var i = 0; i < 7; i++) html += '<div class="ec-dow">' + DOW[i] + '</div>';
+                // A leading blank week is a hole in the grid; showing the
+                // neighbouring days keeps the shape of the month readable.
+                var start = new Date(y, mo, 1 - first);
+                for (var c = 0; c < 42; c++) {
+                    var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + c);
+                    var cls = 'ec-day';
+                    if (d.getMonth() !== mo) cls += ' ec-out';
+                    if (sameDay(d, today)) cls += ' ec-today';
+                    if (sameDay(d, selected)) cls += ' ec-sel';
+                    html += '<button type="button" class="' + cls + '" data-iso="' + toIso(d) + '"'
+                         + (sameDay(d, selected) ? ' aria-current="date"' : '') + '>' + d.getDate() + '</button>';
+                }
+                html += '</div><div class="ec-cal-foot">'
+                     + '<button type="button" class="ec-link" data-act="today">היום</button>'
+                     + '<button type="button" class="ec-link" data-act="clear">נקה</button>'
+                     + '</div>';
+                cal.innerHTML = html;
+            }
+
+            function open() { render(); cal.hidden = false; text.setAttribute('aria-expanded', 'true'); }
+            function close() { cal.hidden = true; text.setAttribute('aria-expanded', 'false'); }
+
+            btn.addEventListener('click', function () { if (cal.hidden) { open(); text.focus(); } else { close(); } });
+            text.addEventListener('focus', open);
+
+            cal.addEventListener('click', function (e) {
+                var nav = e.target.closest('.ec-nav');
+                if (nav) { view.setMonth(view.getMonth() + Number(nav.dataset.step)); render(); return; }
+                var act = e.target.closest('[data-act]');
+                if (act) {
+                    if (act.dataset.act === 'today') { commit(new Date()); close(); }
+                    else { commit(null); render(); }
+                    return;
+                }
+                var day = e.target.closest('.ec-day');
+                if (day) {
+                    var p = day.dataset.iso.split('-');
+                    commit(new Date(+p[0], +p[1] - 1, +p[2]));
+                    close();
+                }
+            });
+
+            // Typing: slashes appear as you go, and the hidden field fills only
+            // once what is typed is a real date — a half-typed 22/0 must not
+            // leave a stale ISO value behind from an earlier pick.
+            text.addEventListener('input', function () {
+                var digits = text.value.replace(/\D/g, '').slice(0, 8);
+                var out = digits.slice(0, 2);
+                if (digits.length > 2) out += '/' + digits.slice(2, 4);
+                if (digits.length > 4) out += '/' + digits.slice(4, 8);
+                text.value = out;
+                var d = parseHe(out);
+                hidden.value = d ? toIso(d) : '';
+                selected = d;
+                if (d) view = new Date(d.getFullYear(), d.getMonth(), 1);
+                if (!cal.hidden) render();
+            });
+
+            text.addEventListener('keydown', function (e) {
+                if (cal.hidden) return;
+                if (e.key === 'Escape') close();
+                else if (e.key === 'Enter') { e.preventDefault(); close(); }
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!cal.hidden && !e.target.closest('.ec-date')) close();
+            });
+
+            // form.reset() clears both inputs but leaves this closure's idea of
+            // the selection behind, so the next open would highlight a day the
+            // field no longer holds.
+            contactForm.addEventListener('reset', function () {
+                selected = null;
+                view = new Date();
+                view.setDate(1);
+                close();
+            });
+        })();
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
