@@ -491,6 +491,78 @@
             filter: brightness(1.1);
         }
 
+        /* ── "What management and production include" ──────────────────
+           The three cards above sell the feeling; this answers the question a
+           reader has right after them, and had nowhere to get answered: what
+           exactly do I get. It is the one thing every competitor publishes and
+           this site did not — a day-of producer at ₪5,000 itemises a week-before
+           meeting, hours on site and vendor confirmation, so "we conduct every
+           detail" loses to a list.
+
+           Wording is lifted from SERVICE_DESCRIPTIONS.md unchanged. No prices:
+           the FAQ routes that question to the intro call, by the owner's call. */
+        .includes-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+        .includes-col {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .includes-col .lvl {
+            font-size: 0.72em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            opacity: 0.85;
+        }
+        .includes-col h3 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #E4EBE2;
+            margin: 0;
+        }
+        .includes-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+        .includes-col li {
+            position: relative;
+            padding-inline-start: 26px;
+            color: var(--text-gray);
+            font-size: 1em;
+            line-height: 1.65;
+        }
+        .includes-col li::before {
+            content: '';
+            position: absolute;
+            inset-inline-start: 0;
+            top: 0.62em;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+            box-shadow: 0 0 8px var(--gold-glow);
+        }
+        .includes-col .rollup {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--warm-earth);
+            font-size: 0.88em;
+        }
+        .includes-note {
+            text-align: center;
+            color: var(--text-gray);
+            opacity: 0.8;
+            font-size: 0.95em;
+            margin: 26px auto 0;
+            max-width: 640px;
+        }
+        @media (max-width: 768px) {
+            .includes-col { padding: 26px 22px; }
+            .includes-col h3 { font-size: 1.3em; }
+        }
+
         /* ── Hebrew date field ───────────────────────────────────────────
            A native <input type="date"> draws its own popup, and that popup is
            BROWSER CHROME: the page cannot reach its colours, and it takes its
@@ -551,11 +623,22 @@
             direction: rtl; text-align: center;
         }
         .ec-cal[hidden] { display: none; }
-        .ec-cal-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; }
-        .ec-cal-title { color: var(--accent-gold); font-size: 0.98em; font-weight: 600; }
+        .ec-cal-head { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+        /* Native selects: the biggest tap target available and the only control
+           that opens the whole year at once. `.contact-form input` does not
+           reach a <select>, so these need their own box. */
+        .ec-date .ec-pick {
+            flex: 1 1 auto; min-width: 0; -webkit-appearance: none; appearance: none;
+            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);
+            color: var(--accent-gold); font-family: var(--font-sans); font-size: 0.92em;
+            font-weight: 600; padding: 8px 10px; border-radius: 8px; cursor: pointer;
+            text-align: center; text-align-last: center; direction: rtl;
+        }
+        .ec-date .ec-pick:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 1px; }
+        .ec-date .ec-pick option { background: var(--bg-pearl); color: #E4EBE2; }
         .ec-date .ec-nav {
-            color: var(--text-gray); width: 30px; height: 30px; flex: 0 0 30px;
-            padding: 0; border-radius: 8px; font-size: 1.1em; line-height: 1;
+            color: var(--text-gray); width: 38px; height: 38px; flex: 0 0 38px;
+            padding: 0; border-radius: 8px; font-size: 1.25em; line-height: 1;
         }
         .ec-date .ec-nav:hover, .ec-date .ec-nav:focus-visible {
             background: rgba(200, 155, 111, 0.14); color: var(--accent-gold); outline: none;
@@ -563,8 +646,8 @@
         .ec-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
         .ec-dow { font-size: 0.72em; color: var(--text-gray); opacity: 0.65; padding: 4px 0 6px; }
         .ec-date .ec-day {
-            color: #E4EBE2; padding: 7px 0; border-radius: 7px;
-            font-size: 0.88em; font-variant-numeric: tabular-nums; min-width: 0;
+            color: #E4EBE2; padding: 9px 0; border-radius: 7px;
+            font-size: 0.9em; font-variant-numeric: tabular-nums; min-width: 0;
         }
         .ec-date .ec-day.ec-out { color: #788C76; }
         .ec-date .ec-day:hover, .ec-date .ec-day:focus-visible { background: rgba(200, 155, 111, 0.16); outline: none; }
@@ -1026,6 +1109,41 @@
                     </div>
                 </div>
             </div>
+            <!-- The three cards above say how it feels. This says what it is.
+                 Every competitor publishes a list like this and we did not, so a
+                 couple comparing us to a ₪5,000 day-of producer was comparing an
+                 itemised page to atmosphere. Straight from SERVICE_DESCRIPTIONS.md. -->
+            <h3 class="section-title includes-title" style="font-size: 1.9em; margin-top: 70px;">מה כולל ניהול והפקה</h3>
+            <div class="includes-wrap" data-aos="fade-up">
+                <div class="includes-col">
+                    <span class="lvl">ניהול</span>
+                    <h3>ניהול אירוע</h3>
+                    <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">אתם מחליטים, אנחנו מבצעים.</p>
+                    <ul>
+                        <li>פגישת היכרות ותכנון מוקדם</li>
+                        <li>בניית לוח זמנים מדויק ליום האירוע</li>
+                        <li>תיאום מלא מול כל הספקים</li>
+                        <li>נוכחות מלאה ביום האירוע</li>
+                        <li>בוט ה‑RSVP שלנו כלול — אישורי הגעה, אלרגיות, תזכורות ומענה לאורחים</li>
+                    </ul>
+                </div>
+                <div class="includes-col">
+                    <span class="lvl">הפקה</span>
+                    <h3>הפקה מלאה</h3>
+                    <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">מהחלום ועד המציאות — אנחנו מטפלים בהכל.</p>
+                    <ul>
+                        <li>קונספט ועיצוב</li>
+                        <li>מציאת וניהול ספקים</li>
+                        <li>ניהול תקציב שוטף</li>
+                        <li>לוגיסטיקה ותיאום מלא</li>
+                    </ul>
+                    <p class="rollup">כולל את כל מה שבניהול אירוע, ואת הבוט</p>
+                </div>
+            </div>
+            <p class="includes-note">
+                אירועים עד 300 אורחים. בשיחת ההיכרות נבין מה אתם צריכים ונתאים את ההיקף — היא חינם ולא מחייבת.
+            </p>
+
             <!-- A reader who just finished the three service cards has formed an
                  opinion and had nowhere to act on it — the only CTA was in the
                  hero, above everything that justifies it. -->
@@ -1302,9 +1420,23 @@
                 var y = view.getFullYear(), mo = view.getMonth();
                 var first = new Date(y, mo, 1).getDay();          // 0 = Sunday
                 var today = new Date();
+                // Month and year are SELECTS, not a label between two arrows. A
+                // wedding is booked 6–18 months out, so stepping from today to
+                // the date is ten-plus taps on a 30px target, and there was no
+                // way at all to change the year. The arrows stay for nudging.
+                var yNow = today.getFullYear();
+                var yFrom = Math.min(yNow, y), yTo = Math.max(yNow + 3, y);
+                var mOpts = '', yOpts = '';
+                for (var k = 0; k < 12; k++) {
+                    mOpts += '<option value="' + k + '"' + (k === mo ? ' selected' : '') + '>' + MONTHS[k] + '</option>';
+                }
+                for (var yy = yFrom; yy <= yTo; yy++) {
+                    yOpts += '<option value="' + yy + '"' + (yy === y ? ' selected' : '') + '>' + yy + '</option>';
+                }
                 var html = '<div class="ec-cal-head">'
                     + '<button type="button" class="ec-nav" data-step="-1" aria-label="החודש הקודם">&rsaquo;</button>'
-                    + '<span class="ec-cal-title">' + MONTHS[mo] + ' ' + y + '</span>'
+                    + '<select class="ec-pick" data-pick="month" aria-label="בחירת חודש">' + mOpts + '</select>'
+                    + '<select class="ec-pick" data-pick="year" aria-label="בחירת שנה">' + yOpts + '</select>'
                     + '<button type="button" class="ec-nav" data-step="1" aria-label="החודש הבא">&lsaquo;</button>'
                     + '</div><div class="ec-grid">';
                 for (var i = 0; i < 7; i++) html += '<div class="ec-dow">' + DOW[i] + '</div>';
@@ -1333,9 +1465,22 @@
             btn.addEventListener('click', function () { if (cal.hidden) { open(); text.focus(); } else { close(); } });
             text.addEventListener('focus', open);
 
+            // Delegated on `cal` so it survives innerHTML being rebuilt every
+            // render. setMonth/setFullYear on a date pinned to the 1st cannot
+            // roll over — 31 March + one month would land in May.
+            cal.addEventListener('change', function (e) {
+                var pick = e.target.closest && e.target.closest('.ec-pick');
+                if (!pick) return;
+                view.setDate(1);
+                if (pick.dataset.pick === 'month') view.setMonth(Number(pick.value));
+                else view.setFullYear(Number(pick.value));
+                render();
+            });
+
             cal.addEventListener('click', function (e) {
+                if (!e.target || !e.target.closest) return;
                 var nav = e.target.closest('.ec-nav');
-                if (nav) { view.setMonth(view.getMonth() + Number(nav.dataset.step)); render(); return; }
+                if (nav) { view.setDate(1); view.setMonth(view.getMonth() + Number(nav.dataset.step)); render(); return; }
                 var act = e.target.closest('[data-act]');
                 if (act) {
                     if (act.dataset.act === 'today') { commit(new Date()); close(); }
