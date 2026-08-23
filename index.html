@@ -951,6 +951,17 @@
             margin: 0;
             color: var(--text-gray);
         }
+        /* Sits a step below the lead it closes: same line-height, smaller and
+           quieter, so it reads as the footnote to the promise rather than a
+           second claim competing with it. */
+        .about-cred {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.78em;
+            letter-spacing: 0.01em;
+            color: var(--accent-gold);
+            opacity: 0.92;
+        }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1187,6 +1198,17 @@
                 <p class="about-lead">
                     כל אורח שהזמנתם הוא עולם ומלואו. אנחנו הפנים שלכם מול האורחים והספקים,
                 כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
+                <!-- Added 2026-08-22. Not a credentials line for its own sake: the
+                     paid ads promise experience and Russian, and a word-count of the
+                     visible copy found both at zero — so a couple arriving from one
+                     of those ads landed on a page that did not keep the promise
+                     that brought them. The "up to 300 guests" half was cut on the
+                     owner's call (2026-08-23): a guest ceiling reads as a limit,
+                     not a specialty. The ad copy carrying it must go with it. Wording follows
+                     voice.md: real numbers only, no superlative, and the
+                     experience stands *behind* the evening rather than being
+                     announced as a credential. -->
+                    <span class="about-cred">מעל 15 שנות ניהול והפקת אירועים עומדות מאחורי ערב כזה — אירועי בוטיק, בעברית וברוסית.</span>
                 </p>
             </div>
             <!-- data-aos is on the GRID, never on .about-item. The reveal rule
@@ -1283,13 +1305,19 @@
                     <h4>אישורי הגעה</h4>
                     <p style="color: var(--warm-earth); margin: -6px 0 0; font-size: 0.95em;">כל מוזמן, אחד־אחד.</p>
                     <ul>
-                        <li>פנייה אישית ומכבדת לכל מוזמן</li>
+                    <!-- Two lines changed 2026-08-22 to name the channel and the
+                         deliverable, because the ads promise both by name and the
+                         card described only the outcome. Deliberately still no
+                         "בוט" — voice.md forbids the word to couples, and the
+                         owner's call (2026-08-22) was that the ad changes to match
+                         the site, not the reverse. -->
+                        <li>פנייה אישית ומכבדת לכל מוזמן, בוואטסאפ</li>
                         <li>ווידוא של 100% מהרשימה — מי מגיע, וכמה</li>
                         <li>איסוף העדפות ומגבלות תזונה — טבעוני, צליאק, אלרגיות</li>
                         <li>תזכורות למי שטרם השיב, בלי להציק</li>
                         <li>תזכורת ביום האירוע עם קישור ניווט</li>
                         <li>מענה לשאלות של האורחים לאורך כל הדרך</li>
-                        <li>תמונת מצב מעודכנת אצלכם בכל רגע</li>
+                        <li>דוח אורחים מעודכן אצלכם בזמן אמת</li>
                     </ul>
                     <p class="rollup">שירות עצמאי — אפשר לקחת רק אותו.<br>
                         <span style="opacity:.85">שדרוג: סידורי הושבה ודיילות ההושבה ביום האירוע.</span></p>
@@ -1441,7 +1469,7 @@
         <div class="container">
             <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org" style="color: #888; text-decoration: none;">office@eventconcierge.org</a> | eventconcierge.org</p>
             <p style="margin-top: 10px; font-size: 0.8em;">
-                <a href="javascript:void(0)" onclick="toggleAccessibilityModal()" style="color: #666; text-decoration: underline;">הצהרת נגישות</a> | אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות.
+                <a href="javascript:void(0)" onclick="toggleAccessibilityModal()" style="color: #666; text-decoration: underline;">הצהרת נגישות</a> | אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות. שירות בעברית וברוסית.
             </p>
             <!-- Registered-business details. These exist so an outside reader — a
                  customer, or a platform verifying that this brand belongs to a real
