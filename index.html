@@ -958,17 +958,6 @@
             margin: 0;
             color: var(--text-gray);
         }
-        /* Sits a step below the lead it closes: same line-height, smaller and
-           quieter, so it reads as the footnote to the promise rather than a
-           second claim competing with it. */
-        .about-cred {
-            display: block;
-            margin-top: 14px;
-            font-size: 0.78em;
-            letter-spacing: 0.01em;
-            color: var(--accent-gold);
-            opacity: 0.92;
-        }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -988,16 +977,16 @@
             border: 1px solid rgba(200, 155, 111, 0.12); border-radius: 1px;
             transition: border-color 0.4s;
         }
-        /* Cards laid on a table do not line up. The middle one sits low on wide
-           screens; below the breakpoint every offset is dropped. */
-        .about-grid > .about-item:nth-child(2) { transform: translateY(22px); }
+        /* No stagger. The offset middle card was dropped on the owner's call
+           (2026-08-24): three cards of equal height reading one line is the
+           point, and the 22px drop made the row look misaligned rather than
+           hand-laid. Any nth-child transform here has to be undone again in
+           two media queries — keep the row flat. */
         .about-item:hover, .about-item:focus-within {
             transform: translateY(-6px);
             border-color: rgba(200, 155, 111, 0.45);
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
         }
-        .about-grid > .about-item:nth-child(2):hover,
-        .about-grid > .about-item:nth-child(2):focus-within { transform: translateY(16px); }
         .about-item:hover::before, .about-item:focus-within::before { border-color: rgba(200, 155, 111, 0.3); }
         /* Ornament above the heading: a rule broken by a lozenge, the way a
            printed card separates its lines. Decorative, so hidden from AT. */
@@ -1029,17 +1018,11 @@
             .about-head .section-title::after { margin-inline: auto; }
             .about-lead { font-size: 1.05em; text-align: center; }
             .about-grid { gap: 18px; }
-            .about-grid > .about-item:nth-child(2) { transform: none; }
-            .about-grid > .about-item:nth-child(2):hover,
-            .about-grid > .about-item:nth-child(2):focus-within { transform: translateY(-6px); }
             .about-item { padding: 28px 22px 24px; }
         }
         @media (prefers-reduced-motion: reduce) {
             .about-item, .about-item::before { transition: none; }
-            .about-grid > .about-item:nth-child(2) { transform: none; }
-            .about-item:hover, .about-item:focus-within,
-            .about-grid > .about-item:nth-child(2):hover,
-            .about-grid > .about-item:nth-child(2):focus-within { transform: none; }
+            .about-item:hover, .about-item:focus-within { transform: none; }
         }
 
         /* <details> rather than JS accordions: open/close, keyboard access and
@@ -1202,20 +1185,17 @@
         <div class="container" data-aos="fade-up" style="max-width: 980px;">
             <div class="about-head">
                 <h2 class="section-title">אמנות האירוח</h2>
+                <!-- The 15 years are an ADVERB here, not a claim of their own.
+                     They arrived on 2026-08-22 as a separate gold footnote
+                     ("מעל 15 שנות ניהול והפקת אירועים עומדות מאחורי ערב כזה — אירועי
+                     בוטיק, בעברית וברוסית"), which the owner cut on 2026-08-24: a
+                     credential announced on its own line reads as a boast, which
+                     is what voice.md forbids. Folded into the sentence that was
+                     already there, the number backs the promise instead of
+                     competing with it. Do not restore the standalone line. -->
                 <p class="about-lead">
-                    כל אורח שהזמנתם הוא עולם ומלואו. אנחנו הפנים שלכם מול האורחים והספקים,
-                כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
-                <!-- Added 2026-08-22. Not a credentials line for its own sake: the
-                     paid ads promise experience and Russian, and a word-count of the
-                     visible copy found both at zero — so a couple arriving from one
-                     of those ads landed on a page that did not keep the promise
-                     that brought them. The "up to 300 guests" half was cut on the
-                     owner's call (2026-08-23): a guest ceiling reads as a limit,
-                     not a specialty. The ad copy carrying it must go with it. Wording follows
-                     voice.md: real numbers only, no superlative, and the
-                     experience stands *behind* the evening rather than being
-                     announced as a credential. -->
-                    <span class="about-cred">מעל 15 שנות ניהול והפקת אירועים עומדות מאחורי ערב כזה — אירועי בוטיק, בעברית וברוסית.</span>
+                    כל אורח שהזמנתם הוא עולם ומלואו. חמש עשרה שנה אנחנו הפנים שלכם מול
+                האורחים והספקים, כדי שאתם תוכלו פשוט להיות נוכחים ברגע, לחגוג ולארח באלגנטיות.
                 </p>
             </div>
             <!-- data-aos is on the GRID, never on .about-item. The reveal rule
