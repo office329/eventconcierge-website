@@ -292,6 +292,13 @@
         footer a { color: #888; text-decoration: none; }
 
         @media (max-width: 768px) {
+            /* At 360px the logo's 3px tracking pushed "EVENT CONCIERGE" onto two
+               lines and squeezed the back link onto two more — a 86px-tall
+               nav on the width most paid traffic arrives at. */
+            nav { padding: 14px 0; }
+            .logo { font-size: 1.05em; letter-spacing: 1px; white-space: nowrap; }
+            .nav-back { font-size: .9em; white-space: nowrap; }
+
             .hero { padding: 70px 0 60px; }
             .hero h1 { font-size: 2.1em; }
             .hero p.lead { font-size: 1.08em; }
