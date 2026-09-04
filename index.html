@@ -796,6 +796,36 @@
             scrollbar-width: none;
         }
         .testimonial-slider::-webkit-scrollbar { display: none; }
+
+        /* The full review, one tap under the excerpt. Length is the point: a
+           long, specific review reads as real, and having it here is what makes
+           quoting two runs of it honest rather than convenient. */
+        .review-full {
+            max-width: 780px;
+            margin: 4px auto 34px;
+            padding: 0 10px;
+            text-align: center;
+        }
+        .review-full summary {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.92em;
+            letter-spacing: 0.04em;
+            color: var(--accent-gold);
+            opacity: 0.85;
+            list-style: none;
+        }
+        .review-full summary::-webkit-details-marker { display: none; }
+        .review-full summary:hover { opacity: 1; }
+        .review-full[open] summary { margin-bottom: 18px; }
+        .review-full p {
+            text-align: start;
+            font-size: 1.02em;
+            line-height: 1.9;
+            margin: 0 0 14px;
+            opacity: 0.92;
+        }
+        .review-full .testimonial-author { text-align: start; }
         .testimonial-card {
             min-width: 340px;
             flex: 1;
@@ -1326,33 +1356,52 @@
     <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
             <h2 class="section-title">זוגות מספרים</h2>
-            <!-- Real review, supplied by the couple. Quoted verbatim — only the
-                 hyphen was set as an em dash. No venue is listed because they
-                 did not name one, and inventing one would undo the point of
-                 using a genuine review. -->
-            <div class="testimonial-lead">
-                <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
-                <div class="testimonial-author">נתי ובר</div>
-            </div>
-            <!-- ⚠️ Two reviews stood here that no couple ever gave us — invented
-                 copy attributed to named people at named venues. Removed
-                 2026-08-22 on the owner's instruction.
+            <!-- Real review from מאשה וג'ורדנו, supplied by the couple 04/09/2026.
+                 The lead shows two CONTIGUOUS runs of their own words with an
+                 explicit ellipsis between them — nothing rewritten, nothing
+                 compressed into a sentence they did not say — and the full text
+                 sits verbatim in the <details> below, which is also why the
+                 excerpt is safe: anyone can check it against the whole thing.
 
-                 גלינה ואלכס's review goes here when they send it. Paste it into
-                 the block below and delete the comment wrapper; the slider CSS
-                 is untouched and already handles one or more cards.
+                 It leads because it is the only place on this site where the
+                 financial argument is made, and it is made by a couple rather
+                 than by us. We must not turn it into a claim of our own: it is
+                 their experience at one venue, not a promise we can make. -->
+            <div class="testimonial-lead">
+                <p>אחד הדברים שהכי בלטו מבחינתנו היה הערך שהוא הצליח להשיג עבורנו מול האולם. בהשוואה למחירים שראינו לזוגות אחרים שהתחתנו באותו מקום, הרגשנו שקיבלנו תנאים ומחירים טובים משמעותית. […] אנחנו מרגישים שקיבלנו ממנו גם שירות מעולה, גם הרבה שקט נפשי וגם תמורה כספית משמעותית. ממליצים עליו מכל הלב.</p>
+                <div class="testimonial-author">מאשה וג'ורדנו</div>
+            </div>
+
+            <details class="review-full">
+                <summary>לקריאת ההמלצה המלאה</summary>
+                <p>הייתה לנו חוויה מצוינת עם ארטיום.</p>
+                <p>כבר מההתחלה התקשורת איתו הייתה נעימה, מקצועית וזורמת. הוא היה זמין מאוד לכל שאלה, בקשה או התלבטות, תמיד חזר אלינו מהר ונתן תחושה שיש על מי לסמוך. בתקופה שבה יש כל כך הרבה דברים לסגור ולחשוב עליהם, זה נתן לנו הרבה שקט.</p>
+                <p>אחד הדברים שהכי בלטו מבחינתנו היה הערך שהוא הצליח להשיג עבורנו מול האולם. בהשוואה למחירים שראינו לזוגות אחרים שהתחתנו באותו מקום, הרגשנו שקיבלנו תנאים ומחירים טובים משמעותית. מעבר לזה, האולם גם פינק אותנו בכמה תוספות על חשבונו ואנחנו בהחלט מאמינים שהקשר שלו עם המקום, הניסיון שלו והדרך שבה הוא התנהל מולם תרמו לזה מאוד.</p>
+                <p>מעבר לחיסכון הכספי, הוא ידע לכוון אותנו לאורך הדרך, לעזור לנו להבין איפה שווה להשקיע, איפה אפשר לחסוך ומה באמת חשוב. הרגשנו שהוא מכיר את התחום היטב ויודע איך להתנהל מול האולם והספקים בצורה שמשרתת אותנו.</p>
+                <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק "מפיק אירוע", אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
+                <p>בסופו של דבר, אנחנו מרגישים שקיבלנו ממנו גם שירות מעולה, גם הרבה שקט נפשי וגם תמורה כספית משמעותית. ממליצים עליו מכל הלב.</p>
+                <div class="testimonial-author">מאשה וג'ורדנו</div>
+            </details>
+
+            <!-- Second real review. Quoted verbatim — only the hyphen was set as
+                 an em dash. No venue is listed because they did not name one,
+                 and inventing one would undo the point of a genuine review. -->
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
+                    <div class="testimonial-author">נתי ובר</div>
+                </div>
+            </div>
+            <!-- ⚠️ Two reviews once stood here that no couple ever gave us —
+                 invented copy attributed to named people at named venues.
+                 Removed 2026-08-22 on the owner's instruction.
+
+                 גלינה ואלכס's review goes in another .testimonial-card above
+                 when they send it; the slider already handles more than one.
 
                  NEVER write a testimonial. One real review beats three written
                  ones, and an invented review with a venue name attached is the
-                 kind of thing a couple can disprove in a phone call.
-
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <p>"..."</p>
-                    <div class="testimonial-author">גלינה ואלכס</div>
-                </div>
-            </div>
-            -->
+                 kind of thing a couple can disprove in a phone call. -->
             <div class="section-cta">
                 <a href="#contact" class="btn">נשמח להכיר אתכם</a>
             </div>
