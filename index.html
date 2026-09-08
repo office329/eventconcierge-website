@@ -765,12 +765,11 @@
         .testimonial-slider {
             display: flex;
             overflow-x: auto;
-            gap: 16px;
-            /* 4vw of lead-in, not 6: on a 390px phone every extra pixel of
-               strip padding is a pixel taken from the sliver of the NEXT card,
-               and that sliver is what says "there is more". Measured: 6vw gave
-               41px of it, 4vw gives ~65px. */
+            gap: 12px;
             padding: 24px 4vw 12px;
+            /* Each card wraps its own text. Equal heights made every shorter
+               review sit in a box two paragraphs taller than itself. */
+            align-items: flex-start;
             scroll-snap-type: x mandatory;
             scroll-padding-inline: 4vw;
             -ms-overflow-style: none;
@@ -786,14 +785,11 @@
             color: var(--accent-gold);
             opacity: 0.7;
         }
-        @media (max-width: 899px) {
-            /* 40px each side is a fifth of a phone card; the words need it more. */
-            .testimonial-card { padding: 28px 24px; }
-        }
         @media (min-width: 900px) {
             .testimonial-slider {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
+                align-items: stretch;
                 overflow: visible;
                 padding: 30px 10px;
                 gap: 30px;
@@ -854,7 +850,13 @@
                adds to the lead-in, so on a 390px phone the first card starts
                ~36px in whatever the strip's padding says. At 70vw (~273px) the
                next card shows ~65px — measured, not estimated. */
-            flex: 0 0 min(70vw, 420px);
+            /* 86vw. Wider than the 70vw that showed a big sliver of the next
+               card - because in RTL that sliver is where the neighbour's LINES
+               BEGIN, and a column of chopped first letters is not a card, it is
+               noise. The peek is now ~27px: the neighbour's border and its
+               empty padding, which reads as "another card" without a letter of
+               it. The width buys ~26 characters a line instead of ~20. */
+            flex: 0 0 min(82vw, 420px);
             min-width: 0;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
@@ -895,6 +897,20 @@
             font-style: normal;
             color: var(--accent-gold-bright);
             letter-spacing: 1px;
+        }
+
+        @media (max-width: 899px) {
+            /* Placed AFTER the base .testimonial-card rules on purpose: same
+               specificity, so the later declaration wins. This block first
+               lived above them and none of it applied - the mark stayed on
+               the first line and the padding stayed 40px. Top padding makes
+               room for the quote mark; the words get the width. */
+            .testimonial-card { padding: 64px 24px 28px; font-size: 1.03em; line-height: 1.8; }
+            .testimonial-card p { margin: 0 0 14px; }
+            /* 3em at line-height .9 is ~43px tall from top:8px, so it ends at
+               ~51px - safely above the 64px where the text starts. */
+            .testimonial-card::before { top: 8px; right: 18px; font-size: 3em; line-height: 0.9; }
+            .testimonial-author { margin-top: 18px; }
         }
 
         /* Promise Section */
