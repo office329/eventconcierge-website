@@ -795,6 +795,7 @@
                 gap: 30px;
             }
             .swipe-hint { display: none; }
+
         }
         /* The three full reviews, one tap under the strip. */
         .review-full { margin-top: 18px; }
@@ -811,7 +812,7 @@
             padding: 0 10px;
             text-align: start;
         }
-        .review-full > summary { display: block; text-align: center; }
+        details.review-full > summary { display: block; text-align: center; }
         .review-full summary {
             cursor: pointer;
             display: inline-block;
@@ -909,6 +910,15 @@
                ~51px - safely above the 64px where the text starts. */
             .testimonial-card::before { top: 8px; right: 18px; font-size: 3em; line-height: 0.9; }
             .testimonial-author { margin-top: 18px; }
+        }
+        @media (min-width: 900px) {
+            /* Placed AFTER the base rules for the same reason as the phone
+               block above: equal specificity, later wins. The first attempt
+               sat inside the early grid @media and never applied. Same fault
+               the phone had, smaller: the 4em mark at 20px sat over the end of
+               the first line. 3em from 14px ends ~55px; the text starts at 60. */
+            .testimonial-card { padding: 60px 36px 34px; }
+            .testimonial-card::before { top: 14px; right: 22px; font-size: 3em; line-height: 0.9; }
         }
 
         /* Promise Section */
