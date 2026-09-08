@@ -766,9 +766,13 @@
             display: flex;
             overflow-x: auto;
             gap: 16px;
-            padding: 24px 6vw 12px;
+            /* 4vw of lead-in, not 6: on a 390px phone every extra pixel of
+               strip padding is a pixel taken from the sliver of the NEXT card,
+               and that sliver is what says "there is more". Measured: 6vw gave
+               41px of it, 4vw gives ~65px. */
+            padding: 24px 4vw 12px;
             scroll-snap-type: x mandatory;
-            scroll-padding-inline: 6vw;
+            scroll-padding-inline: 4vw;
             -ms-overflow-style: none;
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
@@ -843,7 +847,10 @@
                ended exactly at the screen edge and the next card never showed —
                the live phone screenshot proved it. At 78vw a ~10vw sliver of
                the next card is visible, which is the whole point. */
-            flex: 0 0 min(78vw, 420px);
+            /* 74vw: measured on a 390px phone (RTL — the next card is to the
+               LEFT), 78vw left a 26px sliver, which is a line, not a card.
+               74vw shows ~60px of it: enough to read as another review. */
+            flex: 0 0 min(74vw, 420px);
             min-width: 0;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
