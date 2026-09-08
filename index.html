@@ -765,7 +765,7 @@
         .testimonial-slider {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
+            gap: 16px;
             padding: 24px 6vw 12px;
             scroll-snap-type: x mandatory;
             scroll-padding-inline: 6vw;
@@ -839,7 +839,11 @@
                and a "86vw" card measures 417px on a 390px phone. Found by the
                local check before pushing. */
             box-sizing: border-box;
-            flex: 0 0 min(86vw, 420px);
+            /* 78vw, not 86: with 6vw of strip padding each side, an 86vw card
+               ended exactly at the screen edge and the next card never showed —
+               the live phone screenshot proved it. At 78vw a ~10vw sliver of
+               the next card is visible, which is the whole point. */
+            flex: 0 0 min(78vw, 420px);
             min-width: 0;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
