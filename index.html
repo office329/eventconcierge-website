@@ -767,9 +767,9 @@
             overflow-x: auto;
             gap: 12px;
             padding: 24px 4vw 12px;
-            /* Each card wraps its own text. Equal heights made every shorter
-               review sit in a box two paragraphs taller than itself. */
-            align-items: flex-start;
+            /* Equal heights everywhere (owner's ask): the excerpts are cut to
+               similar length so stretch costs no dead space. */
+            align-items: stretch;
             scroll-snap-type: x mandatory;
             scroll-padding-inline: 4vw;
             -ms-overflow-style: none;
@@ -796,14 +796,11 @@
             }
             .swipe-hint { display: none; }
         }
-        /* The full review, one tap under an excerpt, inside its own card. */
-        .review-full.in-card {
-            max-width: none;
-            margin: 18px 0 0;
-            padding: 0;
-            text-align: start;
-        }
-        .review-full.in-card p { font-size: 0.95em; line-height: 1.8; }
+        /* The three full reviews, one tap under the strip. */
+        .review-full { margin-top: 18px; }
+        .review-block { margin: 0 0 30px; }
+        .review-block:last-child { margin-bottom: 8px; }
+        .review-block .testimonial-author { margin-top: 10px; }
 
         /* The full review, one tap under the excerpt. Length is the point: a
            long, specific review reads as real, and having it here is what makes
@@ -814,6 +811,7 @@
             padding: 0 10px;
             text-align: start;
         }
+        .review-full > summary { display: block; text-align: center; }
         .review-full summary {
             cursor: pointer;
             display: inline-block;
@@ -1402,58 +1400,58 @@
     <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
             <h2 class="section-title">זוגות מספרים</h2>
-            <!-- Three real reviews, each verbatim, each in the couple's own words.
-                 The rule from 2026-08-22 stands: NEVER write a testimonial. Two
-                 invented ones were removed that day; an invented review with a
-                 name on it is the kind of thing a couple can disprove in a call.
+            <!-- Three real reviews, each in the couple's own words. The rule from
+                 2026-08-22 stands: NEVER write a testimonial.
 
-                 Layout (owner's ask, 2026-09-08): on a phone the three are ONE
-                 horizontal strip you swipe through, not three blocks stacked.
-                 Until now one review was raised as a lead quote above a
-                 one-card slider - three blocks tall on a phone, and a slider
-                 with nothing to slide. With three real voices they stand as
-                 peers. The next card peeks in from the edge on purpose: that is
-                 what tells a thumb there is more. On a wide screen it is a
-                 plain three-column row.
+                 Three cards of EQUAL HEIGHT (owner's ask, 2026-09-08): each card
+                 is an excerpt of similar length - one CONTIGUOUS run of the
+                 review, in their order, nothing inserted - and the strip is
+                 align-items: stretch on every screen. The full reviews sit in
+                 one <details> under the strip, which is what keeps an excerpt
+                 honest: anyone can check it against the whole. The patch that
+                 writes this block asserts each excerpt is a substring of its
+                 source before it touches the file.
 
-                 The first card is an EXCERPT - one contiguous paragraph, no
-                 splicing - with the full review one tap below it, and it
-                 deliberately does not lead on price (owner's call 06/09). -->
+                 On a phone the three are one swipe strip; the next card peeks in
+                 by its edge only. From 900px, a three-column row. -->
             <div class="testimonial-slider" aria-label="המלצות של זוגות">
-
                 <div class="testimonial-card">
                     <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק &ldquo;מפיק אירוע&rdquo;, אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
                     <div class="testimonial-author">מאשה וג'ורדנו</div>
-                    <details class="review-full in-card">
-                        <summary>לקריאת ההמלצה המלאה</summary>
-                        <p>הייתה לנו חוויה מצוינת עם ארטיום.</p>
-                        <p>כבר מההתחלה התקשורת איתו הייתה נעימה, מקצועית וזורמת. הוא היה זמין מאוד לכל שאלה, בקשה או התלבטות, תמיד חזר אלינו מהר ונתן תחושה שיש על מי לסמוך. בתקופה שבה יש כל כך הרבה דברים לסגור ולחשוב עליהם, זה נתן לנו הרבה שקט.</p>
-                        <p>אחד הדברים שהכי בלטו מבחינתנו היה הערך שהוא הצליח להשיג עבורנו מול האולם. בהשוואה למחירים שראינו לזוגות אחרים שהתחתנו באותו מקום, הרגשנו שקיבלנו תנאים ומחירים טובים משמעותית. מעבר לזה, האולם גם פינק אותנו בכמה תוספות על חשבונו ואנחנו בהחלט מאמינים שהקשר שלו עם המקום, הניסיון שלו והדרך שבה הוא התנהל מולם תרמו לזה מאוד.</p>
-                        <p>מעבר לחיסכון הכספי, הוא ידע לכוון אותנו לאורך הדרך, לעזור לנו להבין איפה שווה להשקיע, איפה אפשר לחסוך ומה באמת חשוב. הרגשנו שהוא מכיר את התחום היטב ויודע איך להתנהל מול האולם והספקים בצורה שמשרתת אותנו.</p>
-                        <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק "מפיק אירוע", אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
-                        <p>בסופו של דבר, אנחנו מרגישים שקיבלנו ממנו גם שירות מעולה, גם הרבה שקט נפשי וגם תמורה כספית משמעותית. ממליצים עליו מכל הלב.</p>
-                    </details>
                 </div>
-
-                <!-- Sent to the owner 2026-09-08. Verbatim, all of it - three
-                     short paragraphs fit a card without an excerpt, which is
-                     the best case: nothing to choose, nothing to omit. -->
                 <div class="testimonial-card">
+                    <p>מה שהכי הרגיע אותנו מהרגע הראשון הייתה התחושה שיש על מי לסמוך ושמישהו באמת מנהל את העניינים בצורה הכי מקצועית שיש. ביום האירוע עצמו, בזכות ההפקה, אנחנו והאנשים הכי חשובים לנו פשוט יכולנו לשחרר, לחגוג וליהנות מכל שנייה בלי שום דאגות.</p>
+                    <div class="testimonial-author">גלינה ואלכס</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
+                    <div class="testimonial-author">נתי ובר</div>
+                </div>
+            </div>
+            <p class="swipe-hint" aria-hidden="true">גללו לצדדים &larr;</p>
+
+            <details class="review-full">
+                <summary>לקריאת ההמלצות המלאות</summary>
+                <div class="review-block">
+                    <p>הייתה לנו חוויה מצוינת עם ארטיום.</p>
+                    <p>כבר מההתחלה התקשורת איתו הייתה נעימה, מקצועית וזורמת. הוא היה זמין מאוד לכל שאלה, בקשה או התלבטות, תמיד חזר אלינו מהר ונתן תחושה שיש על מי לסמוך. בתקופה שבה יש כל כך הרבה דברים לסגור ולחשוב עליהם, זה נתן לנו הרבה שקט.</p>
+                    <p>אחד הדברים שהכי בלטו מבחינתנו היה הערך שהוא הצליח להשיג עבורנו מול האולם. בהשוואה למחירים שראינו לזוגות אחרים שהתחתנו באותו מקום, הרגשנו שקיבלנו תנאים ומחירים טובים משמעותית. מעבר לזה, האולם גם פינק אותנו בכמה תוספות על חשבונו ואנחנו בהחלט מאמינים שהקשר שלו עם המקום, הניסיון שלו והדרך שבה הוא התנהל מולם תרמו לזה מאוד.</p>
+                    <p>מעבר לחיסכון הכספי, הוא ידע לכוון אותנו לאורך הדרך, לעזור לנו להבין איפה שווה להשקיע, איפה אפשר לחסוך ומה באמת חשוב. הרגשנו שהוא מכיר את התחום היטב ויודע איך להתנהל מול האולם והספקים בצורה שמשרתת אותנו.</p>
+                    <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק "מפיק אירוע", אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
+                    <p>בסופו של דבר, אנחנו מרגישים שקיבלנו ממנו גם שירות מעולה, גם הרבה שקט נפשי וגם תמורה כספית משמעותית. ממליצים עליו מכל הלב.</p>
+                    <div class="testimonial-author">מאשה וג'ורדנו</div>
+                </div>
+                <div class="review-block">
                     <p>פשוט נהנינו מכל רגע בתהליך! מה שהכי הרגיע אותנו מהרגע הראשון הייתה התחושה שיש על מי לסמוך ושמישהו באמת מנהל את העניינים בצורה הכי מקצועית שיש.</p>
                     <p>ביום האירוע עצמו, בזכות ההפקה, אנחנו והאנשים הכי חשובים לנו פשוט יכולנו לשחרר, לחגוג וליהנות מכל שנייה בלי שום דאגות. הייתם שם בשבילנו לכל פרט.</p>
                     <p>אנחנו ממליצים בחום לכל זוג שרוצה להגיע ליום החתונה בראש שקט ופשוט ליהנות מהדרך ומהאירוע עצמו!</p>
                     <div class="testimonial-author">גלינה ואלכס</div>
                 </div>
-
-                <!-- Quoted verbatim - only the hyphen was set as an em dash. No
-                     venue: they did not name one. -->
-                <div class="testimonial-card">
+                <div class="review-block">
                     <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
                     <div class="testimonial-author">נתי ובר</div>
                 </div>
-
-            </div>
-            <p class="swipe-hint" aria-hidden="true">גללו לצדדים &larr;</p>
+            </details>
             <div class="section-cta">
                 <a href="#contact" class="btn">נשמח להכיר אתכם</a>
             </div>
