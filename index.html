@@ -850,7 +850,11 @@
             /* 74vw: measured on a 390px phone (RTL — the next card is to the
                LEFT), 78vw left a 26px sliver, which is a line, not a card.
                74vw shows ~60px of it: enough to read as another review. */
-            flex: 0 0 min(74vw, 420px);
+            /* 70vw. The strip lives inside .container, whose own inline padding
+               adds to the lead-in, so on a 390px phone the first card starts
+               ~36px in whatever the strip's padding says. At 70vw (~273px) the
+               next card shows ~65px — measured, not estimated. */
+            flex: 0 0 min(70vw, 420px);
             min-width: 0;
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
@@ -858,7 +862,10 @@
             border: 1px solid var(--glass-border);
             padding: 40px;
             border-radius: 16px;
-            scroll-snap-align: center;
+            /* start, not center: centring the snapped card pushes it ~20px
+               toward the middle and eats the sliver of the next one. Flush at
+               the lead-in edge is also what a thumb expects each swipe to do. */
+            scroll-snap-align: start;
             /* לא italic: לעברית אין נטוי אמיתי, והדפדפן מטה את האותיות
                סינתטית. זה מה שגורם לציטוט להיראות חובבני. ההדגשה מגיעה
                מגודל, ממשקל ומצבע במקום. */
