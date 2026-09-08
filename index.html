@@ -319,19 +319,23 @@
                     rgba(12, 23, 16, 0.93) 74%,
                     var(--primary-dark) 92%);
             }
-            /* Pinned to the bottom of the screen: 72px clears the floating
-               WhatsApp / accessibility buttons (46px tall, 12px up) by 14px. */
+            /* Pinned to the bottom of the screen: 64px puts the button's
+               bottom 6px above the floating WhatsApp / accessibility buttons
+               (46px tall, 12px up). The button is narrowed below so that even
+               if a browser places the floats higher, they pass beside it. */
             .hero-copy {
                 position: relative;
                 z-index: 1;
                 flex: 0 0 auto;
                 margin-top: -12vh;
-                padding: 0 22px 72px;
+                padding: 0 22px 64px;
                 text-align: center;
             }
             /* The phone TYPE (h1 / p / kicker sizes) is NOT here — see the
                block at the very end of this stylesheet and the note on it. */
-            .hero .btn { white-space: nowrap; font-size: clamp(13px, 3.9vw, 16px); padding: 15px 22px; }
+            /* 14px side padding: the button stays inside the 60px gutters the
+               two floats occupy (12px + 46px), so it can sit at their level. */
+            .hero .btn { white-space: nowrap; font-size: clamp(13px, 3.9vw, 16px); padding: 15px 14px; }
         }
         /* Short phones (≈360×780 and below) still pushed the CTA past the fold.
            Keyed on HEIGHT, not width — it is vertical room that runs out, and
@@ -343,7 +347,7 @@
                (measured at 360x780). The old "push the CTA below the fold"
                rule is gone; with the copy on the fade there is room. */
             .hero-photo { min-height: 260px; }
-            .hero-copy { margin-top: -13vh; padding: 0 22px 72px; }
+            .hero-copy { margin-top: -13vh; padding: 0 22px 64px; }
         }
         /* The three kicker words are links into the cards that explain them. */
         .kicker a {
@@ -1011,7 +1015,7 @@
             text-align: center;
             position: relative;
         }
-        .promise-section h2 { color: var(--primary-dark); }
+        .promise-section h2 { color: var(--primary-dark); margin-bottom: 20px; }
         .promise-section .promise-badge {
             border-color: var(--copper-on-sand);
             color: var(--copper-on-sand);
@@ -1289,6 +1293,22 @@
             /* The nav bar was 84px on a phone; 20px of padding each side of a
                24px logo. 14px is enough and gives the photo 12px more. */
             nav { padding: 14px 0; }
+
+            /* Section rhythm on a phone (owner, 2026-09-08: "a lot of space
+               above זוגות מספרים and above נשמח להכיר"). The sections kept
+               their desktop padding — 80/80, 80/120 — so the gap from one
+               section's last line to the next title ran 140-160px. Now
+               70-90px. The hero already ends in 64px of copy padding, so
+               "אמנות האירוח" needs almost none on top. The contact section
+               keeps a deep bottom because the floats own that strip. */
+            .section { padding: 28px 0; }
+            #about { padding-top: 0; }
+            .testimonials { padding: 36px 0 28px; }
+            .promise-section { padding: 44px 0 36px; }
+            .promise-section h2 { margin-bottom: 0; }
+            .contact-section { padding: 36px 0 110px; }
+            .section-cta { margin-top: 30px; }
+            .review-full { margin-bottom: 20px; }
         }
         @media (max-width: 860px) and (max-height: 820px) {
             .hero h1 { font-size: clamp(1.45rem, 6.6vw, 1.85rem); margin-bottom: 11px; }
@@ -1577,7 +1597,7 @@
         <div class="container reveal">
             <div class="promise-content">
                 <span class="promise-badge">ההבטחה שלנו</span>
-                <h2 style="font-weight: 300; font-size: 2em; margin-bottom: 20px;">ההבטחה שלנו אליכם פשוטה: אנחנו מנצחים על כל פרט ופרט מאחורי הקלעים, כדי להעניק לכם חופש מוחלט!</h2>
+                <h2 style="font-weight: 300; font-size: 2em;">ההבטחה שלנו אליכם פשוטה: אנחנו מנצחים על כל פרט ופרט מאחורי הקלעים, כדי להעניק לכם חופש מוחלט!</h2>
             </div>
         </div>
     </section>
