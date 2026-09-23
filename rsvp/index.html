@@ -532,9 +532,17 @@
 
                 if (!response.ok) throw new Error('שגיאה בשליחה');
 
+                // ⚠️ 200 לבדו אינו ליד — מלכודת הבוטים בשרת מחזירה
+                // {success:true} ומוחקת את הפנייה, וליד אמיתי מוחזר כ-{ok:true}.
+                // ראו את ההערה המלאה בטופס שבדף הבית.
+                let leadStored = false;
+                try {
+                    leadStored = (await response.clone().json())?.ok === true;
+                } catch { leadStored = false; }
+
                 // Without this event there is no way to know which keywords
                 // produced a lead — a paid campaign would be spending blind.
-                if (typeof gtag === 'function') {
+                if (leadStored && typeof gtag === 'function') {
                     gtag('event', 'generate_lead', {
                         event_category: 'contact',
                         event_label: 'rsvp_form',

@@ -1990,11 +1990,24 @@
                 });
 
                 if (response.ok) {
+                    // ⚠️ 200 לבדו אינו ליד. מלכודת הבוטים בשרת (checkHoneypot)
+                    // מחזירה בכוונה {success:true} ומוחקת את הפנייה, כדי שבוט
+                    // יחשוב שהצליח — ליד אמיתי מוחזר כ-{ok:true}. עד 09/2026
+                    // נבדק כאן response.ok בלבד, ולכן כל מילוי של המלכודת ספר
+                    // המרה ל-Google Ads בלי שנוצר ליד: ב-14/09/2026 נרשמה המרה
+                    // אחת כזו, ומולה אין שום רשומה ב-signups. ההמרה המזויפת היא
+                    // מה שהזנת ל-Maximize Conversions, ולכן היא קנתה תנועה לפי
+                    // אות שקרי. לירות את האירוע רק לפי גוף התשובה.
+                    let leadStored = false;
+                    try {
+                        leadStored = (await response.clone().json())?.ok === true;
+                    } catch { leadStored = false; }
+
                     // בלי האירוע הזה אי אפשר לדעת אילו מילות מפתח הביאו ליד,
                     // ולכן אי אפשר לייעל קמפיין ממומן — משלמים בלי משוב.
                     // generate_lead הוא אירוע מומלץ של GA4, כך שאפשר לסמן
                     // אותו כ"אירוע מפתח" ולייבא אותו כהמרה ל-Google Ads.
-                    if (typeof gtag === 'function') {
+                    if (leadStored && typeof gtag === 'function') {
                         gtag('event', 'generate_lead', {
                             event_category: 'contact',
                             event_label: 'website_form',
