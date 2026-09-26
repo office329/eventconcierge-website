@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>מנהל אירוע ליום החתונה | Event Concierge</title>
+    <meta name="description" content="מנהל אירוע צמוד ליום שלכם: לוח זמנים אחד לכל הספקים, אישור כל ספק יום לפני, וביום עצמו מישהו שמחזיק את הערב מהאורח הראשון ועד אחרון הרוקדים.">
+
+    <!-- Landing page for Google Ads group A ("מנהל אירוע", "ניהול אירוע חתונה").
+         Built 2026-09-26: every ad landed on the home page, where the
+         management list sits ~70% down, and Quality Score read 1-3. Every
+         headline of ad A must be answered on this page - change them together.
+         Copy is from eventconcierge-materials/מחולל/sheets_content.py
+         (MANAGEMENT_SCOPE / TRACKS["management"]); nothing invented. -->
+    <link rel="canonical" href="https://eventconcierge.org/wedding-manager/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eventconcierge.org/wedding-manager/">
+    <meta property="og:title" content="מנהל אירוע ליום החתונה | Event Concierge">
+    <meta property="og:description" content="מנהל אירוע צמוד ליום שלכם: לוח זמנים אחד לכל הספקים, אישור כל ספק יום לפני, וביום עצמו מישהו שמחזיק את הערב מהאורח הראשון ועד אחרון הרוקדים.">
+    <meta property="og:image" content="https://eventconcierge.org/img/og-share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="Event Concierge">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="מנהל אירוע ליום החתונה | Event Concierge">
+    <meta name="twitter:description" content="מנהל אירוע צמוד ליום שלכם: לוח זמנים אחד לכל הספקים, אישור כל ספק יום לפני, וביום עצמו מישהו שמחזיק את הערב מהאורח הראשון ועד אחרון הרוקדים.">
+    <meta name="twitter:image" content="https://eventconcierge.org/img/og-share.jpg">
+
+    <!-- Every answer here must stay byte-identical to the visible FAQ below. -->
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "מה ההבדל בין ניהול אירוע להפקה?", "acceptedAnswer": {"@type": "Answer", "text": "בהפקה אנחנו בוחרים איתכם את הספקים וסוגרים מולם. בניהול האירוע את הספקים כבר סגרתם, ואנחנו לוקחים אותם לידיים: עוברים על ההסכמים, בונים לוח זמנים אחד לכולם, מאשרים כל ספק אישית יום לפני, ומנהלים את כולם ביום עצמו."}}, {"@type": "Question", "name": "מה אתם צריכים מאיתנו?", "acceptedAnswer": {"@type": "Answer", "text": "את פרטי הספקים שסגרתם, את מפת ההושבה עד ארבעה ימים לפני האירוע, ואיש קשר אחד מטעמכם להחלטות ביום עצמו. את כל השאר אנחנו לוקחים."}}, {"@type": "Question", "name": "אתם עובדים עם כל אולם?", "acceptedAnswer": {"@type": "Answer", "text": "כן. האולם, הקייטרינג, הצילום והמוזיקה נשארים הספקים שלכם, והתשלום עובר מכם אליהם ישירות. אנחנו מנהלים אותם בשמכם."}}, {"@type": "Question", "name": "מתי כדאי לפנות?", "acceptedAnswer": {"@type": "Answer", "text": "ככל שמוקדם יותר, כך יש יותר זמן להכיר את הספקים שלכם ולדייק את מה שעוד פתוח. הפגישה המסכמת נקבעת שבוע לפני האירוע. אם התאריך שלכם קרוב, נבדוק בשיחה קצרה אם עוד אפשר להיכנס בזמן."}}, {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "תלוי בהיקף האירוע ובמה שכבר סגור. אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת, בלי הפתעות ובלי כוכביות."}}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5Q9T88YXD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J5Q9T88YXD');
+    </script>
+
+    <style>
+        h1, h2, h3, .logo {
+            font-family: var(--font-head);
+            letter-spacing: 1px;
+        }
+        /* Tokens copied verbatim from the home page. The app and the site are
+           one brand — see index.html for the palette's origin. */
+        :root {
+            --primary-dark: #0C1710;
+            --accent-gold: #C89B6F;
+            --accent-gold-bright: #E3C4A2;
+            --bg-pearl: #14251B;
+            --text-gray: #B7C7B6;
+            --warm-earth: #CEC4AD;
+            --glass-bg: rgba(20, 37, 27, 0.6);
+            --glass-border: rgba(200, 155, 111, 0.25);
+            --gold-glow: rgba(200, 155, 111, 0.35);
+
+            --font-head: 'Assistant', 'Heebo', sans-serif;
+            --font-sans: 'Heebo', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            color: var(--text-gray);
+            line-height: 1.8;
+            background-color: var(--primary-dark);
+            background-image:
+              radial-gradient(circle at 80% 20%, rgba(200, 155, 111, 0.12), transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
+            background-attachment: fixed;
+            font-weight: 300;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .narrow { max-width: 760px; }
+
+        .skip-link {
+            position: absolute; top: -40px; right: 0;
+            background: var(--accent-gold); color: var(--primary-dark);
+            padding: 8px; z-index: 2000; transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        a:focus, button:focus, input:focus, summary:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+        .btn:focus, .whatsapp-float:focus { outline-offset: 4px; }
+
+        nav {
+            background-color: rgba(12, 23, 16, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            position: sticky; top: 0; z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .logo {
+            font-size: 1.5em; font-weight: 500; color: var(--accent-gold);
+            text-decoration: none; letter-spacing: 3px; text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(200, 155, 111,0.3);
+        }
+        .nav-back { color: var(--text-gray); text-decoration: none; font-size: 1em; transition: color .3s; }
+        .nav-back:hover { color: var(--accent-gold); }
+
+        /* Hero */
+        .hero { padding: 100px 0 80px; text-align: center; }
+        .hero .eyebrow {
+            color: var(--accent-gold); letter-spacing: 4px; text-transform: uppercase;
+            font-size: .8em; margin: 0 0 22px;
+        }
+        .hero h1 {
+            font-size: 3em; font-weight: 300; color: #fff;
+            margin: 0 0 26px; line-height: 1.35;
+            text-shadow: 0 4px 20px rgba(0,0,0,.5);
+        }
+        .hero h1 em { font-style: normal; color: var(--accent-gold-bright); }
+        .hero p.lead { font-size: 1.2em; max-width: 640px; margin: 0 auto 40px; color: #cfdccd; }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 16px 45px; text-decoration: none;
+            font-size: 1.1em; font-weight: 500; letter-spacing: 1px;
+            display: inline-block; transition: all 0.3s;
+            border: 2px solid var(--accent-gold); border-radius: 3px;
+            position: relative; overflow: hidden;
+        }
+        .btn::after {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+        }
+        .btn:hover::after { animation: shimmer 0.75s ease forwards; }
+        @keyframes shimmer { 100% { left: 120%; } }
+        .btn:hover { background-color: transparent; color: white; border-color: white; }
+
+        .section { padding: 80px 0; }
+        .section-alt { background: rgba(0,0,0,.18); }
+        .section-title {
+            text-align: center; font-size: 2.3em; color: var(--accent-gold);
+            margin-bottom: 45px; font-weight: 400;
+            text-shadow: 0 4px 15px rgba(200, 155, 111,0.2);
+        }
+        .section-title::after {
+            content: ''; display: block; width: 50px; height: 2px;
+            background-color: var(--accent-gold);
+            margin: 20px auto 0; box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        blockquote.regret {
+            border: 0; border-inline-start: 3px solid var(--accent-gold);
+            margin: 0 auto 34px; padding: 6px 26px;
+            font-size: 1.25em; color: var(--warm-earth); font-style: italic;
+            max-width: 620px;
+        }
+
+        .panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(200, 155, 111, 0.4);
+            border-radius: 16px; padding: 38px 34px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        .panel h3 { color: var(--accent-gold); margin: 0 0 14px; font-size: 1.3em; font-weight: 500; }
+        .panel p:last-child { margin-bottom: 0; }
+
+        /* The deliverables list */
+        .does-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+        .does-list li {
+            padding: 15px 0 15px 0;
+            border-bottom: 1px solid rgba(200,155,111,.14);
+            display: flex; align-items: flex-start; gap: 14px;
+            font-size: 1.06em;
+        }
+        .does-list li:last-child { border-bottom: 0; }
+        .does-list .mark { color: var(--accent-gold); flex-shrink: 0; line-height: 1.7; }
+
+        .upgrade {
+            margin-top: 34px; padding: 22px 26px;
+            border: 1px dashed rgba(200,155,111,.4); border-radius: 12px;
+            background: rgba(200,155,111,.05);
+        }
+        .upgrade strong { color: var(--accent-gold-bright); font-weight: 500; }
+
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            border: 1px solid rgba(200, 155, 111,0.22);
+            border-radius: 12px; background: rgba(255,255,255,0.02); overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 18px 22px; cursor: pointer; font-size: 1.05em; font-weight: 500;
+            color: var(--accent-gold-bright); list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+'; font-size: 1.4em; line-height: 1; opacity: .7;
+            transition: transform .25s; flex-shrink: 0;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p { padding: 0 22px 20px; margin: 0; line-height: 1.85; color: #ccc; }
+
+        /* Contact */
+        .contact-section { padding: 80px 0 100px; text-align: center; }
+        .contact-section h2 { color: var(--accent-gold); font-size: 2em; font-weight: 400; margin: 0 0 10px; }
+        .contact-form {
+            background: var(--glass-bg); padding: 40px; border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 560px; margin: 0 auto; text-align: start;
+        }
+        .contact-form input {
+            width: 100%; padding: 16px; margin-bottom: 22px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: var(--font-sans);
+            transition: all 0.3s; text-align: start; direction: inherit;
+            border-radius: 8px; font-size: 1.05em;
+        }
+        .contact-form input::placeholder { text-align: start; direction: inherit; color: rgba(255,255,255,0.4); }
+        .contact-form input:focus {
+            outline: none; border-color: var(--accent-gold);
+            background: rgba(0,0,0,0.5); box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
+        }
+        .contact-form label.field-label {
+            display: block; text-align: start; color: #bbb;
+            font-size: 0.85em; margin-bottom: 6px;
+        }
+        .contact-form button {
+            background: linear-gradient(135deg, #C89B6F, #A97C52);
+            color: var(--primary-dark); border: none; padding: 16px 40px;
+            font-size: 1.15em; cursor: pointer; font-weight: 600;
+            font-family: var(--font-sans); width: 100%; letter-spacing: 1px;
+            border-radius: 8px; transition: all 0.3s;
+            box-shadow: 0 6px 20px var(--gold-glow);
+        }
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(200, 155, 111, 0.5);
+            filter: brightness(1.1);
+        }
+        .contact-form button:disabled { opacity: .6; cursor: default; transform: none; }
+        .or-whatsapp { margin-top: 26px; font-size: .98em; color: #bbb; }
+        .or-whatsapp a { color: var(--accent-gold); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background-color: var(--primary-dark); color: var(--accent-gold);
+            width: 60px; height: 60px; border-radius: 50px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+            border: 1.5px solid var(--accent-gold);
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(200, 155, 111,0.35); }
+
+        footer {
+            background-color: #08110C; padding: 40px 0; text-align: center;
+            font-size: 0.9em; color: #888; border-top: 1px solid rgba(200,155,111,.15);
+        }
+        footer a { color: #888; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            /* At 360px the logo's 3px tracking pushed "EVENT CONCIERGE" onto two
+               lines and squeezed the back link onto two more — a 86px-tall
+               nav on the width most paid traffic arrives at. */
+            nav { padding: 14px 0; }
+            .logo { font-size: 1.05em; letter-spacing: 1px; white-space: nowrap; }
+            .nav-back { font-size: .9em; white-space: nowrap; }
+
+            .hero { padding: 70px 0 60px; }
+            .hero h1 { font-size: 2.1em; }
+            .hero p.lead { font-size: 1.08em; }
+            .section { padding: 60px 0; }
+            .section-title { font-size: 1.75em; margin-bottom: 34px; }
+            .contact-form { padding: 28px 22px; }
+            .panel { padding: 28px 22px; }
+            blockquote.regret { font-size: 1.12em; padding: 4px 18px; }
+            .whatsapp-float { bottom: 20px; left: 20px; width: 54px; height: 54px; }
+        }
+
+        /* Page-specific: the photo under the hero, the timeline, the reviews. */
+        .hero { padding-bottom: 50px; }
+        .hero-img { max-width: 1000px; margin: 0 auto 10px; padding: 0 20px; }
+        .hero-img img { width: 100%; height: auto; display: block; border-radius: 16px;
+            border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+
+        .moments { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+        .moments .panel { padding: 30px 26px; }
+
+        .timeline { list-style: none; margin: 0; padding: 0; }
+        .timeline > li { position: relative; padding: 0 0 34px; padding-inline-start: 74px; }
+        .timeline > li::before {
+            content: ''; position: absolute; inset-inline-start: 27px; top: 60px; bottom: 6px;
+            width: 1px; background: rgba(200,155,111,.3);
+        }
+        .timeline > li:last-child::before { display: none; }
+        .timeline .when {
+            position: absolute; inset-inline-start: 0; top: 0;
+            width: 56px; height: 56px; border-radius: 50%;
+            border: 1.5px solid var(--accent-gold); color: var(--accent-gold-bright);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-family: var(--font-head); font-size: 1.35em; line-height: 1; font-weight: 600;
+        }
+        .timeline .when small { font-size: .45em; font-weight: 400; letter-spacing: 0; margin-top: 3px; }
+        .timeline h3 { color: var(--accent-gold); margin: 4px 0 4px; font-size: 1.2em; font-weight: 500; }
+        .timeline .kicker { color: var(--warm-earth); font-size: .95em; margin: 0 0 10px; }
+        .timeline ul { margin: 0; padding-inline-start: 18px; }
+        .timeline ul li { margin-bottom: 4px; }
+
+        .scope-note { margin-top: 6px; font-size: .98em; color: var(--warm-earth); }
+
+        .reviews { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+        .review { margin: 0; }
+        .review p { font-size: 1.02em; line-height: 1.85; margin: 0 0 16px; }
+        .review .who { color: var(--accent-gold); font-size: .95em; font-weight: 500; }
+
+        .section-cta { text-align: center; margin-top: 40px; }
+
+        @media (max-width: 860px) {
+            .moments, .reviews { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding-bottom: 40px; }
+            .timeline > li { padding-inline-start: 62px; }
+            .timeline .when { width: 46px; height: 46px; font-size: 1.15em; }
+            .timeline > li::before { inset-inline-start: 22px; top: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">דלג לאזור התוכן המרכזי</a>
+
+<nav>
+    <div class="container nav-container">
+        <a href="/" class="logo">Event Concierge</a>
+        <a href="/" class="nav-back">לאתר הראשי&nbsp;›</a>
+    </div>
+</nav>
+
+<main id="main">
+
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">ניהול האירוע</p>
+            <h1>מנהל אירוע צמוד ליום שלכם.<br><em>אתם חתן וכלה כל הערב.</em></h1>
+            <p class="lead">
+                מהאורח הראשון שחונה ועד אחרון הרוקדים, כל ספק, כל שאלה וכל שינוי
+                בלוח הזמנים מגיעים אלינו. אתם מארחים.
+            </p>
+            <a href="#contact" class="btn">בואו נבדוק אם התאריך שלכם פנוי</a>
+        </div>
+    </header>
+
+    <div class="hero-img">
+        <picture>
+            <source type="image/webp" srcset="/img/hero-couple-640w.webp 640w, /img/hero-couple-1024w.webp 1024w, /img/hero-couple-1920w.webp 1920w" sizes="(max-width: 1000px) 100vw, 960px">
+            <img src="/img/hero-couple-1024w.jpg" srcset="/img/hero-couple-640w.jpg 640w, /img/hero-couple-1024w.jpg 1024w, /img/hero-couple-1920w.jpg 1920w" sizes="(max-width: 1000px) 100vw, 960px"
+                 width="1920" height="1280" alt="זוג באירוע שלהם" decoding="async">
+        </picture>
+    </div>
+
+    <section class="section">
+        <div class="container narrow">
+            <p style="font-size:1.12em">
+                סגרתם אולם, קייטרינג, צלם ודי־ג'יי. כל אחד מהם מקצוען, וכל אחד מהם
+                מחכה ביום האירוע למישהו שיגיד לו מתי. בלי מנהל אירוע, המישהו הזה
+                הוא אתם, או אחד ההורים, עם טלפון שלא מפסיק לצלצל.
+            </p>
+            <p style="font-size:1.12em; margin-bottom:0">
+                אנחנו לוקחים את החוטים לידיים: מכירים את הספקים שסגרתם, בונים לוח
+                זמנים אחד לכולם, וביום עצמו מחזיקים את הערב במקומכם.
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">איך זה מרגיש ביום עצמו</h2>
+            <div class="moments">
+                <div class="panel">
+                    <h3>הרגע השקט שלכם לפני שהכל מתחיל</h3>
+                    <p>הדלתות עוד סגורות. אתם יושבים, אוכלים, מסתכלים אחד על השנייה. מישהו עוצר את השעון בשבילכם.</p>
+                </div>
+                <div class="panel">
+                    <h3>הטלפון שלכם שקט כל הערב</h3>
+                    <p>ספק שמאחר, לוח זמנים שזז, שולחן שחסר כיסא. הכל מגיע אלינו ומטופל, ולרוב תשמעו על זה רק אחרי.</p>
+                </div>
+                <div class="panel">
+                    <h3>הפרטים הקטנים מחכים מסודרים</h3>
+                    <p>האקססוריז לרחבה, ספירת האלכוהול, התשלומים והטיפים לספקים בסוף הערב. אתם רק אומרים תודה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container narrow">
+            <h2 class="section-title">מה אנחנו עושים, ומתי</h2>
+            <ol class="timeline">
+                <li>
+                    <span class="when" aria-hidden="true">✓</span>
+                    <h3>עם החתימה</h3>
+                    <p class="kicker">נפגשים, ומכירים את הספקים שסגרתם</p>
+                    <ul>
+                        <li>פגישת היכרות ותיאום ציפיות</li>
+                        <li>סקירת ההסכמים מול הספקים: שעות, כמויות, מה נכלל</li>
+                        <li>תמונת מצב: מה כבר סגור, מה עוד פתוח, ואיפה כדאי לדייק</li>
+                        <li>זמינות לשאלות בוואטסאפ ובטלפון לאורך כל התקופה</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="when" aria-hidden="true">7<small>ימים</small></span>
+                    <h3>שבוע לפני: הפגישה המסכמת</h3>
+                    <p class="kicker">הערב שלכם, דקה אחר דקה</p>
+                    <ul>
+                        <li>לוח זמנים לערב: הקמות, קבלת פנים, טקס, כניסה, מנות, ריקודים, סיום</li>
+                        <li>ליין־אפ מול כל הספקים: כניסות, שירים, רגעים מיוחדים</li>
+                        <li>תכנון החופה: מי עומד, סדר הכניסות, זמנים</li>
+                        <li>טבלת תשלומים וטיפים ליום האירוע</li>
+                        <li>לוח הזמנים הסופי נשלח לכל ספק</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="when" aria-hidden="true">1<small>יום</small></span>
+                    <h3>יום לפני: כל ספק מאושר אישית</h3>
+                    <p class="kicker">מכאן כל שאלה של ספק מגיעה אלינו</p>
+                    <ul>
+                        <li>שעת הגעה, מה מביא, איפה מקים</li>
+                        <li>וידוא כמויות מול הרשימה הסופית: מנות, כיסאות, מנות מיוחדות</li>
+                        <li>מעבר על הליין־אפ עם מנהל האולם</li>
+                        <li>תיק אירוע מודפס: לוח זמנים, הסכמים, מפת הושבה, הטלפונים של כולם</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="when" aria-hidden="true">0</span>
+                    <h3>ביום עצמו: אנחנו שם, כל הערב</h3>
+                    <p class="kicker">מגיעים שעתיים לפני, נשארים עד אחרון האורחים</p>
+                    <ul>
+                        <li>פיקוח על הקמות הספקים ועמידתם במה שסגרו איתכם</li>
+                        <li>ליווי אישי וצמוד שלכם ושל המשפחה לאורך כל היום</li>
+                        <li>טיפול בהושבה בפועל, ושולחן רזרבה שנפתח רק כשבאמת צריך</li>
+                        <li>פיקוח על לוח הזמנים ובקרת המנות מול המטבח</li>
+                        <li>כל שינוי של הרגע האחרון מטופל מולנו, ואתם ממשיכים לחגוג</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="when" aria-hidden="true">+1</span>
+                    <h3>ואחריו</h3>
+                    <p class="kicker">סוגרים את הערב בשבילכם</p>
+                    <ul>
+                        <li>תשלומים וטיפים לספקים מכספים שמסרתם לנו</li>
+                        <li>ספירת אלכוהול סופית, ואיסוף המתנות והמעטפות למסירה</li>
+                        <li>סיכום קצר אליכם למחרת: מה קרה, מה שולם, מה נשאר אצל מי</li>
+                    </ul>
+                </li>
+            </ol>
+            <p class="scope-note">
+                האולם, הקייטרינג, הצילום והמוזיקה נשארים הספקים שלכם. התשלום עובר
+                מכם אליהם ישירות, ואנחנו מנהלים אותם בשמכם.
+            </p>
+            <div class="section-cta">
+                <a href="#contact" class="btn">בואו נדבר</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real reviews; excerpts identical to the home page. NEVER write one. -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">זוגות מספרים</h2>
+            <div class="reviews">
+                <figure class="panel review">
+                    <p>מה שהכי הרגיע אותנו מהרגע הראשון הייתה התחושה שיש על מי לסמוך ושמישהו באמת מנהל את העניינים בצורה הכי מקצועית שיש. ביום האירוע עצמו, בזכות ההפקה, אנחנו והאנשים הכי חשובים לנו פשוט יכולנו לשחרר, לחגוג וליהנות מכל שנייה בלי שום דאגות.</p>
+                    <figcaption class="who">גלינה ואלכס</figcaption>
+                </figure>
+                <figure class="panel review">
+                    <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק &ldquo;מפיק אירוע&rdquo;, אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
+                    <figcaption class="who">מאשה וג'ורדנו</figcaption>
+                </figure>
+                <figure class="panel review">
+                    <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
+                    <figcaption class="who">נתי ובר</figcaption>
+                </figure>
+            </div>
+            <p style="text-align:center; margin-top:22px"><a href="/#testimonials" style="color:var(--accent-gold)">להמלצות המלאות באתר הראשי</a></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container narrow">
+            <h2 class="section-title">שאלות שנשאלות לפני שמתחילים</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>מה ההבדל בין ניהול אירוע להפקה?</summary>
+                    <p>בהפקה אנחנו בוחרים איתכם את הספקים וסוגרים מולם. בניהול האירוע את הספקים כבר סגרתם, ואנחנו לוקחים אותם לידיים: עוברים על ההסכמים, בונים לוח זמנים אחד לכולם, מאשרים כל ספק אישית יום לפני, ומנהלים את כולם ביום עצמו.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>מה אתם צריכים מאיתנו?</summary>
+                    <p>את פרטי הספקים שסגרתם, את מפת ההושבה עד ארבעה ימים לפני האירוע, ואיש קשר אחד מטעמכם להחלטות ביום עצמו. את כל השאר אנחנו לוקחים.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אתם עובדים עם כל אולם?</summary>
+                    <p>כן. האולם, הקייטרינג, הצילום והמוזיקה נשארים הספקים שלכם, והתשלום עובר מכם אליהם ישירות. אנחנו מנהלים אותם בשמכם.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>מתי כדאי לפנות?</summary>
+                    <p>ככל שמוקדם יותר, כך יש יותר זמן להכיר את הספקים שלכם ולדייק את מה שעוד פתוח. הפגישה המסכמת נקבעת שבוע לפני האירוע. אם התאריך שלכם קרוב, נבדוק בשיחה קצרה אם עוד אפשר להיכנס בזמן.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>כמה זה עולה?</summary>
+                    <p>תלוי בהיקף האירוע ובמה שכבר סגור. אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת, בלי הפתעות ובלי כוכביות.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section section-alt">
+        <div class="container">
+            <h2>נשמח להכיר</h2>
+            <p style="margin-bottom: 36px; color: #ccc;">
+                השאירו פרטים ונחזור אליכם בוואטסאפ או בטלפון לשיחה קצרה. היא חינם ולא מחייבת.
+            </p>
+            <div class="contact-form">
+                <form id="contactForm" method="POST" name="leads">
+                    <p style="display:none" aria-hidden="true"><label>Don't fill this out: <input name="honeypot" tabindex="-1" autocomplete="off"></label></p>
+
+                    <!-- Tells the API which page produced the lead (server.js LEAD_SOURCES). -->
+                    <input type="hidden" name="source" value="management">
+
+                    <input type="text" name="name" placeholder="שם מלא" aria-label="הזן שם מלא" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
+                    <div id="phoneError" style="color:#f44336; font-size:0.85em; margin-top:-14px; margin-bottom:14px; display:none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
+
+                    <label class="field-label" for="eventDate">תאריך האירוע <span style="opacity:.7">(אם כבר ידוע)</span></label>
+                    <input type="date" name="eventDate" id="eventDate" aria-label="תאריך האירוע, אם כבר ידוע">
+
+                    <button type="submit" id="submitBtn">שליחת פרטים</button>
+                    <div id="formStatus" style="display:none; margin-top:18px; text-align:center;"></div>
+                </form>
+            </div>
+            <p class="or-whatsapp">
+                או פשוט כתבו לנו ב<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20הגעתי%20דרך%20עמוד%20ניהול%20האירוע%20ואשמח%20לפרטים" target="_blank" rel="noopener">וואטסאפ</a>.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20הגעתי%20דרך%20עמוד%20ניהול%20האירוע%20ואשמח%20לפרטים" class="whatsapp-float" target="_blank" rel="noopener" aria-label="שלח הודעת וואטסאפ">
+    <svg style="width: 35px; height: 35px; fill: white;" viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.6-44.8-27.6-16.6-14.8-27.8-33.1-31.1-38.6-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 1-7-1-9.7-1-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<footer>
+    <div class="container">
+        <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org">office@eventconcierge.org</a> | <a href="/">eventconcierge.org</a></p>
+        <p style="margin:6px 0 0">ארטיום קוסטנקו · עוסק מורשה 320615982 · אירוח וניהול אירועי בוטיק. שירות בעברית וברוסית.</p>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneError = document.getElementById('phoneError');
+
+        phoneInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '');
+            phoneError.style.display = 'none';
+        });
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!/^\d{10}$/.test(phoneInput.value)) {
+                phoneError.style.display = 'block';
+                phoneInput.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'שולח...';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'var(--accent-gold)';
+            formStatus.textContent = 'שולח את הפרטים, אנא המתן...';
+
+            try {
+                // This page is static (GitHub Pages) and has no backend of its
+                // own — POSTing to '/' returns 405 and silently loses the lead.
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://app.eventconcierge.org/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData))
+                });
+
+                if (!response.ok) throw new Error('שגיאה בשליחה');
+
+                // ⚠️ 200 לבדו אינו ליד — מלכודת הבוטים בשרת מחזירה
+                // {success:true} ומוחקת את הפנייה, וליד אמיתי מוחזר כ-{ok:true}.
+                // ראו את ההערה המלאה בטופס שבדף הבית.
+                let leadStored = false;
+                try {
+                    leadStored = (await response.clone().json())?.ok === true;
+                } catch { leadStored = false; }
+
+                // Without this event there is no way to know which keywords
+                // produced a lead — a paid campaign would be spending blind.
+                if (leadStored && typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        event_category: 'contact',
+                        event_label: 'manager_form',
+                        method: 'form',
+                        currency: 'ILS',
+                        value: 1
+                    });
+                }
+                formStatus.style.color = '#4CAF50';
+                formStatus.textContent = 'הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.';
+                contactForm.reset();
+                submitBtn.style.display = 'none';
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formStatus.style.color = '#f44336';
+                // Never leave them at a dead end — the WhatsApp number always works.
+                formStatus.innerHTML = 'לא הצלחנו לשלוח את הפרטים. אפשר לכתוב לנו ישירות ב<a href="https://wa.me/972549964940" style="color:var(--accent-gold); text-decoration:underline;">וואטסאפ</a>.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'שליחת פרטים';
+            }
+        });
+
+        // ⚠ Delegated from document, not querySelectorAll on load: the WhatsApp
+        // link inside the form's own error message is built with innerHTML after
+        // this script has run, so a load-time listener would miss it — and that
+        // is the hottest lead the page produces (the form failed, they messaged
+        // anyway). This is the bug fixed in the home page by commit 59396b9;
+        // do not "simplify" it back.
+        document.addEventListener('click', function (e) {
+            const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
+            if (!link) return;
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    event_category: 'contact',
+                    event_label: 'whatsapp_click',
+                    method: 'whatsapp',
+                    currency: 'ILS',
+                    value: 1
+                });
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
