@@ -2043,7 +2043,9 @@
             const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
             if (!link) return;
             if (typeof gtag === 'function') {
-                gtag('event', 'generate_lead', {
+                // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
+                // and Ads bids — Performance Max above all — learn from generate_lead alone.
+                gtag('event', 'contact_whatsapp', {
                     event_category: 'contact',
                     event_label: 'whatsapp_click',
                     method: 'whatsapp',
