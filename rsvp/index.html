@@ -574,6 +574,39 @@
         document.addEventListener('click', function (e) {
             const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
             if (!link) return;
+            // הכפתור פותח את הקו האנושי (אפליקציית WhatsApp Business, בלי API),
+            // כך שההודעה עצמה לא מגיעה למערכת. לכן: קוד קצר נכתב בסוף ההודעה
+            // המוכנה, והלחיצה נרשמת במערכת עם אותו קוד. כשמוסיפים את הליד
+            // ידנית ומקלידים את הקוד — הליד מקבל את העמוד ואת מקור התנועה.
+            // שום פרט אישי לא נשלח: קוד, עמוד, מקור. כשל כאן לעולם לא חוסם
+            // את הפתיחה של וואטסאפ.
+            try {
+                const ABC = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+                const rnd = window.crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(4)) : [0, 0, 0, 0].map(function () { return Math.random() * 256 | 0; });
+                let code = '';
+                for (let i = 0; i < 4; i++) code += ABC[rnd[i] % ABC.length];
+                const ru = (document.documentElement.lang || '').indexOf('ru') === 0;
+                const u = new URL(link.href);
+                const base = (u.searchParams.get('text') || (ru ? 'Здравствуйте! Пишу с сайта Event Concierge' : 'היי Event Concierge, הגעתי דרך האתר'))
+                    .replace(/\s*·\s*(קוד|код) [A-Z0-9]{4}$/, '');
+                link.href = u.origin + u.pathname + '?text=' + encodeURIComponent(base + ' · ' + (ru ? 'код ' : 'קוד ') + code);
+
+                // gclid נשמר לאורך הביקור: מודעה נוחתת בעמוד אחד, והלחיצה לפעמים בעמוד אחר.
+                const q = new URLSearchParams(location.search);
+                const keep = function (k, v) { try { if (v) sessionStorage.setItem('ec_' + k, v); else v = sessionStorage.getItem('ec_' + k) || ''; } catch (_) {} return v || ''; };
+                const payload = {
+                    code: code,
+                    page: location.pathname,
+                    gclid: keep('gclid', q.get('gclid') || q.get('gbraid') || q.get('wbraid')),
+                    utmSource: keep('utm_source', q.get('utm_source')),
+                    utmMedium: keep('utm_medium', q.get('utm_medium')),
+                    utmCampaign: keep('utm_campaign', q.get('utm_campaign')),
+                    referrer: keep('referrer', document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer : '')
+                };
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon('https://app.eventconcierge.org/api/wa-click', new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
+                }
+            } catch (_) {}
             if (typeof gtag === 'function') {
                 // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
                 // and Ads bids — Performance Max above all — learn from generate_lead alone.
