@@ -120,6 +120,7 @@
       gtag('js', new Date());
 
       gtag('config', 'G-J5Q9T88YXD');
+      gtag('config', 'AW-18030245102');
     </script>
 
     <style>
@@ -2085,6 +2086,9 @@
                     currency: 'ILS',
                     value: 1
                 });
+                // Ads conversion "WhatsApp click (site)" (2026-10-13): the click is the contact most
+                // visitors make, and without it Performance Max had no conversion to learn from at all.
+                gtag('event', 'conversion', { send_to: 'AW-18030245102/_J8ICM26k5sdEO7pvpVD', value: 1, currency: 'ILS', transport_type: 'beacon' });
             }
         });
 
