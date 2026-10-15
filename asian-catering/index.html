@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>קייטרינג אסייתי של שף, בהפקה מלאה | Event Concierge</title>
+    <meta name="description" content="קייטרינג אסייתי לאירועים: ארבע עמדות שף פרונטליות, יין טוב ושני קינוחים, בערב של שעתיים. אנחנו מפיקים ומנהלים את הערב סביב השף.">
+
+    <!-- Landing page for the Asian-catering search campaign (2026-10-15).
+         Partnership with Food Boutique by Sushi Boutique; the menu is the one the
+         owner approved, built only from dishes in their 2026 catalog, except the
+         two desserts (asked of the chef). Every headline of the campaign's ads
+         must be answered on this page - change them together.
+         Owner's rules for this page: one menu, wine by default (cocktail station
+         is the upgrade), luxury positioning - never guest counts, never music,
+         never brit / kids. Prices are not on the site.
+         ⚠ NOT LIVE until Food Boutique confirms kashrut + photo permission:
+         there is no photo of their food here yet, on purpose.
+         Sibling of /wedding-production/ - the base CSS is a copy, keep in step. -->
+    <link rel="canonical" href="https://eventconcierge.org/asian-catering/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eventconcierge.org/asian-catering/">
+    <meta property="og:title" content="קייטרינג אסייתי של שף, בהפקה מלאה | Event Concierge">
+    <meta property="og:description" content="ארבע עמדות שף פרונטליות, יין טוב ושני קינוחים, בערב של שעתיים. אנחנו מפיקים ומנהלים את הערב סביב השף.">
+    <meta property="og:image" content="https://eventconcierge.org/img/og-share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="Event Concierge">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="קייטרינג אסייתי של שף, בהפקה מלאה | Event Concierge">
+    <meta name="twitter:description" content="ארבע עמדות שף פרונטליות, יין טוב ושני קינוחים, בערב של שעתיים. אנחנו מפיקים ומנהלים את הערב סביב השף.">
+    <meta name="twitter:image" content="https://eventconcierge.org/img/og-share.jpg">
+
+    <!-- Every answer here must stay byte-identical to the visible FAQ below. -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"איפה הערב מתקיים?","acceptedAnswer":{"@type":"Answer","text":"בדרך כלל אצלכם: בבית, על הגג, במשרד. אם צריך מקום, נעזור למצוא. בכל מקרה אנחנו מגיעים לפני, בודקים חשמל, מים וגישה, ומתכננים איפה עומדת כל עמדה."}},{"@type":"Question","name":"אפשר להתאים את התפריט לטבעונים או לאלרגיות?","acceptedAnswer":{"@type":"Answer","text":"כן, בתיאום מראש עם השף. ספרו לנו בשיחה הראשונה מי מהאורחים צריך התאמה."}},{"@type":"Question","name":"אפשר להוסיף קוקטיילים?","acceptedAnswer":{"@type":"Answer","text":"כן. היין כלול בתפריט, ואפשר להוסיף לערב עמדת קוקטיילים עם ברמן."}},{"@type":"Question","name":"כמה זה עולה?","acceptedAnswer":{"@type":"Answer","text":"אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת לערב שלכם, עם כל מה שכלול בה."}}]}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5Q9T88YXD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J5Q9T88YXD');
+      gtag('config', 'AW-18030245102');
+    </script>
+
+    <style>
+        h1, h2, h3, .logo {
+            font-family: var(--font-head);
+            letter-spacing: 1px;
+        }
+        /* Tokens copied verbatim from the home page. The app and the site are
+           one brand — see index.html for the palette's origin. */
+        :root {
+            --primary-dark: #0C1710;
+            --accent-gold: #C89B6F;
+            --accent-gold-bright: #E3C4A2;
+            --bg-pearl: #14251B;
+            --text-gray: #B7C7B6;
+            --warm-earth: #CEC4AD;
+            --glass-bg: rgba(20, 37, 27, 0.6);
+            --glass-border: rgba(200, 155, 111, 0.25);
+            --gold-glow: rgba(200, 155, 111, 0.35);
+
+            --font-head: 'Assistant', 'Heebo', sans-serif;
+            --font-sans: 'Heebo', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            color: var(--text-gray);
+            line-height: 1.8;
+            background-color: var(--primary-dark);
+            background-image:
+              radial-gradient(circle at 80% 20%, rgba(200, 155, 111, 0.12), transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
+            background-attachment: fixed;
+            font-weight: 300;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .narrow { max-width: 760px; }
+
+        .skip-link {
+            position: absolute; top: -40px; right: 0;
+            background: var(--accent-gold); color: var(--primary-dark);
+            padding: 8px; z-index: 2000; transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        a:focus, button:focus, input:focus, summary:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+        .btn:focus, .whatsapp-float:focus { outline-offset: 4px; }
+
+        nav {
+            background-color: rgba(12, 23, 16, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            position: sticky; top: 0; z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .logo {
+            font-size: 1.5em; font-weight: 500; color: var(--accent-gold);
+            text-decoration: none; letter-spacing: 3px; text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(200, 155, 111,0.3);
+        }
+        .nav-back { color: var(--text-gray); text-decoration: none; font-size: 1em; transition: color .3s; }
+        .nav-back:hover { color: var(--accent-gold); }
+
+        /* Hero */
+        .hero { padding: 100px 0 80px; text-align: center; }
+        .hero .eyebrow {
+            color: var(--accent-gold); letter-spacing: 4px; text-transform: uppercase;
+            font-size: .8em; margin: 0 0 22px;
+        }
+        .hero h1 {
+            font-size: 3em; font-weight: 300; color: #fff;
+            margin: 0 0 26px; line-height: 1.35;
+            text-shadow: 0 4px 20px rgba(0,0,0,.5);
+        }
+        .hero h1 em { font-style: normal; color: var(--accent-gold-bright); }
+        .hero p.lead { font-size: 1.2em; max-width: 640px; margin: 0 auto 40px; color: #cfdccd; }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 16px 45px; text-decoration: none;
+            font-size: 1.1em; font-weight: 500; letter-spacing: 1px;
+            display: inline-block; transition: all 0.3s;
+            border: 2px solid var(--accent-gold); border-radius: 3px;
+            position: relative; overflow: hidden;
+        }
+        .btn::after {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+        }
+        .btn:hover::after { animation: shimmer 0.75s ease forwards; }
+        @keyframes shimmer { 100% { left: 120%; } }
+        .btn:hover { background-color: transparent; color: white; border-color: white; }
+
+        .section { padding: 80px 0; }
+        .section-alt { background: rgba(0,0,0,.18); }
+        .section-title {
+            text-align: center; font-size: 2.3em; color: var(--accent-gold);
+            margin-bottom: 45px; font-weight: 400;
+            text-shadow: 0 4px 15px rgba(200, 155, 111,0.2);
+        }
+        .section-title::after {
+            content: ''; display: block; width: 50px; height: 2px;
+            background-color: var(--accent-gold);
+            margin: 20px auto 0; box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        blockquote.regret {
+            border: 0; border-inline-start: 3px solid var(--accent-gold);
+            margin: 0 auto 34px; padding: 6px 26px;
+            font-size: 1.25em; color: var(--warm-earth); font-style: italic;
+            max-width: 620px;
+        }
+
+        .panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(200, 155, 111, 0.4);
+            border-radius: 16px; padding: 38px 34px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        .panel h3 { color: var(--accent-gold); margin: 0 0 14px; font-size: 1.3em; font-weight: 500; }
+        .panel p:last-child { margin-bottom: 0; }
+
+        /* The deliverables list */
+        .does-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+        .does-list li {
+            padding: 15px 0 15px 0;
+            border-bottom: 1px solid rgba(200,155,111,.14);
+            display: flex; align-items: flex-start; gap: 14px;
+            font-size: 1.06em;
+        }
+        .does-list li:last-child { border-bottom: 0; }
+        .does-list .mark { color: var(--accent-gold); flex-shrink: 0; line-height: 1.7; }
+
+        .upgrade {
+            margin-top: 34px; padding: 22px 26px;
+            border: 1px dashed rgba(200,155,111,.4); border-radius: 12px;
+            background: rgba(200,155,111,.05);
+        }
+        .upgrade strong { color: var(--accent-gold-bright); font-weight: 500; }
+
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            border: 1px solid rgba(200, 155, 111,0.22);
+            border-radius: 12px; background: rgba(255,255,255,0.02); overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 18px 22px; cursor: pointer; font-size: 1.05em; font-weight: 500;
+            color: var(--accent-gold-bright); list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+'; font-size: 1.4em; line-height: 1; opacity: .7;
+            transition: transform .25s; flex-shrink: 0;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p { padding: 0 22px 20px; margin: 0; line-height: 1.85; color: #ccc; }
+
+        /* Contact */
+        .contact-section { padding: 80px 0 100px; text-align: center; }
+        .contact-section h2 { color: var(--accent-gold); font-size: 2em; font-weight: 400; margin: 0 0 10px; }
+        .contact-form {
+            background: var(--glass-bg); padding: 40px; border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 560px; margin: 0 auto; text-align: start;
+        }
+        .contact-form input {
+            width: 100%; padding: 16px; margin-bottom: 22px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: var(--font-sans);
+            transition: all 0.3s; text-align: start; direction: inherit;
+            border-radius: 8px; font-size: 1.05em;
+        }
+        .contact-form input::placeholder { text-align: start; direction: inherit; color: rgba(255,255,255,0.4); }
+        .contact-form input:focus {
+            outline: none; border-color: var(--accent-gold);
+            background: rgba(0,0,0,0.5); box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
+        }
+        .contact-form label.field-label {
+            display: block; text-align: start; color: #bbb;
+            font-size: 0.85em; margin-bottom: 6px;
+        }
+        .contact-form button {
+            background: linear-gradient(135deg, #C89B6F, #A97C52);
+            color: var(--primary-dark); border: none; padding: 16px 40px;
+            font-size: 1.15em; cursor: pointer; font-weight: 600;
+            font-family: var(--font-sans); width: 100%; letter-spacing: 1px;
+            border-radius: 8px; transition: all 0.3s;
+            box-shadow: 0 6px 20px var(--gold-glow);
+        }
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(200, 155, 111, 0.5);
+            filter: brightness(1.1);
+        }
+        .contact-form button:disabled { opacity: .6; cursor: default; transform: none; }
+        .or-whatsapp { margin-top: 26px; font-size: .98em; color: #bbb; }
+        .or-whatsapp a { color: var(--accent-gold); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background-color: var(--primary-dark); color: var(--accent-gold);
+            width: 60px; height: 60px; border-radius: 50px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+            border: 1.5px solid var(--accent-gold);
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(200, 155, 111,0.35); }
+
+        footer {
+            background-color: #08110C; padding: 40px 0; text-align: center;
+            font-size: 0.9em; color: #888; border-top: 1px solid rgba(200,155,111,.15);
+        }
+        footer a { color: #888; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            /* At 360px the logo's 3px tracking pushed "EVENT CONCIERGE" onto two
+               lines and squeezed the back link onto two more — a 86px-tall
+               nav on the width most paid traffic arrives at. */
+            nav { padding: 14px 0; }
+            .logo { font-size: 1.05em; letter-spacing: 1px; white-space: nowrap; }
+            .nav-back { font-size: .9em; white-space: nowrap; }
+
+            .hero { padding: 70px 0 60px; }
+            .hero h1 { font-size: 2.1em; }
+            .hero p.lead { font-size: 1.08em; }
+            .section { padding: 60px 0; }
+            .section-title { font-size: 1.75em; margin-bottom: 34px; }
+            .contact-form { padding: 28px 22px; }
+            .panel { padding: 28px 22px; }
+            blockquote.regret { font-size: 1.12em; padding: 4px 18px; }
+            .whatsapp-float { bottom: 20px; left: 20px; width: 54px; height: 54px; }
+        }
+
+        /* Page-specific: the printed menu card, the two-hour evening, the stations. */
+        .hero { padding-bottom: 40px; }
+
+        .menu-card {
+            max-width: 560px; margin: 0 auto; text-align: center;
+            border: 1px solid var(--accent-gold); outline: 1px solid rgba(200,155,111,.35);
+            outline-offset: 7px; padding: 46px 36px 40px; border-radius: 2px;
+            background: rgba(0,0,0,.22);
+        }
+        .menu-card .mc-title { font-family: var(--font-head); color: var(--accent-gold);
+            letter-spacing: 6px; font-size: .85em; margin: 0 0 26px; }
+        .menu-card .mc-group { margin: 0 0 22px; }
+        .menu-card .mc-group:last-child { margin-bottom: 0; }
+        .menu-card .mc-head { color: var(--accent-gold-bright); font-family: var(--font-head);
+            font-size: 1.15em; font-weight: 600; margin: 0 0 4px; }
+        .menu-card .mc-line { margin: 0; color: #d6e0d4; }
+        .menu-card .mc-rule { width: 30px; height: 1px; background: var(--accent-gold);
+            margin: 22px auto; opacity: .6; border: 0; }
+
+        .evening { list-style: none; margin: 0; padding: 0; }
+        .evening > li { position: relative; padding: 0 0 40px; padding-inline-start: 92px; }
+        .evening > li:last-child { padding-bottom: 0; }
+        .evening > li::before {
+            content: ''; position: absolute; inset-inline-start: 33px; top: 30px; bottom: 6px;
+            width: 1px; background: rgba(200,155,111,.3);
+        }
+        .evening > li:last-child::before { display: none; }
+        .evening .at {
+            position: absolute; right: 0; top: 2px; width: 68px; /* right, not inset-inline-start: direction:ltr below flips it */
+            font-family: var(--font-head); font-weight: 600; font-size: 1.2em;
+            color: var(--accent-gold-bright); font-variant-numeric: tabular-nums;
+            direction: ltr; text-align: center;
+        }
+        .evening h3 { color: var(--accent-gold); margin: 0 0 8px; font-size: 1.4em; font-weight: 400; }
+        .evening p { margin: 0; font-size: 1.1em; line-height: 1.95; color: #d6e0d4; }
+
+        .stations { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+        .stations .panel { padding: 30px 28px; }
+        .stations .panel p { margin: 0; }
+
+        .pair { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); margin-top: 18px; }
+        .pair .panel { padding: 30px 28px; }
+        .pair .label { color: var(--warm-earth); font-size: .9em; letter-spacing: 2px; margin: 0 0 6px; }
+
+        .reviews { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+        .review { margin: 0; }
+        .review p { font-size: 1.02em; line-height: 1.85; margin: 0 0 16px; }
+        .review .who { color: var(--accent-gold); font-size: .95em; font-weight: 500; }
+
+        .section-cta { text-align: center; margin-top: 40px; }
+
+        @media (max-width: 860px) {
+            .stations, .pair, .reviews { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero .eyebrow { font-size: 1.1em; letter-spacing: 2px; font-weight: 500; margin-bottom: 16px; }
+            .menu-card { padding: 36px 22px 32px; outline-offset: 5px; }
+            .evening > li { padding-inline-start: 0; padding-top: 34px; }
+            .evening > li::before { display: none; }
+            .evening .at { inset-inline-start: auto; right: 0; width: auto; text-align: right; top: 0; }
+            .evening p { font-size: 1.05em; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">דלג לאזור התוכן המרכזי</a>
+
+<nav>
+    <div class="container nav-container">
+        <a href="/" class="logo">Event Concierge</a>
+        <a href="/" class="nav-back">לאתר הראשי&nbsp;›</a>
+    </div>
+</nav>
+
+<main id="main">
+
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">קייטרינג אסייתי · הפקה מלאה</p>
+            <h1>קייטרינג אסייתי של שף.<br><em>ואנחנו מפיקים את הערב סביבו.</em></h1>
+            <p class="lead">
+                עמדות שף מול האורחים, יין מצוין ושני קינוחים מדויקים, בערב של שעתיים.
+                אנחנו מעצבים את המקום ומנהלים את הערב, ואתם נהנים מהאורחים שלכם.
+            </p>
+            <a href="#contact" class="btn">בואו נתכנן ערב</a>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top:20px">
+        <div class="container">
+            <div class="menu-card" role="group" aria-label="התפריט">
+                <p class="mc-title">התפריט</p>
+                <div class="mc-group">
+                    <p class="mc-head">סושי</p>
+                    <p class="mc-line">ניגירי וסשימי, נחתכים מול האורח</p>
+                </div>
+                <div class="mc-group">
+                    <p class="mc-head">נא</p>
+                    <p class="mc-line">סביצ'ה דג ים ביוזו · סלט סובה בפונזו</p>
+                </div>
+                <div class="mc-group">
+                    <p class="mc-head">ווק</p>
+                    <p class="mc-line">פאד קפאו ונודלס, מוקפצים במקום</p>
+                </div>
+                <div class="mc-group">
+                    <p class="mc-head">גריל ובאן</p>
+                    <p class="mc-line">יקיטורי פרגית ואנטריקוט · באן מאודה עם אסאדו בקר</p>
+                </div>
+                <hr class="mc-rule">
+                <div class="mc-group">
+                    <p class="mc-head">יין</p>
+                    <p class="mc-line">יתיר, הר עמשא לבן ורוזה</p>
+                </div>
+                <hr class="mc-rule">
+                <div class="mc-group">
+                    <p class="mc-head">קינוחים</p>
+                    <p class="mc-line">קוקוס, ליצ'י ופסיפלורה · שוקולד מריר ומיסו מלוח</p>
+                </div>
+            </div>
+            <p style="text-align:center; max-width:560px; margin:34px auto 0; color:var(--warm-earth)">
+                זה התפריט שאנחנו ממליצים עליו. אפשר להוסיף עמדה, להחליף מנה ולדייק אותו
+                יחד עם השף, עד שהוא בדיוק הערב שלכם.
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container narrow">
+            <h2 class="section-title">הערב בשעתיים</h2>
+            <ol class="evening">
+                <li>
+                    <span class="at">00:00</span>
+                    <h3>הכוס הראשונה</h3>
+                    <p>הדלת נפתחת לריח של אורז חם וחומץ אורז. כוס רוזה צונן כבר מחכה לכם בכניסה. מאחורי עמדת הסושי השף פורס טונה אדומה בתנועה אחת, מניח אותה על אורז שעוצב ביד, ומושיט את הצלחת ישר אליכם. לידו מחכה סביצ'ה בכוסית קרמיקה, עם יוזו שמעיר את הפה. האורחים עוד מחפשים פנים מוכרות, וכבר יש להם על מה לדבר.</p>
+                </li>
+                <li>
+                    <span class="at">00:30</span>
+                    <h3>האש נדלקת</h3>
+                    <p>בצד השני של החדר עולה להבה מהווק. נודלס נזרקים למחבת, וריח של שום, צ'ילי ובזיליקום תאילנדי ממלא את המקום. על הגריל שיפודי פרגית מזדגגים, ובאן לבן ורך נפתח מול העיניים ומתמלא בבקר שהתבשל שעות. מלצר ממלא את הכוס לפני שהתרוקנה. זה הרגע שבו האורחים עוברים מעמדה לעמדה, כוס ביד, ושואלים זה את זה "טעמת כבר את ה...?"</p>
+                </li>
+                <li>
+                    <span class="at">01:30</span>
+                    <h3>מתוק</h3>
+                    <p>העמדות החמות נסגרות בשקט, והמגשים מתחלפים. כוסית קרה של קוקוס וליצ'י, ופסיפלורה חמצמצה מעל. אחריה ביס אחד של שוקולד מריר עם מיסו מלוח, שנגמר מהר מדי.</p>
+                </li>
+                <li>
+                    <span class="at">02:00</span>
+                    <h3>הכוס האחרונה</h3>
+                    <p>כולם שבעים, וכולם עדיין עומדים יחד. ואתם הייתם אורחים בערב שלכם מהכוס הראשונה ועד האחרונה. את כל השאר ניהלנו אנחנו.</p>
+                </li>
+            </ol>
+            <div class="section-cta">
+                <a href="#contact" class="btn">אני רוצה ערב כזה</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">ארבע עמדות שף</h2>
+            <div class="stations">
+                <div class="panel">
+                    <h3>סושי</h3>
+                    <p>סלמון, טונה אדומה ודג לבן, נחתכים מול האורח לניגירי ולסשימי. ורול חתימה אחד של השף.</p>
+                </div>
+                <div class="panel">
+                    <h3>נא</h3>
+                    <p>סביצ'ה דג ים במוסר יוזו, בכוסית קרמיקה. ולצדה סלט סובה בפונזו.</p>
+                </div>
+                <div class="panel">
+                    <h3>ווק</h3>
+                    <p>פאד קפאו ונודלס מוקפצים במקום. מנה קטנה בקערית, ישר מהמחבת.</p>
+                </div>
+                <div class="panel">
+                    <h3>גריל ובאן</h3>
+                    <p>שיפודי יקיטורי פרגית ואנטריקוט על הגריל, ובאן מאודה שנסגר מול האורח עם אסאדו בקר.</p>
+                </div>
+            </div>
+            <div class="pair">
+                <div class="panel">
+                    <p class="label">יין</p>
+                    <h3>יתיר, הר עמשא לבן ורוזה</h3>
+                    <p style="margin:0">לאורך כל הערב, מוגש על ידי מלצר. שניהם נבחרו לדג נא ולחריף.
+                    ואפשר להוסיף עמדת קוקטיילים עם ברמן.</p>
+                </div>
+                <div class="panel">
+                    <p class="label">שני קינוחים</p>
+                    <h3>קוקוס וליצ'י · שוקולד ומיסו</h3>
+                    <p style="margin:0">פנה קוטה קוקוס עם ליצ'י טרי ופסיפלורה. וטארט קטן של שוקולד מריר עם קרמל מיסו מלוח ושומשום שחור.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container narrow">
+            <h2 class="section-title">החוויה</h2>
+            <p style="font-size:1.12em; margin:0 0 30px">
+                ערב ברמה של מסעדת שף, במקום שלכם. כל פרט נבחר כדי שהאורחים ירגישו
+                שהוזמנו למשהו מיוחד, ושאתם תרגישו אורחים בערב של עצמכם.
+            </p>
+            <ul class="does-list">
+                <li><span class="mark">✦</span><span><strong>הכניסה.</strong> תאורה חמה ונמוכה, ריח של אורז ויוזו, וכוס יין שמחכה ביד. מהשנייה הראשונה ברור שזה ערב אחר.</span></li>
+                <li><span class="mark">✦</span><span><strong>העמדות במרכז.</strong> עץ כהה, אבן ואור ממוקד על ידי השף. האורחים מתאספים סביב הבישול, והאוכל הופך לשיחה.</span></li>
+                <li><span class="mark">✦</span><span><strong>ריהוט וישיבה.</strong> שולחנות בר גבוהים, פינות לאונג' רכות ומקומות ישיבה למי שרוצה להתרווח, לפי המקום ואופי הערב.</span></li>
+                <li><span class="mark">✦</span><span><strong>על השולחן.</strong> קרמיקה בעבודת יד, מקלות עץ, זכוכית דקה, איקבנה ונייר וושי. שפה עיצובית אחת, מההזמנה ועד הקינוח.</span></li>
+                <li><span class="mark">✦</span><span><strong>שירות שקט.</strong> מלצרים מוזגים ומפנים בדיוק בזמן, והאורחים פנויים לאוכל ולאנשים.</span></li>
+                <li><span class="mark">✦</span><span><strong>ההזמנה.</strong> מעוצבת באותה שפה ויוצאת לכל אורח בוואטסאפ. רשימת המאשרים הסופית אצלנו שבוע לפני.</span></li>
+                <li><span class="mark">✦</span><span><strong>המקום.</strong> בבית, על הגג, במשרד, או במקום שנמצא יחד. אנחנו מגיעים מראש ומתכננים את הזרימה של הערב ואת המיקום של כל עמדה.</span></li>
+                <li><span class="mark">✦</span><span><strong>הניהול.</strong> אנחנו שם מההקמה ועד הפירוק. אתם מארחים, אנחנו מנהלים.</span></li>
+            </ul>
+            <p style="margin-top:34px; font-size:1.05em">
+                לחגיגות פרטיות: יום הולדת, יום נישואין, אירוסין. ולערבים עסקיים: השקה, ערב לקוחות, ערב הנהלה.
+            </p>
+            <!-- TODO after Food Boutique's written OK: one line on the chef
+                 ("Food Boutique by Sushi Boutique, since 2013") + client logos + photos. -->
+        </div>
+    </section>
+
+    <!-- Real reviews; excerpts identical to the home page. NEVER write one. -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">לקוחות מספרים</h2>
+            <div class="reviews">
+                <figure class="panel review">
+                    <p>מה שהכי הרגיע אותנו מהרגע הראשון הייתה התחושה שיש על מי לסמוך ושמישהו באמת מנהל את העניינים בצורה הכי מקצועית שיש. ביום האירוע עצמו, בזכות ההפקה, אנחנו והאנשים הכי חשובים לנו פשוט יכולנו לשחרר, לחגוג וליהנות מכל שנייה בלי שום דאגות.</p>
+                    <figcaption class="who">גלינה ואלכס</figcaption>
+                </figure>
+                <figure class="panel review">
+                    <p>הוא היה סבלני, קשוב ונעים לאורך כל התהליך, ותמיד הרגשנו שאפשר לפנות אליו ולהתייעץ בלי להרגיש שאנחנו מציקים. מבחינתנו זה היה הרבה מעבר למישהו שרק &ldquo;מפיק אירוע&rdquo;, אלא מישהו שבאמת ליווה אותנו ועזר לנו לעבור את כל התהליך בצורה הרבה יותר רגועה ונוחה.</p>
+                    <figcaption class="who">מאשה וג'ורדנו</figcaption>
+                </figure>
+                <figure class="panel review">
+                    <p>ארטיום סייע לנו בהפקת החתונה — החל מחתימת החוזה מול האולם ועד לבחירת ספקים לכל דבר שחשבנו עליו. הוא היה זמין, ותמיד השקיע מאמץ וזמן בכל דבר שביקשנו ממנו. איזה כיף שיש ארטיום.</p>
+                    <figcaption class="who">נתי ובר</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container narrow">
+            <h2 class="section-title">שאלות לפני שמתחילים</h2>
+            <!-- TODO: kashrut question, once Food Boutique answers. Do not guess it. -->
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>איפה הערב מתקיים?</summary>
+                    <p>בדרך כלל אצלכם: בבית, על הגג, במשרד. אם צריך מקום, נעזור למצוא. בכל מקרה אנחנו מגיעים לפני, בודקים חשמל, מים וגישה, ומתכננים איפה עומדת כל עמדה.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אפשר להתאים את התפריט לטבעונים או לאלרגיות?</summary>
+                    <p>כן, בתיאום מראש עם השף. ספרו לנו בשיחה הראשונה מי מהאורחים צריך התאמה.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אפשר להוסיף קוקטיילים?</summary>
+                    <p>כן. היין כלול בתפריט, ואפשר להוסיף לערב עמדת קוקטיילים עם ברמן.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>כמה זה עולה?</summary>
+                    <p>אחרי שיחת היכרות קצרה נשלח אליכם הצעה מדויקת לערב שלכם, עם כל מה שכלול בה.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>בואו נתכנן ערב</h2>
+            <p style="margin-bottom: 36px; color: #ccc;">
+                השאירו פרטים ונחזור אליכם בוואטסאפ או בטלפון לשיחה קצרה על הערב שלכם.
+            </p>
+            <div class="contact-form">
+                <form id="contactForm" method="POST" name="leads">
+                    <p style="display:none" aria-hidden="true"><label>Don't fill this out: <input name="honeypot" tabindex="-1" autocomplete="off"></label></p>
+
+                    <!-- Tells the API which page produced the lead (server.js LEAD_SOURCES). -->
+                    <input type="hidden" name="source" value="asian">
+
+                    <input type="text" name="name" placeholder="שם מלא" aria-label="הזן שם מלא" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
+                    <div id="phoneError" style="color:#f44336; font-size:0.85em; margin-top:-14px; margin-bottom:14px; display:none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
+
+                    <label class="field-label" for="eventDate">תאריך הערב <span style="opacity:.7">(אם כבר ידוע)</span></label>
+                    <input type="date" name="eventDate" id="eventDate" aria-label="תאריך הערב, אם כבר ידוע">
+
+                    <button type="submit" id="submitBtn">שליחת פרטים</button>
+                    <div id="formStatus" style="display:none; margin-top:18px; text-align:center;"></div>
+                </form>
+            </div>
+            <p class="or-whatsapp">
+                או פשוט כתבו לנו ב<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20הגעתי%20דרך%20עמוד%20הקייטרינג%20האסייתי%20ואשמח%20לפרטים" target="_blank" rel="noopener">וואטסאפ</a>.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20הגעתי%20דרך%20עמוד%20הקייטרינג%20האסייתי%20ואשמח%20לפרטים" class="whatsapp-float" target="_blank" rel="noopener" aria-label="שלח הודעת וואטסאפ">
+    <svg style="width: 35px; height: 35px; fill: white;" viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.6-44.8-27.6-16.6-14.8-27.8-33.1-31.1-38.6-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 1-7-1-9.7-1-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<footer>
+    <div class="container">
+        <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org">office@eventconcierge.org</a> | <a href="/">eventconcierge.org</a></p>
+        <p style="margin:6px 0 0">ארטיום קוסטנקו · עוסק מורשה 320615982 · אירוח וניהול אירועי בוטיק. שירות בעברית וברוסית.</p>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneError = document.getElementById('phoneError');
+
+        phoneInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '');
+            phoneError.style.display = 'none';
+        });
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!/^\d{10}$/.test(phoneInput.value)) {
+                phoneError.style.display = 'block';
+                phoneInput.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'שולח...';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'var(--accent-gold)';
+            formStatus.textContent = 'שולח את הפרטים, אנא המתן...';
+
+            try {
+                // This page is static (GitHub Pages) and has no backend of its
+                // own — POSTing to '/' returns 405 and silently loses the lead.
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://app.eventconcierge.org/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(formData))
+                });
+
+                if (!response.ok) throw new Error('שגיאה בשליחה');
+
+                // ⚠️ 200 לבדו אינו ליד — מלכודת הבוטים בשרת מחזירה
+                // {success:true} ומוחקת את הפנייה, וליד אמיתי מוחזר כ-{ok:true}.
+                // ראו את ההערה המלאה בטופס שבדף הבית.
+                let leadStored = false;
+                try {
+                    leadStored = (await response.clone().json())?.ok === true;
+                } catch { leadStored = false; }
+
+                // Without this event there is no way to know which keywords
+                // produced a lead — a paid campaign would be spending blind.
+                if (leadStored && typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        event_category: 'contact',
+                        event_label: 'asian_form',
+                        method: 'form',
+                        currency: 'ILS',
+                        value: 1
+                    });
+                }
+                formStatus.style.color = '#4CAF50';
+                formStatus.textContent = 'הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.';
+                contactForm.reset();
+                submitBtn.style.display = 'none';
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formStatus.style.color = '#f44336';
+                // Never leave them at a dead end — the WhatsApp number always works.
+                formStatus.innerHTML = 'לא הצלחנו לשלוח את הפרטים. אפשר לכתוב לנו ישירות ב<a href="https://wa.me/972549964940" style="color:var(--accent-gold); text-decoration:underline;">וואטסאפ</a>.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'שליחת פרטים';
+            }
+        });
+
+        // ⚠ Delegated from document, not querySelectorAll on load: the WhatsApp
+        // link inside the form's own error message is built with innerHTML after
+        // this script has run, so a load-time listener would miss it — and that
+        // is the hottest lead the page produces (the form failed, they messaged
+        // anyway). This is the bug fixed in the home page by commit 59396b9;
+        // do not "simplify" it back.
+        document.addEventListener('click', function (e) {
+            const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
+            if (!link) return;
+            // הכפתור פותח את הקו האנושי (אפליקציית WhatsApp Business, בלי API),
+            // כך שההודעה עצמה לא מגיעה למערכת. לכן: קוד קצר נכתב בסוף ההודעה
+            // המוכנה, והלחיצה נרשמת במערכת עם אותו קוד. כשמוסיפים את הליד
+            // ידנית ומקלידים את הקוד — הליד מקבל את העמוד ואת מקור התנועה.
+            // שום פרט אישי לא נשלח: קוד, עמוד, מקור. כשל כאן לעולם לא חוסם
+            // את הפתיחה של וואטסאפ.
+            try {
+                const ABC = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+                const rnd = window.crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(4)) : [0, 0, 0, 0].map(function () { return Math.random() * 256 | 0; });
+                let code = '';
+                for (let i = 0; i < 4; i++) code += ABC[rnd[i] % ABC.length];
+                const ru = (document.documentElement.lang || '').indexOf('ru') === 0;
+                const u = new URL(link.href);
+                const base = (u.searchParams.get('text') || (ru ? 'Здравствуйте! Пишу с сайта Event Concierge' : 'היי Event Concierge, הגעתי דרך האתר'))
+                    .replace(/\s*·\s*(קוד|код) [A-Z0-9]{4}$/, '');
+                link.href = u.origin + u.pathname + '?text=' + encodeURIComponent(base + ' · ' + (ru ? 'код ' : 'קוד ') + code);
+
+                // gclid נשמר לאורך הביקור: מודעה נוחתת בעמוד אחד, והלחיצה לפעמים בעמוד אחר.
+                const q = new URLSearchParams(location.search);
+                const keep = function (k, v) { try { if (v) sessionStorage.setItem('ec_' + k, v); else v = sessionStorage.getItem('ec_' + k) || ''; } catch (_) {} return v || ''; };
+                const payload = {
+                    code: code,
+                    page: location.pathname,
+                    gclid: keep('gclid', q.get('gclid') || q.get('gbraid') || q.get('wbraid')),
+                    utmSource: keep('utm_source', q.get('utm_source')),
+                    utmMedium: keep('utm_medium', q.get('utm_medium')),
+                    utmCampaign: keep('utm_campaign', q.get('utm_campaign')),
+                    referrer: keep('referrer', document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer : '')
+                };
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon('https://app.eventconcierge.org/api/wa-click', new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
+                }
+            } catch (_) {}
+            if (typeof gtag === 'function') {
+                // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
+                // and Ads bids — Performance Max above all — learn from generate_lead alone.
+                gtag('event', 'contact_whatsapp', {
+                    event_category: 'contact',
+                    event_label: 'whatsapp_click',
+                    method: 'whatsapp',
+                    currency: 'ILS',
+                    value: 1
+                });
+                // Ads conversion "WhatsApp click (site)" (2026-10-13): the click is the contact most
+                // visitors make, and without it Performance Max had no conversion to learn from at all.
+                gtag('event', 'conversion', { send_to: 'AW-18030245102/_J8ICM26k5sdEO7pvpVD', value: 1, currency: 'ILS', transport_type: 'beacon' });
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
