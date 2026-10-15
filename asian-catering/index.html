@@ -508,6 +508,17 @@
             .act .art { display: block; justify-self: start; }
             .menu-note { font-size: .95em; }
         }
+        /* ALIGN TO THE RIGHT — owner's call 2026-10-15: the page reads from the right edge, like
+           Hebrew does. Last in the sheet on purpose: it overrides centred rules above. In RTL,
+           margin-inline: 0 auto pins a block to the right. Text INSIDE a circle stays centred. */
+        .hero, .section-title, .menu-card, .menu-note, .section-cta, .contact-section,
+        .or-whatsapp, footer, .bts li { text-align: right !important; }
+        .enso-wrap, .enso-close, .hero p.lead, .hero h1, .menu-card, .menu-note,
+        .contact-form, .contact-section p { margin-inline: 0 auto !important; }
+        .section-title::after, .menu-card .mc-rule { margin-inline: 0 auto !important; }
+        .bts .dot { margin-inline: 0 auto !important; }
+        .bts::before { right: 17px; left: 4%; }
+        .enso-inner, .enso-close h2 { text-align: center !important; }
     </style>
     <script>document.documentElement.classList.add('js-on');</script>
 </head>
