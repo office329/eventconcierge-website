@@ -466,6 +466,31 @@
             .js-on .bts li { opacity: 1 !important; transition: none !important; }
             .dial .arc { transition: none; }
         }
+
+        /* ===== The thread: what stays with the reader from the first screen to the last =====
+           1) a gold line on the reading edge that fills as the page scrolls,
+           2) a small enso in place of the bar under every section title,
+           3) at the form, the hero's open circle comes back CLOSED. */
+        .thread { position: fixed; top: var(--nav-h); bottom: 0; right: max(7px, env(safe-area-inset-right, 0px)); width: 2px;
+            background: rgba(200,155,111,.13); z-index: 900; pointer-events: none; }
+        .thread .fill { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(200,155,111,.35), var(--line-gold));
+            transform-origin: top; transform: scaleY(0); }
+        .thread .tip { position: absolute; right: -3px; top: 0; width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent-gold-bright); box-shadow: 0 0 10px var(--gold-glow); transform: translateY(-4px); }
+        .section-title::after { width: 34px !important; height: 34px !important; background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22M26%205%20C%2035%208%2C%2038%2017%2C%2035%2025%20C%2032%2033%2C%2023%2037%2C%2015%2034%20C%207%2031%2C%203%2022%2C%206%2014%20C%208%208%2C%2014%205%2C%2021%204.5%22%20fill%3D%22none%22%20stroke%3D%22%23C89B6F%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E") center/contain no-repeat !important;
+            box-shadow: none !important; margin-top: 16px !important; }
+        .enso-close { position: relative; width: min(300px, 74vw); aspect-ratio: 1; max-width: 100%; margin: 0 auto 14px;
+            display: flex; align-items: center; justify-content: center; }
+        .enso-close svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .enso-close path { fill: none; stroke: var(--line-gold); stroke-linecap: round; }
+        .js-on .enso-close path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2.4s cubic-bezier(.6,.05,.3,1); }
+        .js-on .enso-close path.s2 { transition-delay: .3s; }
+        .js-on .enso-close.seen path { stroke-dashoffset: 0; }
+        .enso-close h2 { margin: 0 !important; }
+        .enso-close .closing { position: absolute; bottom: 24%; left: 0; right: 0; text-align: center; color: var(--warm-earth); font-size: .9em; letter-spacing: 2px; }
+        @media (prefers-reduced-motion: reduce) { .js-on .enso-close path { transition: none; stroke-dashoffset: 0; } }
+        @media (max-width: 768px) { .thread { right: max(4px, env(safe-area-inset-right, 0px)); } .enso-close h2 { font-size: 1.45em !important; } }
+
         /* PHONE — LAST ON PURPOSE: these override base rules above, so they must stay after them
            (the home page lost four phone fixes to the cascade). First screen = logo, enso, lead, button. */
         @media (max-width: 768px) {
@@ -497,6 +522,8 @@
     </div>
 </nav>
 
+<div class="thread" aria-hidden="true"><div class="fill" id="threadFill"></div><div class="tip" id="threadTip"></div></div>
+
 <main id="main">
 
     <header class="hero">
@@ -521,25 +548,6 @@
             <a href="#contact" class="btn fade-up d3">בואו נתכנן ערב</a>
         </div>
     </header>
-
-    <section class="section" style="padding-top:30px">
-        <div class="container">
-            <div class="menu-card" role="group" aria-label="התפריט">
-                <p class="mc-title">התפריט</p>
-                <div class="mc-group"><p class="mc-head">ים</p><p class="mc-line">ניגירי וסשימי, נחתכים מול האורח<br>סביצ'ה דג ים ביוזו, בכוסית קרמיקה</p></div>
-                <div class="mc-group"><p class="mc-head">יבשה</p><p class="mc-line">באן מאודה עם אסאדו בקר<br>שיפודי אנטריקוט מהגריל · סלט סובה בפונזו</p></div>
-                <div class="mc-group"><p class="mc-head">אוויר</p><p class="mc-line">יקיטורי פרגית מזוגג<br>נודלס ופאד קפאו עוף, מוקפצים בווק</p></div>
-                <hr class="mc-rule">
-                <div class="mc-group"><p class="mc-head">עמדת יין</p><p class="mc-line">עמדה עשירה: לבנים, רוזה ואדומים<br>שנבחרו לאוכל האסייתי</p></div>
-                <hr class="mc-rule">
-                <div class="mc-group"><p class="mc-head">מתוק</p><p class="mc-line">קוקוס, ליצ'י ופסיפלורה · שוקולד מריר ומיסו מלוח</p></div>
-            </div>
-            <p class="menu-note">
-                זה התפריט שאנחנו ממליצים עליו. אפשר להוסיף עמדה, להחליף מנה ולדייק אותו
-                יחד עם השף, עד שהוא בדיוק הערב שלכם.
-            </p>
-        </div>
-    </section>
 
     <section class="section section-alt" id="evening">
         <div class="container">
@@ -633,9 +641,28 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="menu">
         <div class="container">
-            <h2 class="section-title">הערב, משורטט מראש</h2>
+            <div class="menu-card" role="group" aria-label="התפריט">
+                <p class="mc-title">התפריט</p>
+                <div class="mc-group"><p class="mc-head">ים</p><p class="mc-line">ניגירי וסשימי, נחתכים מול האורח<br>סביצ'ה דג ים ביוזו, בכוסית קרמיקה</p></div>
+                <div class="mc-group"><p class="mc-head">יבשה</p><p class="mc-line">באן מאודה עם אסאדו בקר<br>שיפודי אנטריקוט מהגריל · סלט סובה בפונזו</p></div>
+                <div class="mc-group"><p class="mc-head">אוויר</p><p class="mc-line">יקיטורי פרגית מזוגג<br>נודלס ופאד קפאו עוף, מוקפצים בווק</p></div>
+                <hr class="mc-rule">
+                <div class="mc-group"><p class="mc-head">עמדת יין</p><p class="mc-line">עמדה עשירה: לבנים, רוזה ואדומים<br>שנבחרו לאוכל האסייתי</p></div>
+                <hr class="mc-rule">
+                <div class="mc-group"><p class="mc-head">מתוק</p><p class="mc-line">קוקוס, ליצ'י ופסיפלורה · שוקולד מריר ומיסו מלוח</p></div>
+            </div>
+            <p class="menu-note">
+                זה התפריט שאנחנו ממליצים עליו. אפשר להוסיף עמדה, להחליף מנה ולדייק אותו
+                יחד עם השף, עד שהוא בדיוק הערב שלכם.
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">אנחנו נמקסם את החוויה בחלל</h2>
             <div class="plan-wrap">
                 <svg class="plan" id="plan" viewBox="0 0 600 400" role="img" aria-label="שרטוט לדוגמה: עמדות השף, עמדת היין, פינות לאונג', שולחנות בר והכניסה">
                     <rect class="room" x="10" y="10" width="580" height="380" rx="14"/>
@@ -660,10 +687,10 @@
                     <g id="guests"></g>
                 </svg>
                 <ol class="plan-steps">
-                    <li><span class="n">1</span><span><strong>תכנון מקדים</strong>מכירים את המקום מתמונות ומידות, ומשרטטים את הערב עוד לפני שהוא מתחיל.</span></li>
-                    <li><span class="n">2</span><span><strong>שרטוט העמדות</strong>איפה עומדת כל עמדה ועמדת היין, כך שהאורחים זורמים ביניהן בתנועה טבעית.</span></li>
-                    <li><span class="n">3</span><span><strong>ליין־אפ</strong>לוח זמנים דקה אחר דקה: מתי השף מגיע, מתי כל עמדה נפתחת, מתי המתוק יוצא.</span></li>
-                    <li><span class="n">4</span><span><strong>ירידה לפרטים</strong>ריהוט וישיבה, תאורה, כלים, חשמל ומים. כל פרט סגור מראש.</span></li>
+                    <li><span class="n">א</span><span><strong>תכנון מקדים</strong>מכירים את המקום מתמונות ומידות, ומשרטטים את הערב עוד לפני שהוא מתחיל.</span></li>
+                    <li><span class="n">ב</span><span><strong>שרטוט העמדות</strong>איפה עומדת כל עמדה ועמדת היין, כך שהאורחים זורמים ביניהן בתנועה טבעית.</span></li>
+                    <li><span class="n">ג</span><span><strong>ליין־אפ</strong>לוח זמנים דקה אחר דקה: מתי השף מגיע, מתי כל עמדה נפתחת, מתי המתוק יוצא.</span></li>
+                    <li><span class="n">ד</span><span><strong>ירידה לפרטים</strong>ריהוט וישיבה, תאורה, כלים, חשמל ומים. כל פרט סגור מראש.</span></li>
                 </ol>
             </div>
             <!-- TODO after Food Boutique's written OK: one line on the chef
@@ -671,23 +698,23 @@
         </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">מאחורי הקלעים</h2>
             <ol class="bts" id="bts">
-                <li><span class="dot">1</span><div><span class="when">בהתחלה</span><strong>פגישת קונספט</strong><p>איך הערב מרגיש, מי האורחים, מה חשוב לכם.</p></div></li>
-                <li><span class="dot">2</span><div><span class="when">אחריה</span><strong>תכנון מקדים</strong><p>שרטוט העמדות, ריהוט ותאורה, וליין־אפ לכל הערב.</p></div></li>
-                <li><span class="dot">3</span><div><span class="when">יחד עם השף</span><strong>דיוק התפריט</strong><p>מה נשאר, מה מתווסף, ומי מהאורחים צריך התאמה.</p></div></li>
-                <li><span class="dot">4</span><div><span class="when">שבועות לפני</span><strong>ההזמנה</strong><p>מעוצבת בשפת הערב, יוצאת בוואטסאפ, והאישורים מתעדכנים אצלנו.</p></div></li>
-                <li><span class="dot">5</span><div><span class="when">שבוע לפני</span><strong>הפגישה המסכמת</strong><p>לוח זמנים דקה אחר דקה, ורשימת המאשרים הסופית ביד.</p></div></li>
-                <li><span class="dot">6</span><div><span class="when">יום לפני</span><strong>אישור אישי</strong><p>מול השף וכל ספק: שעת הגעה, מה מביא, איפה מקים.</p></div></li>
-                <li><span class="dot">7</span><div><span class="when">ביום עצמו</span><strong>שעתיים לפני</strong><p>אנחנו במקום, מקימים, ומנהלים עד הפירוק.</p></div></li>
+                <li><span class="dot">א</span><div><span class="when">בהתחלה</span><strong>פגישת קונספט</strong><p>איך הערב מרגיש, מי האורחים, מה חשוב לכם.</p></div></li>
+                <li><span class="dot">ב</span><div><span class="when">אחריה</span><strong>תכנון מקדים</strong><p>שרטוט העמדות, ריהוט ותאורה, וליין־אפ לכל הערב.</p></div></li>
+                <li><span class="dot">ג</span><div><span class="when">יחד עם השף</span><strong>דיוק התפריט</strong><p>מה נשאר, מה מתווסף, ומי מהאורחים צריך התאמה.</p></div></li>
+                <li><span class="dot">ד</span><div><span class="when">שבועות לפני</span><strong>ההזמנה</strong><p>מעוצבת בשפת הערב, יוצאת בוואטסאפ, והאישורים מתעדכנים אצלנו.</p></div></li>
+                <li><span class="dot">ה</span><div><span class="when">שבוע לפני</span><strong>הפגישה המסכמת</strong><p>לוח זמנים דקה אחר דקה, ורשימת המאשרים הסופית ביד.</p></div></li>
+                <li><span class="dot">ו</span><div><span class="when">יום לפני</span><strong>אישור אישי</strong><p>מול השף וכל ספק: שעת הגעה, מה מביא, איפה מקים.</p></div></li>
+                <li><span class="dot">ז</span><div><span class="when">ביום עצמו</span><strong>שעתיים לפני</strong><p>אנחנו במקום, מקימים, ומנהלים עד הפירוק.</p></div></li>
             </ol>
         </div>
     </section>
 
     <!-- Real reviews; excerpts identical to the home page. NEVER write one. -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">לקוחות מספרים</h2>
             <div class="reviews">
@@ -707,7 +734,7 @@
         </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section">
         <div class="container narrow">
             <h2 class="section-title">שאלות לפני שמתחילים</h2>
             <div class="faq-list">
@@ -735,9 +762,15 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section section-alt">
         <div class="container">
-            <h2>בואו נתכנן ערב</h2>
+            <div class="enso-close" id="ensoClose">
+                <svg viewBox="0 0 200 200" aria-hidden="true">
+                    <path pathLength="1" stroke-width="5.5" d="M104 22 C 150 22, 180 56, 178 102 C 176 150, 140 180, 96 178 C 50 176, 20 142, 22 96 C 24 52, 58 22, 104 22 Z"/>
+                    <path class="s2" pathLength="1" stroke-width="1.6" opacity=".55" d="M100 30 C 142 30, 172 62, 170 102 C 168 144, 136 172, 96 170 C 56 168, 28 138, 30 98 C 32 60, 62 30, 100 30 Z"/>
+                </svg>
+                <h2>בואו נתכנן ערב</h2>
+            </div>
             <p style="margin-bottom: 36px; color: #ccc;">
                 השאירו פרטים ונחזור אליכם בוואטסאפ או בטלפון לשיחה קצרה על הערב שלכם.
             </p>
@@ -803,6 +836,23 @@
         document.getElementById('bts').classList.add('seen');
     }
     setAct(acts[0]); arc.style.strokeDashoffset = (C - 4).toFixed(1);
+
+
+    // The thread: scroll progress on the reading edge, and the closing circle at the form.
+    var fill = document.getElementById('threadFill'), tip = document.getElementById('threadTip'), ticking = false;
+    function thread() {
+        var max = document.documentElement.scrollHeight - innerHeight, f = max > 0 ? Math.min(1, scrollY / max) : 0;
+        fill.style.transform = 'scaleY(' + f.toFixed(4) + ')';
+        tip.style.top = (f * 100).toFixed(2) + '%';
+        ticking = false;
+    }
+    addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(thread); } }, { passive: true });
+    addEventListener('resize', thread); thread();
+    var close = document.getElementById('ensoClose');
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { close.classList.add('seen'); o.disconnect(); } },
+            { rootMargin: '0px 0px -30% 0px' }).observe(close);
+    } else close.classList.add('seen');
 
     // Guests flowing through the room, staggered along one path.
     if (!reduce) {
