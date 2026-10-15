@@ -316,9 +316,11 @@
 
         /* Hero with the enso */
         .hero { padding: 54px 0 40px; position: relative; overflow: hidden; }
-        .partner { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0 0 26px; }
+        .partner { gap: 10px; }
         .partner span { font-size: .78em; letter-spacing: 3px; color: var(--warm-earth); }
-        .partner img { width: 92px; height: auto; display: block; }
+        .partner img { width: 42%; height: auto; display: block; }
+        .enso-wrap { width: min(340px, 100%) !important; margin: 18px auto 26px !important; }
+        .hero h1 { font-size: 2.3em !important; max-width: 760px; margin: 0 auto !important; }
         .enso-wrap { position: relative; width: min(500px, 100%); margin: 0 auto 8px; aspect-ratio: 1; max-width: 100%; }
         .enso-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
         .enso-stroke { fill: none; stroke: var(--line-gold); stroke-linecap: round; }
@@ -464,6 +466,23 @@
             .js-on .bts li { opacity: 1 !important; transition: none !important; }
             .dial .arc { transition: none; }
         }
+        /* PHONE — LAST ON PURPOSE: these override base rules above, so they must stay after them
+           (the home page lost four phone fixes to the cascade). First screen = logo, enso, lead, button. */
+        @media (max-width: 768px) {
+            .hero { padding: 26px 0 26px; }
+            .partner { gap: 6px; }
+            .partner span { font-size: .68em; }
+            .hero .eyebrow { margin-bottom: 0; font-size: .9em; }
+            .enso-wrap { width: min(240px, 64vw) !important; margin: 12px auto 18px !important; }
+            .enso-inner { inset: 20%; }
+            .hero h1 { font-size: 1.45em !important; line-height: 1.45; }
+            .hero p.lead { margin: 14px auto 20px; font-size: 1em; line-height: 1.75; }
+            .hero .btn { padding: 14px 34px; }
+            .plan .lbl { font-size: 30px; }
+            .plan .sub { font-size: 19px; }
+            .act .art { display: block; justify-self: start; }
+            .menu-note { font-size: .95em; }
+        }
     </style>
     <script>document.documentElement.classList.add('js-on');</script>
 </head>
@@ -482,10 +501,6 @@
 
     <header class="hero">
         <div class="container">
-            <div class="partner fade-up d1">
-                <span>בשיתוף</span>
-                <img src="../img/sushi-boutique-logo.png" alt="Sushi Boutique Private Events" width="226" height="247">
-            </div>
             <p class="eyebrow fade-up d1">קייטרינג אסייתי · הפקה מלאה</p>
             <div class="enso-wrap">
                 <svg viewBox="0 0 200 200" aria-hidden="true">
@@ -493,10 +508,12 @@
                     <path class="enso-stroke" pathLength="1" stroke-width="5.5" d="M128 24 C 170 36, 188 82, 176 122 C 164 164, 120 186, 80 176 C 38 166, 14 126, 22 86 C 29 50, 62 24, 104 22"/>
                     <path class="enso-stroke s2" pathLength="1" stroke-width="1.6" opacity=".55" d="M134 30 C 172 46, 184 88, 172 124 C 158 160, 118 180, 82 170 C 44 160, 22 124, 28 88 C 34 56, 64 32, 100 30"/>
                 </svg>
-                <div class="enso-inner">
-                    <h1 class="fade-up d2">קייטרינג אסייתי של שף.<br><em>ואנחנו מפיקים את הערב סביבו.</em></h1>
+                <div class="enso-inner partner fade-up d1">
+                    <span>בשיתוף</span>
+                    <img src="../img/sushi-boutique-logo.png" alt="Sushi Boutique Private Events" width="226" height="247">
                 </div>
             </div>
+            <h1 class="fade-up d2">קייטרינג אסייתי של שף.<br><em>ואנחנו מפיקים את הערב סביבו.</em></h1>
             <p class="lead fade-up d3">
                 עמדות שף מול האורחים, עמדת יין עשירה וקינוחים מדויקים.
                 אנחנו מתכננים את הערב עד הפרט האחרון, ואתם נהנים מהאורחים שלכם.
