@@ -428,6 +428,10 @@
         .review p { font-size: 1.02em; line-height: 1.85; margin: 0 0 16px; }
         .review .who { color: var(--accent-gold); font-size: .95em; font-weight: 500; }
         .reviews-sub { color: var(--accent-gold); font-size: 1.05em; font-weight: 500; letter-spacing: .5px; margin: 0 0 18px; }
+        .review details > summary { list-style: none; cursor: pointer; color: var(--accent-gold); font-size: .95em; margin: 0 0 16px; }
+        .review details > summary::-webkit-details-marker { display: none; }
+        .review details > summary:hover { text-decoration: underline; }
+        .review details[open] > summary { display: none; }
         .section-cta { text-align: center; margin-top: 44px; }
 
         @media (max-width: 980px) {
@@ -798,7 +802,7 @@
     <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">לקוחות מספרים</h2>
-            <h3 class="reviews-sub">על האוכל: השף רומן, סושי בוטיק</h3>
+            <h3 class="reviews-sub">ביקורות מהלקוחות שלנו</h3>
             <div class="reviews">
                 <figure class="panel review">
                     <p>רומן יקר<br>חייב לשבח אותך על עבודה סופר מקצועית<br>מעל ומעבר לציפיות (שהיו גבוהות)<br>אוכל בשפע ומכל הלב<br>ובעיקר טעים ברמות!!!!<br>זכית מכולם למחמאות מקיר לקיר 👏🏻👏🏻👏🏻<br>שוב המון תודה ❤️</p>
@@ -810,11 +814,14 @@
                 </figure>
                 <figure class="panel review">
                     <p>ממליצה בחום על רומן ועל &quot;סושי בוטיק&quot;!<br>זה הקייטרינג הכי טוב שיצא לנו לעבוד איתו. הפקנו לבתנו האמצעית בת מצווה בהתראה מאוד קצרה (מיד עם ההכרזה על הפסקת האש). לא הכרתי את רומן לפני כן, ואני כל כך שמחה שסגרתי איתו.</p>
-                    <p>האירוע כלל שירותי אוכל ל-100 אורחים בחצר הבית ושירותי בר מלאים.</p>
-                    <p><strong>האוכל:</strong> היה יוצא מן הכלל! האורחים לא הפסיקו לשבח את האיכות, המגוון והאסתטיקה. הכל הוגש בהקפדה יתרה.</p>
-                    <p><strong>הבר:</strong> רמה הכי גבוהה שנתקלתי בה. בר משקאות עשיר וחדשני שכלל פחיות קוקטייל מעוצבות.</p>
-                    <p><strong>השירות והאווירה:</strong> הכל נעשה בטוב טעם, באדיבות ובנועם. רומן אפילו הביא חביות וכיסאות בר שהוסיפו שיק וסטייל לאירוע.</p>
-                    <p>תודה ענקית על הכל, מחכים כבר לאירוע הבא!</p>
+                    <details>
+                        <summary>קרא עוד</summary>
+                        <p>האירוע כלל שירותי אוכל ל-100 אורחים בחצר הבית ושירותי בר מלאים.</p>
+                        <p><strong>האוכל:</strong> היה יוצא מן הכלל! האורחים לא הפסיקו לשבח את האיכות, המגוון והאסתטיקה. הכל הוגש בהקפדה יתרה.</p>
+                        <p><strong>הבר:</strong> רמה הכי גבוהה שנתקלתי בה. בר משקאות עשיר וחדשני שכלל פחיות קוקטייל מעוצבות.</p>
+                        <p><strong>השירות והאווירה:</strong> הכל נעשה בטוב טעם, באדיבות ובנועם. רומן אפילו הביא חביות וכיסאות בר שהוסיפו שיק וסטייל לאירוע.</p>
+                        <p>תודה ענקית על הכל, מחכים כבר לאירוע הבא!</p>
+                    </details>
                     <figcaption class="who">מיכל פרמונט</figcaption>
                 </figure>
             </div>
