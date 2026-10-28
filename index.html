@@ -1741,6 +1741,24 @@
     </button>
 
     <script>
+        // מקור הכניסה נשמר כבר בנחיתה (2026-10-28). עד אז הוא נשמר רק ברגע
+        // הלחיצה על וואטסאפ, אז מי שנחת מקישור מסומן ועבר עמוד לפני שלחץ
+        // איבד את המקור — וכך גם gclid, וקליק ממומן נרשם כ"אורגני".
+        // ecAttribution() מצרף אותו גם לטופס, שעד אז לא שלח מקור בכלל.
+        (function () {
+            try {
+                const q = new URLSearchParams(location.search);
+                const ref = document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer : '';
+                [['gclid', q.get('gclid') || q.get('gbraid') || q.get('wbraid')], ['utm_source', q.get('utm_source')],
+                 ['utm_medium', q.get('utm_medium')], ['utm_campaign', q.get('utm_campaign')], ['referrer', ref]]
+                    .forEach(function (p) { if (p[1]) sessionStorage.setItem('ec_' + p[0], p[1]); });
+            } catch (_) {}
+        })();
+        function ecAttribution() {
+            const get = function (k) { try { return sessionStorage.getItem('ec_' + k) || ''; } catch (_) { return ''; } };
+            return { gclid: get('gclid'), utmSource: get('utm_source'), utmMedium: get('utm_medium'), utmCampaign: get('utm_campaign') };
+        }
+
         // Replaces AOS. Elements are revealed by adding .aos-animate, and the
         // hiding rule lives behind .js-on (set below) so that if this script
         // never runs — blocked, errored, JS off — nothing is ever hidden.
@@ -1987,7 +2005,7 @@
                 const response = await fetch('https://app.eventconcierge.org/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(Object.fromEntries(formData))
+                    body: JSON.stringify(Object.assign(Object.fromEntries(formData), ecAttribution()))
                 });
 
                 if (response.ok) {
