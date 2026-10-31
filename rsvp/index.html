@@ -311,6 +311,7 @@
             .whatsapp-float { bottom: 20px; left: 20px; width: 54px; height: 54px; }
         }
     </style>
+    <script src="/meta-pixel.js"></script>
 </head>
 <body>
 
@@ -561,6 +562,7 @@
 
                 // Without this event there is no way to know which keywords
                 // produced a lead — a paid campaign would be spending blind.
+                if (leadStored && typeof fbq === 'function') fbq('track', 'Lead');
                 if (leadStored && typeof gtag === 'function') {
                     gtag('event', 'generate_lead', {
                         event_category: 'contact',
@@ -626,6 +628,7 @@
                     navigator.sendBeacon('https://app.eventconcierge.org/api/wa-click', new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
                 }
             } catch (_) {}
+            if (typeof fbq === 'function') fbq('track', 'Contact');
             if (typeof gtag === 'function') {
                 // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
                 // and Ads bids — Performance Max above all — learn from generate_lead alone.

@@ -1316,6 +1316,7 @@
             .hero p { font-size: 0.9rem; margin-bottom: 16px; }
         }
     </style>
+    <script src="/meta-pixel.js"></script>
 </head>
 <body>
 
@@ -2026,6 +2027,7 @@
                     // ולכן אי אפשר לייעל קמפיין ממומן — משלמים בלי משוב.
                     // generate_lead הוא אירוע מומלץ של GA4, כך שאפשר לסמן
                     // אותו כ"אירוע מפתח" ולייבא אותו כהמרה ל-Google Ads.
+                    if (leadStored && typeof fbq === 'function') fbq('track', 'Lead');
                     if (leadStored && typeof gtag === 'function') {
                         gtag('event', 'generate_lead', {
                             event_category: 'contact',
@@ -2094,6 +2096,7 @@
                     navigator.sendBeacon('https://app.eventconcierge.org/api/wa-click', new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
                 }
             } catch (_) {}
+            if (typeof fbq === 'function') fbq('track', 'Contact');
             if (typeof gtag === 'function') {
                 // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
                 // and Ads bids — Performance Max above all — learn from generate_lead alone.
