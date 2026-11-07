@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>מערכת לאולמות ולגני אירועים | Event Concierge</title>
+    <meta name="description" content="מערכת אחת שמלווה כל אירוע באולם: אישורי הגעה מול האורחים, מפת הושבה, שיבוץ מלצרים, ותדריך לצוות לפני האירוע, כך שכל מלצר יודע מה מחכה לו בשולחן.">
+
+    <link rel="canonical" href="https://eventconcierge.org/venues/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eventconcierge.org/venues/">
+    <meta property="og:title" content="מערכת לאולמות ולגני אירועים | Event Concierge">
+    <meta property="og:description" content="מערכת אחת שמלווה כל אירוע באולם: אישורי הגעה מול האורחים, מפת הושבה, שיבוץ מלצרים, ותדריך לצוות לפני האירוע, כך שכל מלצר יודע מה מחכה לו בשולחן.">
+    <meta property="og:image" content="https://eventconcierge.org/img/og-share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="Event Concierge">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="מערכת לאולמות ולגני אירועים | Event Concierge">
+    <meta name="twitter:description" content="מערכת אחת שמלווה כל אירוע באולם: אישורי הגעה מול האורחים, מפת הושבה, שיבוץ מלצרים, ותדריך לצוות לפני האירוע, כך שכל מלצר יודע מה מחכה לו בשולחן.">
+    <meta name="twitter:image" content="https://eventconcierge.org/img/og-share.jpg">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5Q9T88YXD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J5Q9T88YXD');
+      gtag('config', 'AW-18030245102');
+    </script>
+
+    <style>
+        h1, h2, h3, .logo {
+            font-family: var(--font-head);
+            letter-spacing: 1px;
+        }
+        /* Tokens copied verbatim from the home page. The app and the site are
+           one brand — see index.html for the palette's origin. */
+        :root {
+            --primary-dark: #0C1710;
+            --accent-gold: #C89B6F;
+            --accent-gold-bright: #E3C4A2;
+            --bg-pearl: #14251B;
+            --text-gray: #B7C7B6;
+            --warm-earth: #CEC4AD;
+            --glass-bg: rgba(20, 37, 27, 0.6);
+            --glass-border: rgba(200, 155, 111, 0.25);
+            --gold-glow: rgba(200, 155, 111, 0.35);
+
+            --font-head: 'Assistant', 'Heebo', sans-serif;
+            --font-sans: 'Heebo', sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            color: var(--text-gray);
+            line-height: 1.8;
+            background-color: var(--primary-dark);
+            background-image:
+              radial-gradient(circle at 80% 20%, rgba(200, 155, 111, 0.12), transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
+            background-attachment: fixed;
+            font-weight: 300;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .narrow { max-width: 760px; }
+
+        .skip-link {
+            position: absolute; top: -40px; right: 0;
+            background: var(--accent-gold); color: var(--primary-dark);
+            padding: 8px; z-index: 2000; transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        a:focus, button:focus, input:focus, summary:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+        .btn:focus, .whatsapp-float:focus { outline-offset: 4px; }
+
+        nav {
+            background-color: rgba(12, 23, 16, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            position: sticky; top: 0; z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .logo {
+            font-size: 1.5em; font-weight: 500; color: var(--accent-gold);
+            text-decoration: none; letter-spacing: 3px; text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(200, 155, 111,0.3);
+        }
+        .nav-back { color: var(--text-gray); text-decoration: none; font-size: 1em; transition: color .3s; }
+        .nav-back:hover { color: var(--accent-gold); }
+
+        /* Hero */
+        .hero { padding: 100px 0 80px; text-align: center; }
+        .hero .eyebrow {
+            color: var(--accent-gold); letter-spacing: 4px; text-transform: uppercase;
+            font-size: .8em; margin: 0 0 22px;
+        }
+        .hero h1 {
+            font-size: 3em; font-weight: 300; color: #fff;
+            margin: 0 0 26px; line-height: 1.35;
+            text-shadow: 0 4px 20px rgba(0,0,0,.5);
+        }
+        .hero h1 em { font-style: normal; color: var(--accent-gold-bright); }
+        .hero p.lead { font-size: 1.2em; max-width: 640px; margin: 0 auto 40px; color: #cfdccd; }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 16px 45px; text-decoration: none;
+            font-size: 1.1em; font-weight: 500; letter-spacing: 1px;
+            display: inline-block; transition: all 0.3s;
+            border: 2px solid var(--accent-gold); border-radius: 3px;
+            position: relative; overflow: hidden;
+        }
+        .btn::after {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+        }
+        .btn:hover::after { animation: shimmer 0.75s ease forwards; }
+        @keyframes shimmer { 100% { left: 120%; } }
+        .btn:hover { background-color: transparent; color: white; border-color: white; }
+
+        .section { padding: 80px 0; }
+        .section-alt { background: rgba(0,0,0,.18); }
+        .section-title {
+            text-align: center; font-size: 2.3em; color: var(--accent-gold);
+            margin-bottom: 45px; font-weight: 400;
+            text-shadow: 0 4px 15px rgba(200, 155, 111,0.2);
+        }
+        .section-title::after {
+            content: ''; display: block; width: 50px; height: 2px;
+            background-color: var(--accent-gold);
+            margin: 20px auto 0; box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        blockquote.regret {
+            border: 0; border-inline-start: 3px solid var(--accent-gold);
+            margin: 0 auto 34px; padding: 6px 26px;
+            font-size: 1.25em; color: var(--warm-earth); font-style: italic;
+            max-width: 620px;
+        }
+
+        .panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(200, 155, 111, 0.4);
+            border-radius: 16px; padding: 38px 34px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        .panel h3 { color: var(--accent-gold); margin: 0 0 14px; font-size: 1.3em; font-weight: 500; }
+        .panel p:last-child { margin-bottom: 0; }
+
+        /* The deliverables list */
+        .does-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+        .does-list li {
+            padding: 15px 0 15px 0;
+            border-bottom: 1px solid rgba(200,155,111,.14);
+            display: flex; align-items: flex-start; gap: 14px;
+            font-size: 1.06em;
+        }
+        .does-list li:last-child { border-bottom: 0; }
+        .does-list .mark { color: var(--accent-gold); flex-shrink: 0; line-height: 1.7; }
+
+        .upgrade {
+            margin-top: 34px; padding: 22px 26px;
+            border: 1px dashed rgba(200,155,111,.4); border-radius: 12px;
+            background: rgba(200,155,111,.05);
+        }
+        .upgrade strong { color: var(--accent-gold-bright); font-weight: 500; }
+
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            border: 1px solid rgba(200, 155, 111,0.22);
+            border-radius: 12px; background: rgba(255,255,255,0.02); overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 18px 22px; cursor: pointer; font-size: 1.05em; font-weight: 500;
+            color: var(--accent-gold-bright); list-style: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+'; font-size: 1.4em; line-height: 1; opacity: .7;
+            transition: transform .25s; flex-shrink: 0;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p { padding: 0 22px 20px; margin: 0; line-height: 1.85; color: #ccc; }
+
+        .stage { margin-bottom: 26px; }
+        .stage:last-child { margin-bottom: 0; }
+        .stage-num { color: var(--accent-gold); letter-spacing: 3px; font-size: .85em; margin: 0 0 4px; opacity: .8; }
+        .hl { color: var(--accent-gold-bright); font-weight: 500; }
+
+        .stage-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+        .stage-head h3 { margin: 0; }
+        .stage-ico { width: 40px; height: 40px; flex-shrink: 0; fill: none; stroke: var(--accent-gold); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+        .photo-band { margin: 0; position: relative; }
+        .photo-band img { display: block; width: 100%; height: 340px; object-fit: cover; filter: saturate(.85) brightness(.75); }
+        .photo-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(var(--primary-dark), transparent 25%, transparent 70%, var(--primary-dark)); pointer-events: none; }
+        .brief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+        .sheet { background: #F4EFE6; color: #1d2a21; border-radius: 6px; padding: 26px 24px 20px; box-shadow: 0 20px 45px rgba(0,0,0,.55); transform: rotate(-1.2deg); font-size: .95em; line-height: 1.6; }
+        .sheet-top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #C89B6F; padding-bottom: 10px; margin-bottom: 12px; }
+        .sheet-top strong { font-family: var(--font-head); font-size: 1.25em; font-weight: 700; }
+        .sheet-top span { font-size: .78em; color: #7a6a55; letter-spacing: 1px; }
+        .sheet-meta { margin: 0 0 12px; font-size: .92em; }
+        .sheet-meta b { font-weight: 600; }
+        .sheet table { width: 100%; border-collapse: collapse; font-size: .9em; }
+        .sheet th { text-align: start; font-weight: 600; color: #7a6a55; font-size: .85em; padding: 4px 0; border-bottom: 1px solid #d8ccb8; }
+        .sheet td { padding: 7px 0; border-bottom: 1px dashed #d8ccb8; vertical-align: top; }
+        .sheet td:first-child { font-weight: 700; width: 3.2em; }
+        .sheet td:nth-child(2) { width: 3.6em; color: #555; }
+        .tag { display: inline-block; background: #1d2a21; color: #F4EFE6; border-radius: 3px; padding: 0 6px; font-size: .82em; margin-inline-end: 4px; }
+        .tag.diet { background: #A97C52; }
+        .sheet-note { margin: 12px 0 0; font-size: .75em; color: #8a7a65; text-align: center; }
+        @media (max-width: 768px) {
+            .brief-grid { grid-template-columns: 1fr; }
+            .sheet { transform: none; }
+            .photo-band img { height: 220px; }
+        }
+
+        /* Contact */
+        .contact-section { padding: 80px 0 100px; text-align: center; }
+        .contact-section h2 { color: var(--accent-gold); font-size: 2em; font-weight: 400; margin: 0 0 10px; }
+        .contact-form {
+            background: var(--glass-bg); padding: 40px; border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 560px; margin: 0 auto; text-align: start;
+        }
+        .contact-form input {
+            width: 100%; padding: 16px; margin-bottom: 22px;
+            background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: var(--font-sans);
+            transition: all 0.3s; text-align: start; direction: inherit;
+            border-radius: 8px; font-size: 1.05em;
+        }
+        .contact-form input::placeholder { text-align: start; direction: inherit; color: rgba(255,255,255,0.4); }
+        .contact-form input:focus {
+            outline: none; border-color: var(--accent-gold);
+            background: rgba(0,0,0,0.5); box-shadow: 0 0 10px rgba(200, 155, 111,0.2);
+        }
+        .contact-form label.field-label {
+            display: block; text-align: start; color: #bbb;
+            font-size: 0.85em; margin-bottom: 6px;
+        }
+        .contact-form button {
+            background: linear-gradient(135deg, #C89B6F, #A97C52);
+            color: var(--primary-dark); border: none; padding: 16px 40px;
+            font-size: 1.15em; cursor: pointer; font-weight: 600;
+            font-family: var(--font-sans); width: 100%; letter-spacing: 1px;
+            border-radius: 8px; transition: all 0.3s;
+            box-shadow: 0 6px 20px var(--gold-glow);
+        }
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(200, 155, 111, 0.5);
+            filter: brightness(1.1);
+        }
+        .contact-form button:disabled { opacity: .6; cursor: default; transform: none; }
+        .or-whatsapp { margin-top: 26px; font-size: .98em; color: #bbb; }
+        .or-whatsapp a { color: var(--accent-gold); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background-color: var(--primary-dark); color: var(--accent-gold);
+            width: 60px; height: 60px; border-radius: 50px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;
+            border: 1.5px solid var(--accent-gold);
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(200, 155, 111,0.35); }
+
+        footer {
+            background-color: #08110C; padding: 40px 0; text-align: center;
+            font-size: 0.9em; color: #888; border-top: 1px solid rgba(200,155,111,.15);
+        }
+        footer a { color: #888; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            /* At 360px the logo's 3px tracking pushed "EVENT CONCIERGE" onto two
+               lines and squeezed the back link onto two more — a 86px-tall
+               nav on the width most paid traffic arrives at. */
+            nav { padding: 14px 0; }
+            .logo { font-size: 1.05em; letter-spacing: 1px; white-space: nowrap; }
+            .nav-back { font-size: .9em; white-space: nowrap; }
+
+            .hero { padding: 70px 0 60px; }
+            .hero h1 { font-size: 2.1em; }
+            .hero p.lead { font-size: 1.08em; }
+            .section { padding: 60px 0; }
+            .section-title { font-size: 1.75em; margin-bottom: 34px; }
+            .contact-form { padding: 28px 22px; }
+            .panel { padding: 28px 22px; }
+            blockquote.regret { font-size: 1.12em; padding: 4px 18px; }
+            .whatsapp-float { bottom: 20px; left: 20px; width: 54px; height: 54px; }
+        }
+    </style>
+    <script src="/meta-pixel.js"></script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">דלג לאזור התוכן המרכזי</a>
+
+<nav>
+    <div class="container nav-container">
+        <a href="/" class="logo">Event Concierge</a>
+        <a href="/" class="nav-back">לאתר הראשי&nbsp;›</a>
+    </div>
+</nav>
+
+<main id="main">
+
+    <header class="hero">
+        <div class="container">
+            <p class="eyebrow">לאולמות ולגני אירועים</p>
+            <h1>המלצר מגיע לשולחן<br><em>כשהוא כבר יודע מה מחכה לו</em></h1>
+            <p class="lead">
+                Event Concierge היא מערכת שמלווה כל אירוע באולם שלכם, מההזמנה שהאורח
+                מקבל בוואטסאפ ועד התדריך שהצוות עובר לפני שהדלתות נפתחות. כל מלצר יודע איפה
+                הוא עומד, אילו שולחנות שלו, ומי יושב בהם.
+            </p>
+            <a href="#contact" class="btn">לתיאום הדגמה</a>
+        </div>
+    </header>
+
+    <figure class="photo-band">
+        <picture>
+            <source type="image/webp" srcset="/img/seating-640w.webp 640w, /img/seating-1024w.webp 1024w, /img/seating-1920w.webp 1920w" sizes="100vw">
+            <img src="/img/seating-1024w.jpg" srcset="/img/seating-640w.jpg 640w, /img/seating-1024w.jpg 1024w, /img/seating-1920w.jpg 1920w" sizes="100vw" alt="שולחנות ערוכים באולם אירועים" loading="lazy" width="1920" height="1280">
+        </picture>
+    </figure>
+
+    <section class="section section-alt">
+        <div class="container narrow">
+            <h2 class="section-title">השבוע שלפני האירוע</h2>
+            <p style="font-size:1.08em">
+                כל מנהל אולם מכיר את השבוע האחרון: המספר הסופי מגיע מאוחר ומשתנה עד
+                הרגע האחרון, מגבלות התזונה מתגלות כשהמנה כבר על הצלחת, מפת ההושבה
+                מגיעה מודפסת ביום האירוע, ושיבוץ המלצרים נעשה על דף, חצי שעה לפני
+                פתיחת הדלתות.
+            </p>
+            <p style="font-size:1.08em; margin-bottom:0">
+                אף אחד מאלה הוא לא כישלון של האולם, אבל את כולם האולם סופג.
+                בנינו מערכת אחת שמטפלת בכל השרשרת, כדי שהערב יתחיל ממקום מסודר.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container narrow">
+            <h2 class="section-title">מה המערכת עושה</h2>
+
+            <div class="panel stage">
+                <p class="stage-num">01</p>
+                <div class="stage-head"><svg class="stage-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><h3>לפני האירוע, מול האורחים</h3></div>
+                <ul class="does-list">
+                    <li><span class="mark">◆</span><span>הזמנה אישית לכל מוזמן בוואטסאפ, עם ההזמנה המעוצבת של הזוג ותשובה בלחיצת כפתור</span></li>
+                    <li><span class="mark">◆</span><span>שתי תזכורות למי שלא השיב, בהפרש של ימים, ושיחת טלפון למי שעדיין לא ענה</span></li>
+                    <li><span class="mark">◆</span><span>מענה לשאלות של האורחים, כמו שעה, כתובת, חניה ותפריט, בכל שעה. כשאין תשובה, השאלה עוברת לאדם ולא מומצאת</span></li>
+                    <li><span class="mark">◆</span><span>איסוף מגבלות תזונה: טבעוני, צליאק, אלרגיות</span></li>
+                    <li><span class="mark">◆</span><span>רשימה סופית עם מגבלות התזונה, שבוע ושלושה ימים לפני האירוע</span></li>
+                    <li><span class="mark">◆</span><span>תזכורת ביום האירוע עם קישור ניווט לאולם</span></li>
+                    <li><span class="mark">◆</span><span>בלי הודעות בשבת ובחגים</span></li>
+                </ul>
+            </div>
+
+            <div class="panel stage">
+                <p class="stage-num">02</p>
+                <div class="stage-head"><svg class="stage-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="7" r="2.6"/><circle cx="7" cy="17" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M3 21h18" opacity=".5"/></svg><h3>ההושבה</h3></div>
+                <ul class="does-list">
+                    <li><span class="mark">◆</span><span>מצלמים את שרטוט האולם, והמערכת בונה ממנו מפת שולחנות</span></li>
+                    <li><span class="mark">◆</span><span>דוח ההקמה של האולם נקלט ומשויך לשולחנות, יחד עם ההערות של כל שולחן, כמו "יין על השולחן" או "מלצר דובר רוסית"</span></li>
+                    <li><span class="mark">◆</span><span>האורחים מושבים לפי מי שאישר הגעה בפועל, לא לפי הרשימה המקורית</span></li>
+                </ul>
+            </div>
+
+            <div class="panel stage">
+                <p class="stage-num">03</p>
+                <div class="stage-head"><svg class="stage-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.4"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M14 14.3c.8-.4 1.6-.6 2.5-.6 2.2 0 3.8 1.5 4.2 4.3"/></svg><h3>בערב עצמו, הצוות</h3></div>
+                <ul class="does-list">
+                    <li><span class="mark">◆</span><span>שיבוץ המלצרים לעמדות לפי ניסיון ולפי ההנחיות שלכם</span></li>
+                    <li><span class="mark">◆</span><span>ההנחיות נאמרות במשפט אחד, למשל "יוסי לא עומד בגריל, ושירה ודנה עובדות יחד", והמערכת הופכת אותן לכללים</span></li>
+                    <li><span class="mark">◆</span><span>חלוקת האולם לאזורים רציפים, כל אזור לזוג מלצרים, בעומס מאוזן</span></li>
+                    <li><span class="mark">◆</span><span>כניסה נפרדת למנהל המשמרת, בלי גישה לפרטי האורחים</span></li>
+                    <li><span class="mark">◆</span><span>לכל מלצר כרטיס שזוכר באילו אירועים עבד ועם מי, כך שכל שיבוץ נשען על הניסיון של האירועים הקודמים</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">הצוות עובר תדריך לפני האירוע</h2>
+            <p style="max-width:760px; margin-inline:auto; font-size:1.08em">
+                ברוב האירועים המלצר לומד את הערב תוך כדי הערב. הוא מגלה שבשולחן 12 יש
+                אורחת עם צליאק כשהמנה כבר יוצאת מהמטבח, ושבשולחן 7 ביקשו יין על השולחן
+                כשמישהו כבר מחפש אותו.
+            </p>
+            <p style="max-width:760px; margin-inline:auto; font-size:1.08em">
+                אצלנו כל המידע הזה נאסף מראש: מגבלות התזונה מהאורחים עצמם, ההערות מדוח
+                ההקמה של האולם, והבקשות של הזוג. לפני האירוע כל מלצר מקבל תדריך משלו.
+            </p>
+            <div class="brief-grid">
+            <div class="panel">
+                <h3>מה המלצר יודע לפני שהוא ניגש לשולחן</h3>
+                <ul class="does-list">
+                    <li><span class="mark">◆</span><span>איפה הוא עומד בקבלת הפנים, ועם מי הוא עובד</span></li>
+                    <li><span class="mark">◆</span><span>אילו שולחנות שלו, וכמה מקומות בכל אחד</span></li>
+                    <li><span class="mark">◆</span><span>מה מיוחד בכל שולחן: יין על השולחן, כיסא לתינוק, אורח שמדבר רק רוסית</span></li>
+                    <li><span class="mark">◆</span><span>מי יושב בשולחן עם מגבלת תזונה: טבעוני, צליאק, אלרגיה</span></li>
+                </ul>
+            </div>
+                <div class="sheet" role="img" aria-label="דוגמה לדף תדריך של מלצר">
+                    <div class="sheet-top"><strong>שירה</strong><span>תדריך משמרת</span></div>
+                    <p class="sheet-meta"><b>קבלת פנים:</b> עמדת בר · <b>עובדת עם:</b> דנה<br><b>שולחנות:</b> 12, 14, 15 · 34 מקומות</p>
+                    <table>
+                        <thead><tr><th>שולחן</th><th>מקומות</th><th>מה לדעת</th></tr></thead>
+                        <tbody>
+                            <tr><td>12</td><td>12</td><td><span class="tag diet">צליאק</span>מיכל, מושב ליד החלון</td></tr>
+                            <tr><td>14</td><td>10</td><td><span class="tag">יין על השולחן</span></td></tr>
+                            <tr><td>15</td><td>12</td><td><span class="tag diet">טבעוני ×2</span><span class="tag">כיסא תינוק</span></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="sheet-note">דוגמה להמחשה</p>
+                </div>
+            </div>
+            <p style="max-width:760px; margin-inline:auto; font-size:1.08em; margin-top:30px; margin-bottom:0">
+                כך המלצר לא שואל את האורח מה הוא אוכל, אלא מגיש לו את המנה הנכונה.
+                ומנהל המשמרת מתדרך צוות שכבר יודע את הערב, במקום לחלק שולחנות בעל פה.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container narrow">
+            <h2 class="section-title">מה האולם מרוויח</h2>
+            <ul class="does-list">
+                <li><span class="mark">◆</span><span><strong class="hl">מספר מדויק.</strong> פחות שולחנות רזרבה שנפתחים לחינם, ופחות מנות שחוזרות למטבח</span></li>
+                <li><span class="mark">◆</span><span><strong class="hl">מטבח שיודע מראש.</strong> מגבלות התזונה מגיעות ברשימה, ולא באמצע הערב</span></li>
+                <li><span class="mark">◆</span><span><strong class="hl">שירות שמרגישים.</strong> אורח שהמלצר יודע מראש שהוא צליאק זוכר את האולם</span></li>
+                <li><span class="mark">◆</span><span><strong class="hl">פחות טלפונים.</strong> שאלות כמו "באיזו שעה?" ו"איפה חונים?" נענות בלי להגיע אליכם</span></li>
+                <li><span class="mark">◆</span><span><strong class="hl">זוג רגוע.</strong> זוג שעבר תהליך מסודר ממליץ על האולם שבו זה קרה</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container narrow">
+            <h2 class="section-title">איך עובדים איתנו</h2>
+            <div class="panel">
+                <p>
+                    כל אולם עובד אחרת. יש אולמות שצריכים רק את שיבוץ הצוות וההושבה,
+                    ויש אולמות שרוצים להציע לזוגות את כל התהליך, מההזמנה ועד הערב.
+                </p>
+                <p>
+                    בשיחת היכרות נראה לכם את המערכת על אירוע לדוגמה, נבין איך בנויים
+                    האירועים אצלכם, ונתאים את ההיקף.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container narrow">
+            <h2 class="section-title">שאלות נפוצות</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>צריך להתקין משהו?</summary>
+                    <p>לא. המערכת עובדת בדפדפן, במחשב ובטלפון. גם האורחים לא מתקינים כלום: הכל קורה בוואטסאפ שכבר יש להם.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>אפשר להשתמש רק בחלק מהמערכת?</summary>
+                    <p>כן. שיבוץ הצוות וההושבה עובדים גם בלי אישורי ההגעה, ואישורי ההגעה עובדים גם בלי שיבוץ הצוות.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>מי רואה את פרטי האורחים?</summary>
+                    <p>הזוג ואנחנו. למלצרים ולמנהל המשמרת אין גישה למספרי הטלפון של האורחים, ופרטי האורחים נמחקים 60 יום אחרי האירוע.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>נשלחות הודעות בשבת?</summary>
+                    <p>לא. בשבת ובחגים לא נשלחות הודעות, וגם לא בערב שבת וערב חג מהשעה ארבע אחר הצהריים.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>כמה זה עולה?</summary>
+                    <p>זה תלוי בהיקף ובמספר האירועים. אחרי שיחת ההיכרות נשלח לכם הצעה מדויקת.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>בואו נראה לכם</h2>
+            <p style="margin-bottom: 36px; color: #ccc;">
+                השאירו פרטים ונחזור אליכם לתיאום הדגמה קצרה. היא חינם ולא מחייבת.
+            </p>
+            <div class="contact-form">
+                <form id="contactForm" method="POST" name="leads">
+                    <p style="display:none" aria-hidden="true"><label>Don't fill this out: <input name="honeypot" tabindex="-1" autocomplete="off"></label></p>
+
+                    <!-- Marks the lead as a venue on the lead card. 'venues' must be
+                         in LEAD_SOURCES (Event_Bot server.js), or it lands as 'website'. -->
+                    <input type="hidden" name="source" value="venues">
+
+                    <input type="text" name="name" placeholder="שם מלא ושם האולם" aria-label="הזן שם מלא ושם האולם" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
+                    <div id="phoneError" style="color:#f44336; font-size:0.85em; margin-top:-14px; margin-bottom:14px; display:none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
+
+                    <button type="submit" id="submitBtn">שליחת פרטים</button>
+                    <div id="formStatus" style="display:none; margin-top:18px; text-align:center;"></div>
+                </form>
+            </div>
+            <p class="or-whatsapp">
+                או פשוט כתבו לנו ב<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20אני%20מאולם%20אירועים%20ואשמח%20לשמוע%20על%20המערכת" target="_blank" rel="noopener">וואטסאפ</a>.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<a href="https://wa.me/972549964940?text=היי%20Event%20Concierge,%20אני%20מאולם%20אירועים%20ואשמח%20לשמוע%20על%20המערכת" class="whatsapp-float" target="_blank" rel="noopener" aria-label="שלח הודעת וואטסאפ">
+    <svg style="width: 35px; height: 35px; fill: white;" viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.6-2.8-23.5-8.6-44.8-27.6-16.6-14.8-27.8-33.1-31.1-38.6-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.2 3.7-5.6 5.6-9.3 1.9-3.7 1-7-1-9.7-1-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<footer>
+    <div class="container">
+        <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org">office@eventconcierge.org</a> | <a href="/">eventconcierge.org</a></p>
+        <p style="margin:6px 0 0">אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות. שירות בעברית וברוסית.</p>
+    </div>
+</footer>
+
+<script>
+        // מקור הכניסה נשמר כבר בנחיתה (2026-10-28). עד אז הוא נשמר רק ברגע
+        // הלחיצה על וואטסאפ, אז מי שנחת מקישור מסומן ועבר עמוד לפני שלחץ
+        // איבד את המקור — וכך גם gclid, וקליק ממומן נרשם כ"אורגני".
+        // ecAttribution() מצרף אותו גם לטופס, שעד אז לא שלח מקור בכלל.
+        (function () {
+            try {
+                const q = new URLSearchParams(location.search);
+                const ref = document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer : '';
+                [['gclid', q.get('gclid') || q.get('gbraid') || q.get('wbraid')], ['utm_source', q.get('utm_source')],
+                 ['utm_medium', q.get('utm_medium')], ['utm_campaign', q.get('utm_campaign')], ['referrer', ref]]
+                    .forEach(function (p) { if (p[1]) sessionStorage.setItem('ec_' + p[0], p[1]); });
+            } catch (_) {}
+        })();
+        function ecAttribution() {
+            const get = function (k) { try { return sessionStorage.getItem('ec_' + k) || ''; } catch (_) { return ''; } };
+            return { gclid: get('gclid'), utmSource: get('utm_source'), utmMedium: get('utm_medium'), utmCampaign: get('utm_campaign') };
+        }
+
+    (function () {
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneError = document.getElementById('phoneError');
+
+        phoneInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '');
+            phoneError.style.display = 'none';
+        });
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!/^\d{10}$/.test(phoneInput.value)) {
+                phoneError.style.display = 'block';
+                phoneInput.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'שולח...';
+            formStatus.style.display = 'block';
+            formStatus.style.color = 'var(--accent-gold)';
+            formStatus.textContent = 'שולח את הפרטים, אנא המתן...';
+
+            try {
+                // This page is static (GitHub Pages) and has no backend of its
+                // own — POSTing to '/' returns 405 and silently loses the lead.
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://app.eventconcierge.org/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(Object.assign(Object.fromEntries(formData), ecAttribution()))
+                });
+
+                if (!response.ok) throw new Error('שגיאה בשליחה');
+
+                // ⚠️ 200 לבדו אינו ליד — מלכודת הבוטים בשרת מחזירה
+                // {success:true} ומוחקת את הפנייה, וליד אמיתי מוחזר כ-{ok:true}.
+                // ראו את ההערה המלאה בטופס שבדף הבית.
+                let leadStored = false;
+                try {
+                    leadStored = (await response.clone().json())?.ok === true;
+                } catch { leadStored = false; }
+
+                // Without this event there is no way to know which keywords
+                // produced a lead — a paid campaign would be spending blind.
+                if (leadStored && typeof fbq === 'function') fbq('track', 'Lead');
+                if (leadStored && typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        event_category: 'contact',
+                        event_label: 'venues_form',
+                        method: 'form',
+                        currency: 'ILS',
+                        value: 1
+                    });
+                }
+                formStatus.style.color = '#4CAF50';
+                formStatus.textContent = 'הפרטים נשלחו בהצלחה! נחזור אליכם בהקדם.';
+                contactForm.reset();
+                submitBtn.style.display = 'none';
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formStatus.style.color = '#f44336';
+                // Never leave them at a dead end — the WhatsApp number always works.
+                formStatus.innerHTML = 'לא הצלחנו לשלוח את הפרטים. אפשר לכתוב לנו ישירות ב<a href="https://wa.me/972549964940" style="color:var(--accent-gold); text-decoration:underline;">וואטסאפ</a>.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'שליחת פרטים';
+            }
+        });
+
+        // ⚠ Delegated from document, not querySelectorAll on load: the WhatsApp
+        // link inside the form's own error message is built with innerHTML after
+        // this script has run, so a load-time listener would miss it — and that
+        // is the hottest lead the page produces (the form failed, they messaged
+        // anyway). This is the bug fixed in the home page by commit 59396b9;
+        // do not "simplify" it back.
+        document.addEventListener('click', function (e) {
+            const link = e.target.closest && e.target.closest('a[href*="wa.me"]');
+            if (!link) return;
+            // הכפתור פותח את הקו האנושי (אפליקציית WhatsApp Business, בלי API),
+            // כך שההודעה עצמה לא מגיעה למערכת. לכן: קוד קצר נכתב בסוף ההודעה
+            // המוכנה, והלחיצה נרשמת במערכת עם אותו קוד. כשמוסיפים את הליד
+            // ידנית ומקלידים את הקוד — הליד מקבל את העמוד ואת מקור התנועה.
+            // שום פרט אישי לא נשלח: קוד, עמוד, מקור. כשל כאן לעולם לא חוסם
+            // את הפתיחה של וואטסאפ.
+            try {
+                const ABC = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+                const rnd = window.crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(4)) : [0, 0, 0, 0].map(function () { return Math.random() * 256 | 0; });
+                let code = '';
+                for (let i = 0; i < 4; i++) code += ABC[rnd[i] % ABC.length];
+                const ru = (document.documentElement.lang || '').indexOf('ru') === 0;
+                const u = new URL(link.href);
+                const base = (u.searchParams.get('text') || (ru ? 'Здравствуйте! Пишу с сайта Event Concierge' : 'היי Event Concierge, הגעתי דרך האתר'))
+                    .replace(/\s*·\s*(קוד|код) [A-Z0-9]{4}$/, '');
+                link.href = u.origin + u.pathname + '?text=' + encodeURIComponent(base + ' · ' + (ru ? 'код ' : 'קוד ') + code);
+
+                // gclid נשמר לאורך הביקור: מודעה נוחתת בעמוד אחד, והלחיצה לפעמים בעמוד אחר.
+                const q = new URLSearchParams(location.search);
+                const keep = function (k, v) { try { if (v) sessionStorage.setItem('ec_' + k, v); else v = sessionStorage.getItem('ec_' + k) || ''; } catch (_) {} return v || ''; };
+                const payload = {
+                    code: code,
+                    page: location.pathname,
+                    gclid: keep('gclid', q.get('gclid') || q.get('gbraid') || q.get('wbraid')),
+                    utmSource: keep('utm_source', q.get('utm_source')),
+                    utmMedium: keep('utm_medium', q.get('utm_medium')),
+                    utmCampaign: keep('utm_campaign', q.get('utm_campaign')),
+                    referrer: keep('referrer', document.referrer && document.referrer.indexOf(location.host) === -1 ? document.referrer : '')
+                };
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon('https://app.eventconcierge.org/api/wa-click', new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
+                }
+            } catch (_) {}
+            if (typeof fbq === 'function') fbq('track', 'Contact');
+            if (typeof gtag === 'function') {
+                // contact_whatsapp, not generate_lead (2026-10-01): a click is not a lead,
+                // and Ads bids — Performance Max above all — learn from generate_lead alone.
+                gtag('event', 'contact_whatsapp', {
+                    event_category: 'contact',
+                    event_label: 'whatsapp_click',
+                    method: 'whatsapp',
+                    currency: 'ILS',
+                    value: 1
+                });
+                // Ads conversion "WhatsApp click (site)" (2026-10-13): the click is the contact most
+                // visitors make, and without it Performance Max had no conversion to learn from at all.
+                gtag('event', 'conversion', { send_to: 'AW-18030245102/_J8ICM26k5sdEO7pvpVD', value: 1, currency: 'ILS', transport_type: 'beacon' });
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>
