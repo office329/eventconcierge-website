@@ -1336,6 +1336,14 @@
     <main id="main-content">
     <header class="hero" role="banner">
         <div class="hero-copy" data-aos="fade-up" data-aos-duration="1200">
+            <!-- Shown only to visitors who came from Aviel (utm_source aviel / aviel_ad),
+                 the collab video and its paid boost. Hidden for everyone else. -->
+            <p id="aviel-strip" hidden style="margin:0 0 14px; font-size:0.95em; color:var(--accent-gold);">
+                בשיתוף עם אביאל פאר · <a href="https://www.instagram.com/peer_production/" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">@peer_production באינסטגרם</a>
+            </p>
+            <script>
+                try { if (/^aviel/i.test(new URLSearchParams(location.search).get('utm_source') || '')) document.getElementById('aviel-strip').hidden = false; } catch (e) {}
+            </script>
             <!-- These three name the services and, until now, went nowhere. Each
                  jumps to the card further down that says what it includes. -->
             <div class="kicker">
