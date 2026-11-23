@@ -562,7 +562,7 @@
                     <input type="hidden" name="source" value="ru">
 
                     <input type="text" name="name" placeholder="Имя и фамилия" aria-label="Имя и фамилия" required>
-                    <input type="tel" name="phone" id="phoneInput" placeholder="Телефон (10 цифр)" aria-label="Телефон для связи, 10 цифр" pattern="[0-9]{10}" maxlength="10" minlength="10" title="Введите номер телефона из 10 цифр" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="Телефон (10 цифр)" aria-label="Телефон для связи, 10 цифр" pattern="0(5[0-9]|7[0-9])[0-9]{7}|0[2-489][0-9]{7}" maxlength="10" minlength="9" title="Израильский номер, например 0541234567" required>
                     <div id="phoneError" style="color:#f44336; font-size:0.85em; margin-top:-14px; margin-bottom:14px; display:none;">Введите номер телефона из 10 цифр</div>
 
                     <label class="field-label" for="eventDate">Дата свадьбы <span style="opacity:.7">(если уже известна)</span></label>

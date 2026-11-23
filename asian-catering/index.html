@@ -873,7 +873,7 @@
                     <input type="hidden" name="source" value="asian">
 
                     <input type="text" name="name" placeholder="שם מלא" aria-label="הזן שם מלא" required>
-                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="[0-9]{10}" maxlength="10" minlength="10" title="אנא הזינו מספר טלפון בן 10 ספרות" required>
+                    <input type="tel" name="phone" id="phoneInput" placeholder="טלפון ליצירת קשר (10 ספרות)" aria-label="הזן מספר טלפון ליצירת קשר בן 10 ספרות" pattern="0(5[0-9]|7[0-9])[0-9]{7}|0[2-489][0-9]{7}" maxlength="10" minlength="9" title="מספר טלפון ישראלי, למשל 0541234567" required>
                     <div id="phoneError" style="color:#f44336; font-size:0.85em; margin-top:-14px; margin-bottom:14px; display:none;">אנא הזינו מספר טלפון תקני בן 10 ספרות</div>
 
                     <label class="field-label" for="messageInput">הודעה <span style="opacity:.7">(לא חובה)</span></label>
