@@ -72,7 +72,7 @@
       "description": "ניהול והפקת אירועי בוטיק, אישורי הגעה ושירות קונסיירז' ביום האירוע",
       "url": "https://eventconcierge.org/",
       "email": "office@eventconcierge.org",
-      "telephone": "+972-52-585-3129",
+      "telephone": "+972-54-996-4940",
       "image": "https://eventconcierge.org/img/og-share.jpg",
       "priceRange": "₪₪₪",
       "address": {
@@ -652,6 +652,17 @@
             background-color: var(--accent-gold);
             box-shadow: 0 0 8px var(--gold-glow);
         }
+        /* Each service column links to its own page — until 2026-11-27 the
+           home page linked to none of them, so Google saw the service pages
+           as orphans reachable only from the sitemap. */
+        .includes-col .svc-more {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .includes-col .svc-more:hover { text-decoration: underline; }
+        .includes-col ul + .svc-more { margin-top: auto; padding-top: 16px; }
+        .includes-col .rollup + .svc-more { padding-top: 10px; }
         .includes-col .rollup {
             margin-top: auto;
             padding-top: 16px;
@@ -1495,6 +1506,7 @@
                         <li>תיאום מלא מול כל הספקים</li>
                         <li>נוכחות מלאה ביום האירוע</li>
                     </ul>
+                    <a class="svc-more" href="/wedding-manager/">מה עושה מנהל אירוע ביום החתונה ›</a>
                 </div>
                 <div class="includes-col" id="svc-production">
                     <h4>הפקה מלאה</h4>
@@ -1506,6 +1518,7 @@
                         <li>לוגיסטיקה ותיאום מלא</li>
                     </ul>
                     <p class="rollup">שירות כולל ניהול האירוע</p>
+                    <a class="svc-more" href="/wedding-production/">הפקת חתונה מלאה, שלב אחר שלב ›</a>
                 </div>
                 <div class="includes-col" id="svc-rsvp">
                     <h4>אישורי הגעה</h4>
@@ -1527,6 +1540,7 @@
                     </ul>
                     <p class="rollup">שירות עצמאי — אפשר לקחת רק אותו.<br>
                         <span style="opacity:.85">שדרוג: סידורי הושבה ודיילות ההושבה ביום האירוע.</span></p>
+                    <a class="svc-more" href="/rsvp/">איך עובדים אישורי ההגעה ›</a>
                 </div>
             </div>
             <p class="includes-note">
@@ -1703,7 +1717,15 @@
         <div class="container">
             <p>Event Concierge © 2026 | <a href="mailto:office@eventconcierge.org" style="color: #888; text-decoration: none;">office@eventconcierge.org</a> | eventconcierge.org</p>
             <p style="margin-top: 10px; font-size: 0.8em;">
-                <a href="javascript:void(0)" onclick="toggleAccessibilityModal()" style="color: #666; text-decoration: underline;">הצהרת נגישות</a> | <a href="/venues/" style="color: #666; text-decoration: underline;">לאולמות ולגני אירועים</a> | אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות. שירות בעברית וברוסית.
+                <a href="javascript:void(0)" onclick="toggleAccessibilityModal()" style="color: #666; text-decoration: underline;">הצהרת נגישות</a> | אירוח וניהול אירועי בוטיק בסטנדרט חסר פשרות. שירות בעברית וברוסית.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.8em; color: #666;">השירותים שלנו:
+                <a href="/wedding-manager/" style="color: #888;">מנהל אירוע ליום החתונה</a> ·
+                <a href="/wedding-production/" style="color: #888;">הפקת חתונה מלאה</a> ·
+                <a href="/rsvp/" style="color: #888;">אישורי הגעה</a> ·
+                <a href="/asian-catering/" style="color: #888;">קייטרינג אסייתי</a> ·
+                <a href="/venues/" style="color: #888;">לאולמות ולגני אירועים</a> ·
+                <a href="/ru/wedding/" lang="ru" style="color: #888; white-space: nowrap;">По-русски</a>
             </p>
             <!-- Registered-business details. These exist so an outside reader — a
                  customer, or a platform verifying that this brand belongs to a real
